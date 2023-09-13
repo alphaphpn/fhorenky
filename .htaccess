@@ -1,0 +1,13 @@
+RewriteEngine On
+ErrorDocument 404 /aitsbsolution/404.html
+ErrorDocument 500 /aitsbsolution/401.html
+ErrorDocument 403 /aitsbsolution/403.html
+ErrorDocument 400 /aitsbsolution/401.html
+ErrorDocument 401 /aitsbsolution/401.html
+
+Options -Indexes
+
+<Files ~ "\.txt$">
+Order allow,deny
+Deny from all
+</Files>
