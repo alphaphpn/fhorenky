@@ -18,12 +18,12 @@
 
 						<div class="row mb-2">
 							<div class="col-md-4">
-								<video id="video" width="320" height="240" autoplay></video>
+								<video id="video" width="100%" height="240" autoplay></video>
 								<hr>
 								<button id="start-camera" class="btn btn-primary">Start Camera</button>
 							</div>
 							<div class="col-md-4">
-								<canvas id="canvas" width="320" height="240"></canvas>
+								<canvas id="canvas" height="240" class="w-100"></canvas>
 								<hr>
 								<button id="click-photo" class="btn btn-success">Click Photo</button>
 							</div>

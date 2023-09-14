@@ -1,9 +1,9 @@
 RewriteEngine On
-ErrorDocument 404 /aitsbsolution/404.html
-ErrorDocument 500 /aitsbsolution/401.html
-ErrorDocument 403 /aitsbsolution/403.html
-ErrorDocument 400 /aitsbsolution/401.html
-ErrorDocument 401 /aitsbsolution/401.html
+ErrorDocument 404 /fhorenky/404.html
+ErrorDocument 500 /fhorenky/401.html
+ErrorDocument 403 /fhorenky/403.html
+ErrorDocument 400 /fhorenky/401.html
+ErrorDocument 401 /fhorenky/401.html
 
 Options -Indexes
 
