@@ -75,6 +75,8 @@
 		$dabouttitle = $row_webconf['d_about'];
 		$profstyleimg = $row_webconf['profstyleimg'];
 		$bgsidebarimg = $row_webconf['bgsidebarimg'];
+
+		$yeartoday = date("Y");
 	} catch(PDOException $e) {
 		$err = $e->getMessage();
 		$err2 = strrchr($e,"1049");

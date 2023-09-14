@@ -21,5 +21,6 @@
 	<script src="<?php echo $domainhome; ?>/assets/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<script src="//apis.google.com/js/platform.js" async defer></script>
 	<script src="<?php echo $domainhome; ?>/assets/ajax/libs/particle-animate/1.0.0/js/particle-animate.js"></script>
+	<script src="//apis.google.com/js/platform.js" async defer></script>
 </head>
 <body id="home">
