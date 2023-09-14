@@ -77,6 +77,7 @@
 		$bgsidebarimg = $row_webconf['bgsidebarimg'];
 
 		$yeartoday = date("Y");
+		$yearstart = date("Y") - 18;
 	} catch(PDOException $e) {
 		$err = $e->getMessage();
 		$err2 = strrchr($e,"1049");

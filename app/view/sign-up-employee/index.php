@@ -19,13 +19,13 @@
 						<div class="row mb-2">
 							<div class="col">
 								<a href="//facebook.com/profile" target="_blank">Click here to get your facebook ID</a>
-								<input type="url" class="form-control" placeholder="Enter facebook ID" name="facebook">
+								<input type="text" class="form-control" placeholder="Enter facebook ID" name="facebook">
 							</div>
 						</div>
 
 						<div class="row mb-2">
 							<div class="col-lg-6">
-								<input type="tel" pattern="[789][0-9]{9}" class="form-control mb-2" placeholder="* Enter Mobile# (do not include 0 at first)" name="phone" required>
+								<input type="tel" pattern="[789][0-9]{9}" class="form-control mb-2" placeholder="* Enter Mobile# (9154826025)" name="phone" required>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
@@ -62,7 +62,7 @@
 						<div class="row mb-2">
 							<label>* Birthday</label>
 							<div class="col-lg-4">
-								<input id="year" type="number" min="1900" max="<?php echo $yeartoday; ?>" class="form-control" placeholder="* Year" name="birth-year" required>
+								<input id="year" type="number" min="1900" max="<?php echo $yeartoday; ?>" class="form-control" placeholder="* Year" name="birth-year" value="<?php echo $yearstart; ?>" required>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
@@ -94,7 +94,7 @@
 
 						<div class="row mb-2">
 							<div class="col">
-								<label>* Gender</label>
+								<label class="form-label">* Gender</label>
 								<div class="d-flex">
 									<div class="form-check m-3">
 										<input class="form-check-input" type="radio" name="gender" id="female" value="Female" required>
@@ -110,7 +110,7 @@
 							</div>
 
 							<div class="col">
-								<label>* Type of Employee</label>
+								<label class="form-label">* Type of Employee</label>
 								<select id="type-employee" class="form-select form-control mb-2" name="type-employee" required>
 									<option value="1" data-value="EXEC">Executive</option>
 									<option value="2" data-value="LEG">Legislative</option>
@@ -126,23 +126,95 @@
 							</div>
 
 							<div class="col">
-								<label>* Office</label>
+								<label class="form-label">* Office</label>
+								<select id="office" class="form-select form-control mb-2" placeholder="* Office" name="office" required>
+									<option value="OPAcc" data-bio-location="" data-value="Accounting">Accounting</option>
+									<option value="OPAg" data-value="Agriculture">Agriculture</option>
+									<option value="3" data-value="March">March</option>
+									<option value="4" data-value="April">April</option>
+									<option value="5" data-value="May">May</option>
+									<option value="6" data-value="June">June</option>
+									<option value="7" data-value="July">July</option>
+									<option value="8" data-value="August">August</option>
+									<option value="9" data-value="September">September</option>
+									<option value="10" data-value="October">October</option>
+									<option value="11" data-value="November">November</option>
+									<option value="12" data-value="December">December</option>
+								</select>
+								<div class="valid-feedback">Valid.</div>
+								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
 
 							<div class="col">
-								<label>* Biometric Location</label>
+								<label class="form-label">* Biometric Location</label>
+								<select id="bio-location" class="form-select form-control mb-2" placeholder="* Office" name="office" required>
+									<option value="OPAcc" data-bio-location="" data-value="Accounting">Accounting</option>
+									<option value="OPAg" data-value="Agriculture">Agriculture</option>
+									<option value="3" data-value="March">March</option>
+									<option value="4" data-value="April">April</option>
+									<option value="5" data-value="May">May</option>
+									<option value="6" data-value="June">June</option>
+									<option value="7" data-value="July">July</option>
+									<option value="8" data-value="August">August</option>
+									<option value="9" data-value="September">September</option>
+									<option value="10" data-value="October">October</option>
+									<option value="11" data-value="November">November</option>
+									<option value="12" data-value="December">December</option>
+								</select>
+								<div class="valid-feedback">Valid.</div>
+								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
 						</div>
 
 						<div class="row mb-2">
 							<div class="col">
-								<label>Employee ID</label>
+								<label class="form-label">Employee ID</label>
 								<input id="empid" type="number" class="form-control" placeholder="Employee ID" name="empid">
 							</div>
 
 							<div class="col">
-								<label>Biometric No.</label>
+								<label class="form-label">Biometric No.</label>
 								<input id="bioid" type="number" class="form-control" placeholder="Biometric Number" name="bioid">
+							</div>
+						</div>
+
+						<div class="border p-3">
+							<label class="form-label">Voter's Information</label>
+							<hr>
+							<div class="row mb-2">
+								<div class="col-sm-3">
+									<label class="form-label">Municipality</label>
+									<select id="municipality" class="form-select form-control mb-2" name="municipality">
+										<option value="7001" data-value="Ipil">Ipil</option>
+										<option value="7002" data-value="R.T. Lim">R.T. Lim</option>
+										<option value="7003" data-value="Titay">Titay</option>
+										<option value="7004" data-value="Naga">Naga</option>
+										<option value="7005" data-value="Kabasalan">Kabasalan</option>
+										<option value="7006" data-value="Siay">Siay</option>
+										<option value="7007" data-value="Imelda">Imelda</option>
+										<option value="7008" data-value="Payao">Payao</option>
+									</select>
+								</div>
+
+								<div class="col-sm-2">
+									<label class="form-label">Barangay</label>
+									<input id="purok" type="text" class="form-control" placeholder="Barangay" name="purok">
+								</div>
+
+								<div class="col-sm-2">
+									<label class="form-label">Purok</label>
+									<input id="purok" type="text" class="form-control" placeholder="Purok" name="purok">
+								</div>
+
+								<div class="col-sm-2">
+									<label class="form-label">Precint No.</label>
+									<input id="precint-no" type="text" class="form-control" placeholder="Precint No." name="precint-no">
+								</div>
+
+								<div class="col-sm-3">
+									<label class="form-label">Voter's ID</label>
+									<input id="vin" type="text" class="form-control" placeholder="Voter's ID" name="vin">
+								</div>
 							</div>
 						</div>
 					</div>
