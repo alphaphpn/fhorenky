@@ -1,22 +1,5 @@
 <?php
 
-	$chckfle = file_exists("env.php");
-	if ($chckfle) {
-		include_once "env.php";
-	} else {
-		$chckfle1 = file_exists("../../env.php");
-		if ($chckfle1) {
-			include_once "../../env.php";
-		} else {
-			$chckfle2 = file_exists("../../../env.php");
-			if ($chckfle2) {
-				include_once "../../../env.php";
-			} else {
-				include_once "../../../../env.php";
-			}
-		}
-	}
-
 	try {
 		$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
 
@@ -76,7 +59,10 @@
 		$profstyleimg = $row_webconf['profstyleimg'];
 		$bgsidebarimg = $row_webconf['bgsidebarimg'];
 
+		$date2day = date("Y-m-d");
 		$yeartoday = date("Y");
+		$mondthtoday = date("m");
+		$daytoday = date("d");
 		$yearstart = date("Y") - 18;
 	} catch(PDOException $e) {
 		$err = $e->getMessage();

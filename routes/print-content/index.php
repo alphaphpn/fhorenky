@@ -3,7 +3,7 @@
 	include_once "../../lib/core.php";
 	include_once "../../env.php";
 	include_once "../../lib/webconfig.php";
-	$page_title = "Sign-up Employee";
+	$page_title = "Employee Information";
 	include_once "../../app/theme/default/header.php";
-	include_once "../../app/view/sign-up-employee/index.php";
+	include_once "../../app/view/print-content/index.php";
 	include_once "../../app/theme/default/footer.php";

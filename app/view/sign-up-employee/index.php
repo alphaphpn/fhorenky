@@ -1,7 +1,7 @@
 	<section id="sign-up" class="w-100 mh-100 py-5">
 		<div class="container mh-100">
 			<div class="card m-auto" style="max-width: 1024px;">
-				<form method="post" class="was-validated">
+				<form id="empreg" method="post" class="was-validated" enctype="multipart/form-data">
 					<div class="card-header">
 						<div class="w-100 d-flex justify-content-between">
 							<label>
@@ -16,41 +16,17 @@
 							<p><b class="text-danger">( * )</b> Required Fields</p>
 						</div>
 
-						<div class="row justify-content-center">Please Look into the Camera when taking the Photo.</div>
-
-						<div class="row mb-2 justify-content-center">
-							<div id="disp-vid" class="col-md-4 mb-2">
-								<video id="video" title="Picture" class="border w-100 h-auto" autoplay></video>
-							</div>
-
-							<div id="disp-pix" class="col-md-4 mb-2 d-none">
-								<canvas id="canvas" class="border w-100"></canvas>
-							</div>
-
-							<div class="col-md-4 mb-2 d-none">
-								<textarea id="imgdata" class="w-100"></textarea>
-							</div>
-						</div>
-
-						<div class="row mb-2">
-							<div class="col mb-2 text-center">
-								<button id="start-camera" class="btn btn-primary">Start Camera</button>
-								<button id="retake-photo" class="btn btn-warning d-none">Re-Take Photo</button>
-								<button id="click-photo" class="btn btn-success d-none">Click Photo</button>
-							</div>
-						</div>
-
 						<div class="row mb-2">
 							<div class="col">
 								<a href="//facebook.com/profile" target="_blank">Click here to get your facebook ID</a>
 								<p>Sample Facebook ID: https://www.facebook.com/[profile.name]</p>
-								<input type="text" class="form-control" placeholder="Enter facebook ID" name="facebook">
+								<input id="fbid" type="text" class="form-control" placeholder="Enter facebook ID" name="fbid">
 							</div>
 						</div>
 
 						<div class="row mb-2">
 							<div class="col-lg-6">
-								<input type="tel" pattern="[789][0-9]{9}" class="form-control mb-2" placeholder="* Enter Mobile# (9154826025)" name="phone" required>
+								<input id="phone" type="tel" pattern="[789][0-9]{9}" class="form-control mb-2" placeholder="Enter Mobile# (9154826025)" name="phone">
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
@@ -61,26 +37,26 @@
 
 						<div class="row mb-2">
 							<div class="col-lg-6">
-								<input type="text" class="form-control mb-2" placeholder="* First Name" name="first-name" required>
+								<input id="first-name" type="text" class="form-control mb-2" placeholder="* First Name" name="first-name" required>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
 							<div class="col-lg-6">
-								<input type="text" class="form-control" placeholder="Middle Name" name="middle-name">
+								<input id="middle-name" type="text" class="form-control" placeholder="Middle Name" name="middle-name">
 							</div>
 						</div>
 
 						<div class="row mb-2">
 							<div class="col-lg-6">
-								<input type="text" class="form-control mb-2" placeholder="* Last Name" name="last-name" required>
+								<input id="last-name" type="text" class="form-control mb-2" placeholder="* Last Name" name="last-name" required>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
 							<div class="col-lg-2">
-								<input type="text" class="form-control mb-2" placeholder="Suffix" name="suffix">
+								<input id="suffix" type="text" class="form-control mb-2" placeholder="Suffix" name="suffix">
 							</div>
 							<div class="col-lg-4">
-								<input type="text" class="form-control" placeholder="Title (Atty., Dr., Engr., etc...)" name="name-title">
+								<input id="name-title" type="text" class="form-control" placeholder="Title (Atty, Dr, Engr, etc...)" name="name-title">
 							</div>
 						</div>
 
@@ -110,10 +86,10 @@
 								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
 							<div class="col-lg-3">
-								<input id="days" type="number" class="form-control" placeholder="* Day" name="birth-day" required>
+								<input id="days" type="number" min="1" class="form-control" placeholder="* Day" name="birth-day" required>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
-								<div>Days in month: <span id="output"></span></div>
+								<div>Days in month: <span id="output">31</span></div>
 							</div>
 						</div>
 
@@ -135,14 +111,15 @@
 							<div class="col-md-3">
 								<label class="form-label">* Type of Employee</label>
 								<select id="type-employee" class="form-select form-control mb-2" name="type-employee" required>
-									<option value="1" data-value="EXEC">Executive</option>
-									<option value="2" data-value="LEG">Legislative</option>
-									<option value="3" data-value="OFFR">Officer</option>
-									<option value="4" data-value="COT">Coterminous</option>
-									<option value="5" data-value="REG">Regular</option>
-									<option value="6" data-value="TMP">Temporary</option>
-									<option value="7" data-value="COS">Contract of Service</option>
-									<option value="8" data-value="JO">Job Order</option>
+									<option disabled selected value> -- select an option -- </option>
+									<option id="emptypex-1" value="1" data-value="EXEC" label="Executive">
+									<option id="emptypex-2" value="2" data-value="LEG" label="Legislative">
+									<option id="emptypex-3" value="3" data-value="OFFR" label="Officer">
+									<option id="emptypex-4" value="4" data-value="COT" label="Coterminous">
+									<option id="emptypex-5" value="5" data-value="REG" label="Regular">
+									<option id="emptypex-6" value="6" data-value="TMP" label="Temporary">
+									<option id="emptypex-7" value="7" data-value="COS" label="Contract of Service">
+									<option id="emptypex-8" value="8" data-value="JO" label="Job Order">
 								</select>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
@@ -150,40 +127,27 @@
 
 							<div class="col-md-3">
 								<label class="form-label">* Office</label>
-								<select id="office" class="form-select form-control mb-2" placeholder="* Office" name="office" required>
-									<option id="1" value="OPG" data-code="1011" data-value="Governor">Governor</option>
-									<option id="2" value="OPVG" data-code="1016" data-value="Vice Governor">Vice Governor</option>
-									<option id="3" value="OPAd" data-code="1031" data-value="Administrator">Administrator</option>
-									<option id="4" value="OPSec" data-code="1022" data-value="Secretary">Secretary</option>
-									<option id="" value="OPAcc" data-code="1081" data-bio-location="" data-value="Accounting">Accounting</option>
-									<option id="" value="OPAg" data-code="8711" data-value="Agriculture">Agriculture</option>
-									<option id="" value="OPB" data-code="1071" data-value="Budget">Budget</option>
-									<option id="" value="OPC" data-code="8761" data-value="Cooperative">Coop</option>
-									<option id="5" value="OPDRRM" data-code="9940" data-value="Disaster Risk Reduction Management">Disaster Risk Reduction Management</option>
-									<option id="" value="OPGS" data-code="1061" data-value="General Services">General Services</option>
-									<option id="" value="OPH" data-code="4411" data-value="Health">Health</option>
-									<option id="" value="OPHRM" data-code="1032" data-value="Human Resource Management">Human Resource Management</option>
-									<option id="" value="BAC" data-code="1061-969" data-value="Bids and Awards Committee">Bids and Awards Committee</option>
-									<option id="" value="OPL" data-code="" data-value="Legal">Legal</option>
-									<option id="" value="OPAss" data-code="1101" data-value="Assessor">Assessor</option>
-									<option id="" value="OPENR" data-code="8731" data-value="Environment and Natural Resources">Environment and Natural Resources</option>
-									<option id="" value="OPE" data-code="8751" data-value="Engineering">Engineering</option>
-									<option id="" value="OPPDC" data-code="1041" data-value="Planning and Development Council">Planning and Development Council</option>
-									<option id="" value="OPSWD" data-code="7611" data-value="Social Welfare Development">Social Welfare Development</option>
-									<option id="" value="OPT" data-code="1091" data-value="Treasurer">Treasurer</option>
-									<option id="" value="OPVet" data-code="" data-value="Veterenary">Veterenary</option>
-									<option id="" value="OPRECY" data-code="" data-value="Rehabilitation Center for Youth">Rehabilitation Center for Youth</option>
-									<option id="" value="OPN" data-code="" data-value="Nutrition">Nutrition</option>
-									<option id="" value="OPTour" data-code="" data-value="Tourism">Tourism</option>
-									<option id="" value="OPICT" data-code="" data-value="Information and Communications Technology">Information and Communications Technology</option>
-								</select>
+								<input list="officelists" id="office" name="office" class="form-control" placeholder="Office" required>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
+
+								<datalist id="officelists">
+								<?php
+									$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+									$stmt_officelist = $cnn->prepare("SELECT * FROM office_tbl");
+									$stmt_officelist->execute();
+									$result_officelist = $stmt_officelist->setFetchMode(PDO::FETCH_ASSOC);
+									foreach ($stmt_officelist as $row_officelist) {
+										echo "<option id='".$row_officelist['officeid']."' value='".htmlspecialchars($row_officelist['officename'])."' data-value='".htmlspecialchars($row_officelist['officecode'])."' data-title='".htmlspecialchars($row_officelist['officetitle'])."' data-abvr='".htmlspecialchars($row_officelist['officeabrv'])."' data-head='".htmlspecialchars($row_officelist['headofficer'])."' data-htitle='".htmlspecialchars($row_officelist['headtitle'])."' data-authead='".htmlspecialchars($row_officelist['auth_head'])."' data-autheadtitle='".htmlspecialchars($row_officelist['auth_title'])."' data-authdesc='".htmlspecialchars($row_officelist['auth_description'])."'></option>";
+									}
+								?>
+								</datalist>
 							</div>
 
 							<div class="col-md-3">
 								<label class="form-label">* Biometric Location</label>
-								<select id="bio-location" class="form-select form-control mb-2" placeholder="* Office" name="office" required>
+								<select id="bio-location" class="form-select form-control mb-2" placeholder="* Office" name="bio-location" required>
+									<option disabled selected value> -- select an option -- </option>
 									<option value="PGO">PGO</option>
 									<option value="OPAd">OPAd</option>
 									<option value="OPAd2">OPAd2</option>
@@ -221,62 +185,68 @@
 								<label class="form-label">Biometric No.</label>
 								<input id="bioid" type="number" class="form-control" placeholder="Biometric Number" name="bioid">
 							</div>
+
+							<div class="col">
+								<label class="form-label">Employed Year</label>
+								<input id="yrempd" type="number" min="2001" max="<?php echo $yeartoday; ?>" value="<?php echo $yeartoday; ?>" class="form-control" placeholder="Employed Year" name="yrempd" required>
+								<div class="valid-feedback">Valid.</div>
+								<div class="invalid-feedback">Please fill out this field.</div>
+							</div>
 						</div>
 
-						<div class="border p-3">
-							<label class="form-label">Voter's Information</label>
-							<hr>
-							<div class="row mb-2">
-								<div class="col-sm-3">
-									<label class="form-label">Municipality</label>
-									<select id="municipality" class="form-select form-control mb-2" name="municipality" required>
-										<option value="7001" data-district="II" data-value="Ipil">Ipil (Capital)</option>
-										<option value="7004" data-district="II" data-value="Naga">Naga</option>
-										<option value="7003" data-district="II" data-value="Titay">Titay</option>
-										<option value="7005" data-district="II" data-value="Kabasalan">Kabasalan</option>
-										<option value="7006" data-district="II" data-value="Siay">Siay</option>
-										<option value="7002" data-district="II" data-value="R.T. Lim">R.T. Lim</option>
-										<option value="7018" data-district="II" data-value="Tungawan">Tungawan</option>
+						<div class="row" hidden>
+							<div class="col">
+								<input id="emptypeabv" type="text" name="emptypeabv" class="form-control mb-2" readonly>
+								<input id="emptypedesc" type="text" name="emptypedesc" class="form-control mb-2" readonly>
 
-										<option value="7009" data-district="I" data-value="Buug">Buug</option>
-										<option value="7007" data-district="I" data-value="Imelda">Imelda</option>
-										<option value="7039" data-district="I" data-value="Diplahan">Diplahan</option>
-										<option value="7038" data-district="I" data-value="Malangas">Malangas</option>
-										<option value="7040" data-district="I" data-value="Alicia">Alicia</option>
-										<option value="7010" data-district="I" data-value="Mabuhay">Mabuhay</option>
-										<option value="7012" data-district="I" data-value="Talusan">Talusan</option>
-										<option value="7041" data-district="I" data-value="Olutanga">Olutanga</option>
-										<option value="7008" data-district="I" data-value="Payao">Payao</option>
-									</select>
-									<div class="valid-feedback">Valid.</div>
-									<div class="invalid-feedback">Please fill out this field.</div>
-								</div>
+								<input id="officeid" type="text" name="officeid" class="form-control mb-2" readonly>
+								<input id="officecode" type="text" name="officecode" class="form-control mb-2" readonly>
+								<input id="officetitle" type="text" name="officetitle" class="form-control mb-2" readonly>
+								<input id="officeabrv" type="text" name="officeabrv" class="form-control mb-2" readonly>
+								<input id="headofcr" type="text" name="headofcr" class="form-control mb-2" readonly>
+								<input id="headtitle" type="text" name="headtitle" class="form-control mb-2" readonly>
+								<input id="authhead" type="text" name="authhead" class="form-control mb-2" readonly>
+								<input id="authtitle" type="text" name="authtitle" class="form-control mb-2" readonly>
+								<input id="authdesc" type="text" name="authdesc" class="form-control mb-2" readonly>
+							</div>
+						</div>
 
-								<div class="col-sm-2">
-									<label class="form-label">Barangay</label>
-									<input id="purok" type="text" class="form-control" placeholder="Barangay" name="purok">
-								</div>
+						<hr>
 
-								<div class="col-sm-2">
-									<label class="form-label">Purok</label>
-									<input id="purok" type="text" class="form-control" placeholder="Purok" name="purok">
-								</div>
+						<div class="row">
+							<div class="col">
+								<p class="text-center">Please Look into the Camera when taking the Photo.</p>
+							</div>
+						</div>
 
-								<div class="col-sm-2">
-									<label class="form-label">Precint No.</label>
-									<input id="precint-no" type="text" class="form-control" placeholder="Precint No." name="precint-no">
-								</div>
+						<div class="row mb-2 justify-content-center">
+							<div id="disp-vid" class="col-md-4 mb-2">
+								<video id="video" title="Picture" class="border w-100 h-auto" autoplay></video>
+							</div>
 
-								<div class="col-sm-3">
-									<label class="form-label">Voter's ID</label>
-									<input id="vin" type="text" class="form-control" placeholder="Voter's ID" name="vin">
-								</div>
+							<div id="disp-pix" class="col-md-4 mb-2 d-none">
+								<canvas id="canvas" class="border w-100"></canvas>
+							</div>
+
+							<div class="col-md-4 mb-2 d-none">
+								<textarea id="imgdata" class="w-100" name="imgdata"></textarea>
+							</div>
+						</div>
+
+						<div class="row mb-2">
+							<div class="col mb-2 text-center">
+								<button id="start-camera" class="btn btn-primary">Start Camera</button>
+								<button id="retake-photo" class="btn btn-warning d-none">Re-Take Photo</button>
+								<button id="click-photo" class="btn btn-success d-none">Click Photo</button>
 							</div>
 						</div>
 					</div>
 					<div class="card-footer">
+						<div class="w-100 d-flex flex-wrap justify-content-center">
+							<?php include_once "add-record.php"; ?>
+						</div>
 						<div class="w-100 d-flex flex-wrap justify-content-end">
-							<button type="submit" class="btn btn-danger m-2">Submit</button>
+							<button type="submit" class="btn btn-danger m-2" name="btnSubmit" >Submit</button>
 						</div>
 					</div>
 				</form>
@@ -285,6 +255,26 @@
 	</section>
 
 	<script>
+		function daysInMonth (month, year) {
+			return new Date(parseInt(year), parseInt(month), 0).getDate();
+		};
+
+		const byId = (id) => document.getElementById(id);
+		const monthSelect = byId("month");
+		const yearSelect = byId("year");
+		const daysSelect = byId("days");
+
+		const updateOutput = () => { 
+			byId("output").innerText = daysInMonth(monthSelect.value, yearSelect.value);
+			byId("days").max = daysInMonth(monthSelect.value, yearSelect.value);
+			byId("days").value = daysInMonth(monthSelect.value, yearSelect.value);
+		};
+		updateOutput();
+
+		[monthSelect, yearSelect].forEach((domNode) => { 
+			domNode.addEventListener("change", updateOutput);
+		});
+
 		let camera_button = document.querySelector("#start-camera");
 		let dispvid = document.querySelector("#disp-vid");
 		let video = document.querySelector("#video");
@@ -293,6 +283,21 @@
 		let disppix = document.querySelector("#disp-pix");
 		let canvas = document.querySelector("#canvas");
 		let imgdata = document.querySelector("#imgdata");
+
+		let typeemployee = document.querySelector("#type-employee");
+		let emptypeabv = document.querySelector("#emptypeabv");
+		let emptypedesc = document.querySelector("#emptypedesc");
+
+		let office = document.querySelector("#office");
+		let officeid = document.querySelector("#officeid");
+		let officecode = document.querySelector("#officecode");
+		let officetitle = document.querySelector("#officetitle");
+		let officeabrv = document.querySelector("#officeabrv");
+		let headofcr = document.querySelector("#headofcr");
+		let headtitle = document.querySelector("#headtitle");
+		let authhead = document.querySelector("#authhead");
+		let authtitle = document.querySelector("#authtitle");
+		let authdesc = document.querySelector("#authdesc");
 
 		let videowidth = video.offsetWidth;
 		let videoheight = video.offsetHeight;
@@ -306,7 +311,6 @@
 		});
 
 		click_button.addEventListener('click', async function() {
-			// dispvid.classList.add("d-none");
 			disppix.classList.remove('d-none');
 
 			canvas.getContext('2d').drawImage(video, 0, 0, videowidth, videoheight);
@@ -322,8 +326,7 @@
 			click_button.classList.add('d-none');
 		});
 
-		retakephoto.addEventListener('click', function() {
-			// dispvid.classList.remove("d-none");
+		retakephoto.addEventListener('click', async function() {
 			disppix.classList.add('d-none');
 
 			camera_button.classList.add("d-none");
@@ -331,22 +334,26 @@
 			click_button.classList.remove('d-none');
 		});
 
-		function daysInMonth (month, year) {
-			return new Date(parseInt(year), parseInt(month), 0).getDate();
-		}
+		typeemployee.addEventListener('change', async function() {
+			var empvalx = typeemployee.value;
 
-		const byId = (id) => document.getElementById(id);
-		const monthSelect = byId("month");
-		const yearSelect = byId("year");
-		const daysSelect = byId("days");
+			console.log(empvalx);
 
-		const updateOutput = () => { 
-			byId("output").innerText = daysInMonth(monthSelect.value, yearSelect.value);
-			byId("days").max = daysInMonth(monthSelect.value, yearSelect.value);
-		}
-		updateOutput();
+			emptypeabv.value = document.querySelector('option[id="emptypex-' + empvalx + '"]').dataset.value;
+			emptypedesc.value = document.querySelector('option[id="emptypex-' + empvalx+ '"]').label;
+		});
 
-		[monthSelect, yearSelect].forEach((domNode) => { 
-			domNode.addEventListener("change", updateOutput)
-		})
+		office.addEventListener('change', async function() {
+			var officeval = office.value;
+
+			officeid.value = document.querySelector('option[value="' + officeval + '"]').id;
+			officecode.value = document.querySelector('option[value="' + officeval + '"]').dataset.value;
+			officetitle.value = document.querySelector('option[value="' + officeval + '"]').dataset.title;
+			officeabrv.value = document.querySelector('option[value="' + officeval + '"]').dataset.abvr;
+			headofcr.value = document.querySelector('option[value="' + officeval + '"]').dataset.head;
+			headtitle.value = document.querySelector('option[value="' + officeval + '"]').dataset.htitle;
+			authhead.value = document.querySelector('option[value="' + officeval + '"]').dataset.authead;
+			authtitle.value = document.querySelector('option[value="' + officeval + '"]').dataset.autheadtitle;
+			authdesc.value = document.querySelector('option[value="' + officeval + '"]').dataset.authdesc;
+		});
 	</script>
