@@ -29,12 +29,13 @@
 			<div class="card m-auto" style="max-width: 1024px;">
 				<form id="empreg" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
 					<div class="card-header">
-						<div class="w-100 d-flex justify-content-between">
+						<div class="w-100 d-flex justify-content-end">
 							<label>
 								Employee Sign-up <br>
 								Exclusive only in PLGU-ZSP
 							</label>
-							<a href="" class="btn btn-primary">Reload</a>
+							<a href="" class="btn btn-primary m-2">Reload</a>
+							<a href="../../routes/logout" class="btn btn-dark m-2">Logout</a>
 						</div>
 					</div>
 					<div class="card-body">
@@ -100,9 +101,9 @@
 							</div>
 							<div class="col-lg-5">
 								<select id="month" class="form-select form-control mb-2" placeholder="* Month" name="birth-month" required>
-									<option disabled selected value> -- select an option -- </option>
+									<option disabled value> -- select an option -- </option>
 									<option value="01" data-value="January">January</option>
-									<option value="02" data-value="February">February</option>
+									<option value="02" data-value="February" selected>February</option>
 									<option value="03" data-value="March">March</option>
 									<option value="04" data-value="April">April</option>
 									<option value="05" data-value="May">May</option>
@@ -129,7 +130,7 @@
 							<div class="col-md-3 rounded border bg-light">
 								<label class="form-label">* Gender</label>
 								<div class="form-check m-3">
-									<input class="form-check-input" type="radio" name="gender" id="female" value="Female" required>
+									<input class="form-check-input" type="radio" name="gender" id="female" value="Female" checked required>
 									<label class="form-check-label" for="female">Female</label>
 								</div>
 								<div class="form-check m-3">
@@ -226,7 +227,7 @@
 							</div>
 						</div>
 
-						<div class="row" hidden>
+						<div class="row">
 							<div class="col">
 								<input id="emptypeabv" type="text" name="emptypeabv" class="form-control mb-2" readonly>
 								<input id="emptypedesc" type="text" name="emptypedesc" class="form-control mb-2" readonly>
