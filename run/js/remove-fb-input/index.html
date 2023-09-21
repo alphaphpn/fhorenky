@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Remove Facebook URL on Inputbox</title>
+</head>
+<body>
+	<input id="facebookid" type="text" name="facebookid" style="width: 100%;">
+
+	<script>
+		var inputElement = document.getElementById('facebookid');
+
+		function removeFacebookURL(inputElement) {
+			// Get the input value
+			var inputValue = inputElement.value;
+
+			// Define regular expressions to match various Facebook URL formats
+			var facebookURLPatterns = [
+				/https?:\/\/(www\.)?facebook\.com/,
+				/facebook\.com/
+			];
+
+			// Check if the input value matches any of the Facebook URL patterns
+			var containsFacebookURL = facebookURLPatterns.some(function(pattern) {
+				return pattern.test(inputValue);
+			});
+
+			// If a Facebook URL is detected, remove it
+			if (containsFacebookURL) {
+				var cleanedValue = inputValue.replace(new RegExp(facebookURLPatterns.join('|'), 'gi'), '');
+				inputElement.value = cleanedValue;
+
+				console.log(cleanedValue);
+			}
+		}
+
+		inputElement.addEventListener('blur', function() {
+			removeFacebookURL(this);
+		});
+	</script>
+</body>
+</html>

@@ -10,36 +10,48 @@
 ?>
 
 <div class="container">
-	<table>
-		<thead>
+	<table class="border w-50">
+		<thead class="border">
 			<tr>
-				<th><u><?php echo $htitle; ?></u></th>
+				<th class="px-2">
+					<label>Republic of the Philippines</label>
+				</th>
+			</tr>
+			<tr>
+				<th class="px-2">
+					<label>PLGU - ZSP</label>
+				</th>
+			</tr>
+			<tr>
+				<th class="px-2">
+					<u><?php echo $htitle; ?></u>
+				</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>Employee ID: <b><?php echo $empid; ?></b></td>
+				<td class="px-2">Employee ID: <b><?php echo $empid; ?></b></td>
 			</tr>
 			<tr>
-				<td>Bio#: <b><?php echo $empidfinale; ?></b></td>
+				<td class="px-2">Bio#: <b><?php echo $empidfinale; ?></b></td>
 			</tr>
 			<tr>
-				<td>Employee: <b><?php echo $fullname; ?></b></td>
+				<td class="px-2">Employee: <b><?php echo $fullname; ?></b></td>
 			</tr>
 			<tr>
-				<td>Username: <b><?php echo $username; ?></b></td>
+				<td class="px-2">Username: <b><?php echo $username; ?></b></td>
 			</tr>
 			<tr>
-				<td>Temporary Password: <b><?php echo $pw; ?>#</b></td>
+				<td class="px-2">Temporary Password: <b><?php echo $pw; ?>#</b></td>
 			</tr>
 			<tr>
-				<td align="right">Note: <u>Reset your password immediately after your first successfull login.</u></td>
+				<td class="px-2" align="right">Note: <u>Reset your password immediately after your first successfull login.</u></td>
 			</tr>
 			<tr>
-				<td>Office: <b><?php echo $office; ?></b></td>
+				<td class="px-2">Office: <b><?php echo $office; ?></b></td>
 			</tr>
 			<tr>
-				<td>Biometric Location: <b><?php echo $biolocation; ?></b></td>
+				<td class="px-2">Biometric Location: <b><?php echo $biolocation; ?></b></td>
 			</tr>
 		</tbody>
 	</table>

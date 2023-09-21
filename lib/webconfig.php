@@ -59,6 +59,7 @@
 		$profstyleimg = $row_webconf['profstyleimg'];
 		$bgsidebarimg = $row_webconf['bgsidebarimg'];
 
+		$startedyearx = 2001;
 		$date2day = date("Y-m-d");
 		$yeartoday = date("Y");
 		$mondthtoday = date("m");
@@ -73,3 +74,5 @@
 		}
 	}
 	$cnn = null;
+
+?>

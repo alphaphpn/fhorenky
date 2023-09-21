@@ -46,9 +46,17 @@
 						echo $printBtn;
 					}
 				?>
-				<button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+				<button id="btnCloseX" type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
 			</div>
 
 		</div>
 	</div>
 </div>
+
+<script>
+	let btnCloseX = document.querySelector("#btnCloseX");
+
+	btnCloseX.addEventListener('click', async function() {
+		document.getElementById("<?php echo $foczelem; ?>").focus();
+	});
+</script>

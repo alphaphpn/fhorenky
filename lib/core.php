@@ -5,3 +5,5 @@
 	$records_per_page = 15;
 	$from_record_num = ($records_per_page * $page) - $records_per_page;
 	$action = isset($_GET['action']) ? $_GET['action'] : "";
+
+?>

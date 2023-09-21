@@ -1,4 +1,5 @@
 *.bak
 env.php
 assets/imp/
+public/profile/
 assets/imp/err.dll

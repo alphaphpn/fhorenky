@@ -18,3 +18,5 @@
 
 		$gogfirstime	= $_SESSION["gogfirstime"];
 	}
+
+?>

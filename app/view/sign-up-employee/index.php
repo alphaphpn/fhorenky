@@ -25,13 +25,18 @@
 						</div>
 
 						<div class="row mb-2">
-							<div class="col-lg-6">
+							<div class="col-lg-4">
 								<input id="phone" type="tel" pattern="[789][0-9]{9}" class="form-control mb-2" placeholder="Enter Mobile# (9154826025)" name="phone">
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
 							</div>
-							<div class="col-lg-6">
-								<input type="text" class="form-control" placeholder="Enter email" name="email">
+							<div class="col-lg-4">
+								<input id="phone2" type="tel" pattern="[789][0-9]{9}" class="form-control mb-2" placeholder="Enter Secondary Mobile#" name="phone2">
+								<div class="valid-feedback">Valid.</div>
+								<div class="invalid-feedback">Please fill out this field.</div>
+							</div>
+							<div class="col-lg-4">
+								<input id="email" type="email" class="form-control" placeholder="Enter email" name="email">
 							</div>
 						</div>
 
@@ -60,7 +65,7 @@
 							</div>
 						</div>
 
-						<div class="row mb-2">
+						<div class="row mb-2 rounded border bg-light">
 							<label>* Birthday</label>
 							<div class="col-lg-4 mb-2">
 								<input id="year" type="number" min="1900" max="<?php echo $yeartoday; ?>" class="form-control" placeholder="* Year" name="birth-year" value="<?php echo $yearstart; ?>" required>
@@ -69,15 +74,16 @@
 							</div>
 							<div class="col-lg-5">
 								<select id="month" class="form-select form-control mb-2" placeholder="* Month" name="birth-month" required>
-									<option value="1" data-value="January">January</option>
-									<option value="2" data-value="February">February</option>
-									<option value="3" data-value="March">March</option>
-									<option value="4" data-value="April">April</option>
-									<option value="5" data-value="May">May</option>
-									<option value="6" data-value="June">June</option>
-									<option value="7" data-value="July">July</option>
-									<option value="8" data-value="August">August</option>
-									<option value="9" data-value="September">September</option>
+									<option disabled selected value> -- select an option -- </option>
+									<option value="01" data-value="January">January</option>
+									<option value="02" data-value="February">February</option>
+									<option value="03" data-value="March">March</option>
+									<option value="04" data-value="April">April</option>
+									<option value="05" data-value="May">May</option>
+									<option value="06" data-value="June">June</option>
+									<option value="07" data-value="July">July</option>
+									<option value="08" data-value="August">August</option>
+									<option value="09" data-value="September">September</option>
 									<option value="10" data-value="October">October</option>
 									<option value="11" data-value="November">November</option>
 									<option value="12" data-value="December">December</option>
@@ -94,7 +100,7 @@
 						</div>
 
 						<div class="row mb-2">
-							<div class="col-md-3">
+							<div class="col-md-3 rounded border bg-light">
 								<label class="form-label">* Gender</label>
 								<div class="form-check m-3">
 									<input class="form-check-input" type="radio" name="gender" id="female" value="Female" required>
@@ -235,9 +241,9 @@
 
 						<div class="row mb-2">
 							<div class="col mb-2 text-center">
-								<button id="start-camera" class="btn btn-primary">Start Camera</button>
-								<button id="retake-photo" class="btn btn-warning d-none">Re-Take Photo</button>
-								<button id="click-photo" class="btn btn-success d-none">Click Photo</button>
+								<button id="start-camera" type="button" class="btn btn-primary">Start Camera</button>
+								<button id="retake-photo" type="button" class="btn btn-warning d-none">Re-Take Photo</button>
+								<button id="click-photo" type="button" class="btn btn-success d-none">Click Photo</button>
 							</div>
 						</div>
 					</div>
@@ -246,7 +252,8 @@
 							<?php include_once "add-record.php"; ?>
 						</div>
 						<div class="w-100 d-flex flex-wrap justify-content-end">
-							<button type="submit" class="btn btn-danger m-2" name="btnSubmit" >Submit</button>
+							<a id="clearfields" href="" class="btn btn-primary m-2 d-none">Clear</a>
+							<button id="btnSubmit" type="submit" class="btn btn-danger m-2" name="btnSubmit">Submit</button>
 						</div>
 					</div>
 				</form>
