@@ -19,7 +19,7 @@
 		$nametitlex = $nametitle;
 		$birthdatex = $birthdate;
 		$genderx = trim(ucwords($gender));
-		$logguser = trim("admin");
+		$logguser = trim($_SESSION["uname"]);
 		$countryx = "Philippines";
 		$countrycodex = '63';
 

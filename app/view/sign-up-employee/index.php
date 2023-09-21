@@ -1,7 +1,33 @@
+<?php
+
+	// Admin Logged
+	if (empty($_SESSION["uid"]) || empty($_SESSION["uname"]) || empty($_SESSION["ulevel"]) || empty($_SESSION["uposition"]) || empty($_SESSION["ustat"]) || empty($_SESSION["verified"])) {
+		echo '<script>
+			alert("Please login.");
+			window.open("../../routes/login","_self");
+		</script>';
+	} elseif ($_SESSION["ulevel"]==1) {
+		
+	} elseif ($_SESSION["ustat"]==0) {
+		// Account Disabled.
+		echo '<script>alert("Your Account has been Disabled!");window.open("../../routes/login","_self");</script>';
+	} elseif ($_SESSION["verified"]==0) {
+		// Account not verified.
+		echo '<script>alert("Your Account needs to be Verified!");window.open("../../routes/login","_self");</script>';
+	} elseif ($_SESSION["xdel"]==1) {
+		// Account deleted.
+		echo '<script>alert("Your Account has been Deleted!");window.open("../../routes/login","_self");</script>';
+	} else {
+		// Access denied! Authorized person only.
+		echo '<script>alert("Access denied! Only Admin Account is Authorized.");window.open("../../routes/login","_self");</script>';
+	}
+
+?>
+
 	<section id="sign-up" class="w-100 mh-100 py-5">
 		<div class="container mh-100">
 			<div class="card m-auto" style="max-width: 1024px;">
-				<form id="empreg" method="post" class="was-validated" enctype="multipart/form-data">
+				<form id="empreg" method="post" class="needs-validation" enctype="multipart/form-data" novalidate>
 					<div class="card-header">
 						<div class="w-100 d-flex justify-content-between">
 							<label>
@@ -19,7 +45,7 @@
 						<div class="row mb-2">
 							<div class="col">
 								<a href="//facebook.com/profile" target="_blank">Click here to get your facebook ID</a>
-								<p>Sample Facebook ID: https://www.facebook.com/[profile.name]</p>
+								<p>Sample Facebook ID: https://www.facebook.com/<b class="text-danger">profile.name</b></p>
 								<input id="fbid" type="text" class="form-control" placeholder="Enter facebook ID" name="fbid">
 							</div>
 						</div>

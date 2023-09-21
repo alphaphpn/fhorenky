@@ -1,7 +1,7 @@
 <?php
 	$htitle = isset($_GET['htitle']) ? $_GET['htitle'] : "";
 	$empid = isset($_GET['empid']) ? $_GET['empid'] : "";
-	$empidfinale = isset($_GET['empidfinale']) ? $_GET['empidfinale'] : "";
+	$bioidfinale = isset($_GET['bioidfinale']) ? $_GET['bioidfinale'] : "";
 	$fullname = isset($_GET['fullname']) ? $_GET['fullname'] : "";
 	$username = isset($_GET['username']) ? $_GET['username'] : "";
 	$pw = isset($_GET['pw']) ? $_GET['pw'] : "";
@@ -33,7 +33,7 @@
 				<td class="px-2">Employee ID: <b><?php echo $empid; ?></b></td>
 			</tr>
 			<tr>
-				<td class="px-2">Bio#: <b><?php echo $empidfinale; ?></b></td>
+				<td class="px-2">Bio#: <b><?php echo $bioidfinale; ?></b></td>
 			</tr>
 			<tr>
 				<td class="px-2">Employee: <b><?php echo $fullname; ?></b></td>

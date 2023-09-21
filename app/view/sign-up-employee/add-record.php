@@ -1,5 +1,5 @@
 <?php
-
+	
 	try {
 		$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
 
@@ -94,9 +94,6 @@
 
 				$lengthid = 3;
 
-				$empid_finale = $empid;
-				$bioid_finale = $bioid;
-
 				$userpw = trim('!').trim(ucwords($firstname)).trim(ucwords($lastname)).trim('@').trim($birthyear).trim('#');
 
 				if (empty($empid)) {
@@ -158,7 +155,7 @@
 										$bs5BodyContent = '<div class="alert alert-info fade show">
 												<label>Employee Information</label>
 												<p>Employee ID: <b>'.$empid_finale.'</b></p>
-												<p>Bio#: <b>'.$empid_finale.'</b></p>
+												<p>Bio#: <b>'.$bioid_finale.'</b></p>
 												<p>Employee: <b>'.$fullname.'</b></p>
 												<p>Username: <b>'.$username.'</b></p>
 												<p>Temporary Password: <b>'.$userpw.'</b></p>
@@ -169,7 +166,7 @@
 											</div>';
 
 										$printHeading = "Employee Information";
-										$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&empidfinale='.$empid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
+										$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&bioidfinale='.$bioid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
 										include_once "../../lib/bs5-modal.php";
 									} else {
 										$bs5Heading = "System information";
@@ -191,20 +188,20 @@
 											// Final Success Message
 											$bs5Heading = "Employee Successfully Registered.";
 											$bs5BodyContent = '<div class="alert alert-info fade show">
-													<label>Employee Information</label>
-													<p>Employee ID: <b>'.$empid_finale.'</b></p>
-													<p>Bio#: <b>'.$empid_finale.'</b></p>
-													<p>Employee: <b>'.$fullname.'</b></p>
-													<p>Username: <b>'.$username.'</b></p>
-													<p>Temporary Password: <b>'.$userpw.'</b></p>
-													<p>Profile ID: <b>'.$profileid_finale.'</b></p>
-													<p>User ID: <b>'.$userid_finale.'</b></p>
-													<p>Office: <b>'.$office.'</b></p>
-													<p>Biometric Location: <b>'.$biolocation.'</b></p>
-												</div>';
+												<label>Employee Information</label>
+												<p>Employee ID: <b>'.$empid_finale.'</b></p>
+												<p>Bio#: <b>'.$bioid_finale.'</b></p>
+												<p>Employee: <b>'.$fullname.'</b></p>
+												<p>Username: <b>'.$username.'</b></p>
+												<p>Temporary Password: <b>'.$userpw.'</b></p>
+												<p>Profile ID: <b>'.$profileid_finale.'</b></p>
+												<p>User ID: <b>'.$userid_finale.'</b></p>
+												<p>Office: <b>'.$office.'</b></p>
+												<p>Biometric Location: <b>'.$biolocation.'</b></p>
+											</div>';
 
-											$printHeading = "Employee Information";
-											$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&empidfinale='.$empid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
+										$printHeading = "Employee Information";
+										$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&bioidfinale='.$bioid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
 											include_once "../../lib/bs5-modal.php";
 										} else {
 											$bs5Heading = "System information";
@@ -238,7 +235,7 @@
 											$bs5BodyContent = '<div class="alert alert-info fade show">
 													<label>Employee Information</label>
 													<p>Employee ID: <b>'.$empid_finale.'</b></p>
-													<p>Bio#: <b>'.$empid_finale.'</b></p>
+													<p>Bio#: <b>'.$bioid_finale.'</b></p>
 													<p>Employee: <b>'.$fullname.'</b></p>
 													<p>Username: <b>'.$username.'</b></p>
 													<p>Temporary Password: <b>'.$userpw.'</b></p>
@@ -249,7 +246,7 @@
 												</div>';
 
 											$printHeading = "Employee Information";
-											$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&empidfinale='.$empid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
+											$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&bioidfinale='.$bioid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
 											include_once "../../lib/bs5-modal.php";
 										} else {
 											$bs5Heading = "System information";
@@ -273,7 +270,7 @@
 												$bs5BodyContent = '<div class="alert alert-info fade show">
 														<label>Employee Information</label>
 														<p>Employee ID: <b>'.$empid_finale.'</b></p>
-														<p>Bio#: <b>'.$empid_finale.'</b></p>
+														<p>Bio#: <b>'.$bioid_finale.'</b></p>
 														<p>Employee: <b>'.$fullname.'</b></p>
 														<p>Username: <b>'.$username.'</b></p>
 														<p>Temporary Password: <b>'.$userpw.'</b></p>
@@ -284,7 +281,7 @@
 													</div>';
 
 												$printHeading = "Employee Information";
-												$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&empidfinale='.$empid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
+												$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&bioidfinale='.$bioid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
 												include_once "../../lib/bs5-modal.php";
 											} else {
 												$bs5Heading = "System information";
@@ -341,7 +338,7 @@
 												$bs5BodyContent = '<div class="alert alert-info fade show">
 														<label>Employee Information</label>
 														<p>Employee ID: <b>'.$empid_finale.'</b></p>
-														<p>Bio#: <b>'.$empid_finale.'</b></p>
+														<p>Bio#: <b>'.$bioid_finale.'</b></p>
 														<p>Employee: <b>'.$fullname.'</b></p>
 														<p>Username: <b>'.$username.'</b></p>
 														<p>Temporary Password: <b>'.$userpw.'</b></p>
@@ -352,7 +349,7 @@
 													</div>';
 
 												$printHeading = "Employee Information";
-												$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&empidfinale='.$empid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
+												$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&bioidfinale='.$bioid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
 												include_once "../../lib/bs5-modal.php";
 											} else {
 												$bs5Heading = "System information";
@@ -376,7 +373,7 @@
 													$bs5BodyContent = '<div class="alert alert-info fade show">
 															<label>Employee Information</label>
 															<p>Employee ID: <b>'.$empid_finale.'</b></p>
-															<p>Bio#: <b>'.$empid_finale.'</b></p>
+															<p>Bio#: <b>'.$bioid_finale.'</b></p>
 															<p>Employee: <b>'.$fullname.'</b></p>
 															<p>Username: <b>'.$username.'</b></p>
 															<p>Temporary Password: <b>'.$userpw.'</b></p>
@@ -387,7 +384,7 @@
 														</div>';
 
 													$printHeading = "Employee Information";
-													$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&empidfinale='.$empid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
+													$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&bioidfinale='.$bioid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
 													include_once "../../lib/bs5-modal.php";
 												} else {
 													$bs5Heading = "System information";
@@ -421,7 +418,7 @@
 													$bs5BodyContent = '<div class="alert alert-info fade show">
 															<label>Employee Information</label>
 															<p>Employee ID: <b>'.$empid_finale.'</b></p>
-															<p>Bio#: <b>'.$empid_finale.'</b></p>
+															<p>Bio#: <b>'.$bioid_finale.'</b></p>
 															<p>Employee: <b>'.$fullname.'</b></p>
 															<p>Username: <b>'.$username.'</b></p>
 															<p>Temporary Password: <b>'.$userpw.'</b></p>
@@ -432,7 +429,7 @@
 														</div>';
 
 													$printHeading = "Employee Information";
-													$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&empidfinale='.$empid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
+													$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&bioidfinale='.$bioid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
 													include_once "../../lib/bs5-modal.php";
 												} else {
 													$bs5Heading = "System information";
@@ -456,7 +453,7 @@
 														$bs5BodyContent = '<div class="alert alert-info fade show">
 																<label>Employee Information</label>
 																<p>Employee ID: <b>'.$empid_finale.'</b></p>
-																<p>Bio#: <b>'.$empid_finale.'</b></p>
+																<p>Bio#: <b>'.$bioid_finale.'</b></p>
 																<p>Employee: <b>'.$fullname.'</b></p>
 																<p>Username: <b>'.$username.'</b></p>
 																<p>Temporary Password: <b>'.$userpw.'</b></p>
@@ -467,7 +464,7 @@
 															</div>';
 
 														$printHeading = "Employee Information";
-														$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&empidfinale='.$empid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
+														$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&bioidfinale='.$bioid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
 														include_once "../../lib/bs5-modal.php";
 													} else {
 														$bs5Heading = "System information";
@@ -545,7 +542,7 @@
 													$bs5BodyContent = '<div class="alert alert-info fade show">
 															<label>Employee Information</label>
 															<p>Employee ID: <b>'.$empid_finale.'</b></p>
-															<p>Bio#: <b>'.$empid_finale.'</b></p>
+															<p>Bio#: <b>'.$bioid_finale.'</b></p>
 															<p>Employee: <b>'.$fullname.'</b></p>
 															<p>Username: <b>'.$username.'</b></p>
 															<p>Temporary Password: <b>'.$userpw.'</b></p>
@@ -556,7 +553,7 @@
 														</div>';
 
 													$printHeading = "Employee Information";
-													$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&empidfinale='.$empid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
+													$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&bioidfinale='.$bioid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
 													include_once "../../lib/bs5-modal.php";
 												} else {
 													$bs5Heading = "System information";
@@ -580,7 +577,7 @@
 														$bs5BodyContent = '<div class="alert alert-info fade show">
 																<label>Employee Information</label>
 																<p>Employee ID: <b>'.$empid_finale.'</b></p>
-																<p>Bio#: <b>'.$empid_finale.'</b></p>
+																<p>Bio#: <b>'.$bioid_finale.'</b></p>
 																<p>Employee: <b>'.$fullname.'</b></p>
 																<p>Username: <b>'.$username.'</b></p>
 																<p>Temporary Password: <b>'.$userpw.'</b></p>
@@ -591,7 +588,7 @@
 															</div>';
 
 														$printHeading = "Employee Information";
-														$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&empidfinale='.$empid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
+														$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&bioidfinale='.$bioid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
 														include_once "../../lib/bs5-modal.php";
 													} else {
 														$bs5Heading = "System information";
@@ -625,7 +622,7 @@
 														$bs5BodyContent = '<div class="alert alert-info fade show">
 																<label>Employee Information</label>
 																<p>Employee ID: <b>'.$empid_finale.'</b></p>
-																<p>Bio#: <b>'.$empid_finale.'</b></p>
+																<p>Bio#: <b>'.$bioid_finale.'</b></p>
 																<p>Employee: <b>'.$fullname.'</b></p>
 																<p>Username: <b>'.$username.'</b></p>
 																<p>Temporary Password: <b>'.$userpw.'</b></p>
@@ -636,7 +633,7 @@
 															</div>';
 
 														$printHeading = "Employee Information";
-														$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&empidfinale='.$empid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
+														$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&bioidfinale='.$bioid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
 														include_once "../../lib/bs5-modal.php";
 													} else {
 														$bs5Heading = "System information";
@@ -660,7 +657,7 @@
 															$bs5BodyContent = '<div class="alert alert-info fade show">
 																	<label>Employee Information</label>
 																	<p>Employee ID: <b>'.$empid_finale.'</b></p>
-																	<p>Bio#: <b>'.$empid_finale.'</b></p>
+																	<p>Bio#: <b>'.$bioid_finale.'</b></p>
 																	<p>Employee: <b>'.$fullname.'</b></p>
 																	<p>Username: <b>'.$username.'</b></p>
 																	<p>Temporary Password: <b>'.$userpw.'</b></p>
@@ -671,7 +668,7 @@
 																</div>';
 
 															$printHeading = "Employee Information";
-															$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&empidfinale='.$empid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
+															$printBtn = '<a href="../../routes/print-content/?htitle='.$printHeading.'&empid='.$empid_finale.'&bioidfinale='.$bioid_finale.'&fullname='.$fullname.'&username='.$username.'&office='.$office.'&biolocation='.$biolocation.'&pw='.$userpw.'" target="_blank" class="btn btn-primary">Print</a>';
 															include_once "../../lib/bs5-modal.php";
 														} else {
 															$bs5Heading = "System information";
@@ -758,8 +755,8 @@
 		document.getElementById("year").value = "<?php echo isset($birthyear) ? $birthyear : ""; ?>";
 		document.getElementById("days").value = "<?php echo isset($birthday) ? $birthday : ""; ?>";
 		document.getElementById("month").value = "<?php echo isset($birthmonth) ? $birthmonth : ""; ?>";
-		document.getElementById("empid").value = "<?php echo isset($empid_finale) ? $empid_finale : ""; ?>";
-		document.getElementById("bioid").value = "<?php echo isset($bioid_finale) ? $bioid_finale : ""; ?>";
+		document.getElementById("empid").value = "<?php echo isset($_POST['empid']) ? $_POST['empid'] : ""; ?>";
+		document.getElementById("bioid").value = "<?php echo isset($_POST['bioid']) ? $_POST['bioid'] : ""; ?>";
 		document.getElementById("yrempd").value = "<?php echo isset($yrempd) ? $yrempd : ""; ?>";
 
 		document.getElementById("clearfields").classList.remove('d-none');
