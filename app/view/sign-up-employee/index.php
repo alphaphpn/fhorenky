@@ -227,7 +227,7 @@
 							</div>
 						</div>
 
-						<div class="row">
+						<div class="row" hidden>
 							<div class="col">
 								<input id="emptypeabv" type="text" name="emptypeabv" class="form-control mb-2" readonly>
 								<input id="emptypedesc" type="text" name="emptypedesc" class="form-control mb-2" readonly>
