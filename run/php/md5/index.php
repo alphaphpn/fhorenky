@@ -8,7 +8,9 @@
 <body>
 	<?php
 		// PlguZsp@22#
-		echo md5('admin');
+		echo md5('admin').'<br>';
+		echo '1234<br>';
+		echo md5('1234').'<br>';
 	?>
 </body>
 </html>
