@@ -49,6 +49,34 @@
 							echo '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
 							echo 'Invalid Password!';
 						echo '</div>';
+					} elseif ($uname!=$userid) {
+						if ($usercode!=$userid) {
+							echo '<div class="alert alert-danger alert-dismissible fade show">';
+								echo '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+								echo 'Invalid User!';
+							echo '</div>';
+						} else {
+							$_SESSION["uid"] = $usercode;
+							$_SESSION["uname"] = $uname;
+							$_SESSION["ulevel"] = $ulevel;
+							$_SESSION["uposition"] = $uposition;
+							$_SESSION["ustat"] = $ustatg;
+							$_SESSION["verified"] = $verifiedg;
+							$_SESSION["xdel"] = $xdelg;
+
+							// echo '<div class="alert alert-danger alert-dismissible fade show">';
+							// 	echo '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
+							// 	echo $usercode.'<br>';
+							// 	echo $uname.'<br>';
+							// 	echo $ulevel.'<br>';
+							// 	echo $uposition.'<br>';
+							// 	echo $ustatg.'<br>';
+							// 	echo $verifiedg.'<br>';
+							// 	echo $xdelg.'<br>';
+							// echo '</div>';
+							
+							echo "<script>window.open('../../', '_self');</script>";
+						}
 					} else {
 						$_SESSION["uid"] = $usercode;
 						$_SESSION["uname"] = $uname;
@@ -69,7 +97,7 @@
 						// 	echo $xdelg.'<br>';
 						// echo '</div>';
 						
-						echo "<script>window.open('../../routes/sign-up-employee', '_self');</script>";
+						echo "<script>window.open('../../', '_self');</script>";
 					}
 				} else {
 					echo '<div class="alert alert-danger alert-dismissible fade show">';

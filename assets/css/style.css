@@ -1,0 +1,25 @@
+.table tr:hover {
+	cursor: pointer;
+}
+
+.scrollable {
+	overflow-y: auto;
+}
+
+.vh-99 { height: 99vh; }
+.vh-98 { height: 98vh; }
+.vh-97 { height: 97vh; }
+.vh-96 { height: 96vh; }
+.vh-95 { height: 95vh; }
+.vh-94 { height: 94vh; }
+.vh-93 { height: 93vh; }
+.vh-92 { height: 92vh; }
+.vh-91 { height: 91vh; }
+.vh-90 { height: 90vh; }
+
+#listRecView tfoot tr td.remove-dropdown select, 
+#listRecView tfoot tr td.remove-dropdown input, 
+#listRecView thead tr th.remove-dropdown select, 
+#listRecView thead tr th.remove-dropdown input {
+	display: none;
+}

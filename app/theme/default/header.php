@@ -15,12 +15,15 @@
 	<link rel="stylesheet" href="<?php echo $domainhome; ?>/assets/fontawesome/releases/v5.7.0/css/all.css">
 	<link href="<?php echo $domainhome; ?>/assets/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo $domainhome; ?>/assets/npm/slick-carousel@1.8.1/slick/slick.css">
+	<link rel="stylesheet" href="<?php echo $domainhome; ?>/assets/datatables/1.13.6/css/dataTables.bootstrap5.min.css">
 	<link rel="stylesheet" href="<?php echo $domainhome; ?>/assets/css/style.css">
 	<script src="<?php echo $domainhome; ?>/assets/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-	<script src="<?php echo $domainhome; ?>/assets/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+	<script src="<?php echo $domainhome; ?>/assets/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
 	<script src="<?php echo $domainhome; ?>/assets/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 	<script src="//apis.google.com/js/platform.js" async defer></script>
 	<script src="<?php echo $domainhome; ?>/assets/ajax/libs/particle-animate/1.0.0/js/particle-animate.js"></script>
 	<script src="//apis.google.com/js/platform.js" async defer></script>
+	<script src="<?php echo $domainhome; ?>/assets/datatables/1.13.6/js/jquery.dataTables.min.js"></script>
+	<script src="<?php echo $domainhome; ?>/assets/datatables/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 </head>
 <body id="home">

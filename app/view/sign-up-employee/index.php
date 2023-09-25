@@ -281,6 +281,7 @@
 						<div class="w-100 d-flex flex-wrap justify-content-end">
 							<a id="clearfields" href="" class="btn btn-primary m-2 d-none">Clear</a>
 							<button id="btnSubmit" type="submit" class="btn btn-danger m-2" name="btnSubmit">Submit</button>
+							<a href="../../" class="btn btn-success m-2">Back</a>
 						</div>
 					</div>
 				</form>
