@@ -32,7 +32,7 @@
 					<h2>Employee: Update</h2>
 					<div>
 						<a href="" class="btn btn-primary m-1">Reload</a>
-						<a href="" class="btn btn-info m-1">Home</a>
+						<a href="../../" class="btn btn-info m-1">Home</a>
 						<a href="../../routes/logout" class="btn btn-dark m-1">Logout</a>
 					</div>
 				</div>
@@ -113,7 +113,7 @@
 												<td><?php echo $biolocation; ?></td>
 												<td><?php echo $biono; ?></td>
 												<td><?php echo $empid; ?></td>
-												<td><?php echo $empname; ?></td>
+												<td><?php echo utf8_encode($empname); ?></td>
 												<td><?php echo $officecode; ?></td>
 												<td><?php echo $officename; ?></td>
 												<td><?php echo $signatory; ?></td>
