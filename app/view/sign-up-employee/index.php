@@ -179,32 +179,22 @@
 
 							<div class="col-md-3">
 								<label class="form-label">* Biometric Location</label>
-								<select id="bio-location" class="form-select form-control mb-2" placeholder="* Office" name="bio-location" required>
-									<option disabled selected value> -- select an option -- </option>
-									<option value="PGO">PGO</option>
-									<option value="OPAd">OPAd</option>
-									<option value="OPAd2">OPAd2</option>
-									<option value="Accounting">Accounting</option>
-									<option value="Agri">Agri</option>
-									<option value="Budget">Budget</option>
-									<option value="Coop">Coop</option>
-									<option value="DRR">DRR</option>
-									<option value="GSO">GSO</option>
-									<option value="Health">Health</option>
-									<option value="HR">HR</option>
-									<option value="Legal">Legal</option>
-									<option value="PAssO">PAssO</option>
-									<option value="PENRO">PENRO</option>
-									<option value="PEO1">PEO1</option>
-									<option value="PEO2">PEO2</option>
-									<option value="PPDO">PPDO</option>
-									<option value="PRECY">PRECY</option>
-									<option value="PSWD">PSWD</option>
-									<option value="PTO">PTO</option>
-									<option value="PVet">PVet</option>
-								</select>
+								<input list="biolocationlists" id="bio-location" name="bio-location" class="form-control" placeholder="* Bio Location" required>
 								<div class="valid-feedback">Valid.</div>
 								<div class="invalid-feedback">Please fill out this field.</div>
+
+								<datalist id="biolocationlists">
+									<option disabled selected value> -- select an option -- </option>
+								<?php
+									$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+									$stmt_biolocationlists = $cnn->prepare("SELECT * FROM bio_location_tbl");
+									$stmt_biolocationlists->execute();
+									$result_biolocationlists = $stmt_biolocationlists->setFetchMode(PDO::FETCH_ASSOC);
+									foreach ($stmt_biolocationlists as $row_biolocationlists) {
+										echo "<option value='".$row_biolocationlists['bio_location']."' data-timelogtype='".$row_biolocationlists['timelogs_type']."'>";
+									}
+								?>
+								</datalist>
 							</div>
 						</div>
 
@@ -227,7 +217,7 @@
 							</div>
 						</div>
 
-						<div class="row" hidden>
+						<div class="row">
 							<div class="col">
 								<input id="emptypeabv" type="text" name="emptypeabv" class="form-control mb-2" readonly>
 								<input id="emptypedesc" type="text" name="emptypedesc" class="form-control mb-2" readonly>

@@ -12,6 +12,7 @@
 
 	<a href="routes/sign-up-employee">New Employee</a>
 	<a href="routes/update-employee">Update Employee</a>
+	<a href="routes/dtr-biolocation">DTR - Bio Location</a>
 	<a href="routes/logout">Logout</a>
 
 <?php
