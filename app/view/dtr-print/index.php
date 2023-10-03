@@ -70,7 +70,7 @@
 									<th colspan="7" class="p-0 font-size-14">DAILY TIME RECORD</th>
 								</tr>
 								<tr align="center">
-									<th colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_encode($empnamek))); ?></b></th>
+									<th colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper($empnamek)); ?></b></th>
 								</tr>
 								<tr align="center">
 									<th colspan="7" class="p-0 font-size-10">(NAME)</th>
