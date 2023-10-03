@@ -146,7 +146,7 @@
 							$stmt_insert_subdtr->bindParam(':empname', $empname69);
 							$stmt_insert_subdtr->execute();
 
-							If ($timelogtype9="SINGLE") {
+							If ($timelogtype9=1) {
 
 								// AM Time In
 								$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
@@ -361,7 +361,9 @@
 
 								// ----------------------------------------------------
 
-							} elseif ($timelogtype9="FOUR") {
+							}
+
+							if ($timelogtype9=4) {
 
 								// AM Time In
 								$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
@@ -645,9 +647,9 @@
 								</div>
 								<div class="col my-2">
 									<label class="form-label">* Timelog Type</label>
-									<input id="timelog-type" name="timelog-type" type="text" class="form-control" placeholder="Timelog Type" required>
+									<input id="timelog-type" name="timelog-type" type="text" pattern="^[14]$" class="form-control" placeholder="Timelog Type" required>
 									<div class="valid-feedback">Valid.</div>
-									<div class="invalid-feedback">Please fill out this field.</div>
+									<div class="invalid-feedback">Accept only 1 and 4.</div>
 								</div>
 								<div class="col my-2">
 									<label>View Employee(s)</label>
