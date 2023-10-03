@@ -43,7 +43,6 @@
 						<tbody>
 							<?php
 								$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
-								$cnn = set_charset("utf8");
 								$qry = "SELECT * FROM employee_dtr_tbl WHERE bio_location=:biolocation AND yearno=:yearno AND monthno=:monthno ORDER BY bio_no ASC";
 								$stmt = $cnn->prepare($qry);
 								$stmt->bindParam(':yearno', $yrno);
