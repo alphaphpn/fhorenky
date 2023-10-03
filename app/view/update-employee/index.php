@@ -101,7 +101,7 @@
 											$profileid=$row["profileid"];
 											$biolocation=$row["bio_location"];
 											$biono=$row["bio_no"];
-											$empname=$row["emp_name"];
+											$empname=utf8_encode($row["emp_name"]);
 											$officecode=$row["officecode"];
 											$officename=$row["officename"];
 											$signatory=$row["headofficer"];
@@ -113,7 +113,7 @@
 												<td><?php echo $biolocation; ?></td>
 												<td><?php echo $biono; ?></td>
 												<td><?php echo $empid; ?></td>
-												<td><?php echo utf8_encode($empname); ?></td>
+												<td><?php echo utf8_decode($empname); ?></td>
 												<td><?php echo $officecode; ?></td>
 												<td><?php echo $officename; ?></td>
 												<td><?php echo $signatory; ?></td>
