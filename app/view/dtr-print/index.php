@@ -29,7 +29,7 @@
 				$monthnamek = $row_empdtr['monthname'];
 				$biolocationk = $row_empdtr['bio_location'];
 				$bionok = $row_empdtr['bio_no'];
-				$empnamek = $row_empdtr['emp_name'];
+				$empnamek = utf8_encode($row_empdtr['emp_name']);
 				$officeabrvk = $row_empdtr['officeabrv'];
 				$headofficerk = $row_empdtr['headofficer'];
 				$headtitlek = $row_empdtr['headtitle'];
@@ -71,7 +71,7 @@
 									<th colspan="7" class="p-0 font-size-14">DAILY TIME RECORD</th>
 								</tr>
 								<tr align="center">
-									<th colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper($empnamek)); ?></b></th>
+									<th colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_decode($empnamek))); ?></b></th>
 								</tr>
 								<tr align="center">
 									<th colspan="7" class="p-0 font-size-10">(NAME)</th>
@@ -173,7 +173,7 @@
 									<td colspan="7" class="p-0 font-size-10 pb-4">Verified as to the prescribed office hours</td>
 								</tr>
 								<tr align="center">
-									<td colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_encode($headofficerk))); ?></b></td>
+									<td colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_decode($headofficerk))); ?></b></td>
 								</tr>
 								<tr align="center">
 									<td colspan="7" class="p-0 font-size-11"><i><?php echo trim($headtitlek); ?></i></td>
@@ -202,7 +202,7 @@
 									<th colspan="7" class="p-0 font-size-14">DAILY TIME RECORD</th>
 								</tr>
 								<tr align="center">
-									<th colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_encode($empnamek))); ?></b></th>
+									<th colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_decode($empnamek))); ?></b></th>
 								</tr>
 								<tr align="center">
 									<th colspan="7" class="p-0 font-size-10">(NAME)</th>
@@ -304,7 +304,7 @@
 									<td colspan="7" class="p-0 font-size-10 pb-4">Verified as to the prescribed office hours</td>
 								</tr>
 								<tr align="center">
-									<td colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_encode($headofficerk))); ?></b></td>
+									<td colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_decode($headofficerk))); ?></b></td>
 								</tr>
 								<tr align="center">
 									<td colspan="7" class="p-0 font-size-11"><i><?php echo trim($headtitlek); ?></i></td>
@@ -333,7 +333,7 @@
 									<th colspan="7" class="p-0 font-size-14">DAILY TIME RECORD</th>
 								</tr>
 								<tr align="center">
-									<th colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_encode($empnamek))); ?></b></th>
+									<th colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_decode($empnamek))); ?></b></th>
 								</tr>
 								<tr align="center">
 									<th colspan="7" class="p-0 font-size-10">(NAME)</th>
@@ -435,7 +435,7 @@
 									<td colspan="7" class="p-0 font-size-10 pb-4">Verified as to the prescribed office hours</td>
 								</tr>
 								<tr align="center">
-									<td colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_encode($headofficerk))); ?></b></td>
+									<td colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_decode($headofficerk))); ?></b></td>
 								</tr>
 								<tr align="center">
 									<td colspan="7" class="p-0 font-size-11"><i><?php echo trim($headtitlek); ?></i></td>
@@ -464,7 +464,7 @@
 									<th colspan="7" class="p-0 font-size-14">DAILY TIME RECORD</th>
 								</tr>
 								<tr align="center">
-									<th colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_encode($empnamek))); ?></b></th>
+									<th colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_decode($empnamek))); ?></b></th>
 								</tr>
 								<tr align="center">
 									<th colspan="7" class="p-0 font-size-10">(NAME)</th>
@@ -566,7 +566,7 @@
 									<td colspan="7" class="p-0 font-size-10 pb-4">Verified as to the prescribed office hours</td>
 								</tr>
 								<tr align="center">
-									<td colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_encode($headofficerk))); ?></b></td>
+									<td colspan="7" class="p-0 font-size-12"><b><?php echo trim(strtoupper(utf8_decode($headofficerk))); ?></b></td>
 								</tr>
 								<tr align="center">
 									<td colspan="7" class="p-0 font-size-11"><i><?php echo trim($headtitlek); ?></i></td>

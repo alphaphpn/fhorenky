@@ -104,7 +104,7 @@
 											$empname=utf8_encode($row["emp_name"]);
 											$officecode=$row["officecode"];
 											$officename=$row["officename"];
-											$signatory=$row["headofficer"];
+											$signatory=utf8_encode($row["headofficer"]);
 									?>
 											<tr>
 												<td><input id="empidid<?php echo trim($empno); ?>" value="<?php echo trim($empno); ?>" type="checkbox" class="checkbox" name="empnoid" onclick="onlyOne(this)" data-pid="<?php echo $profileid; ?>"></td>
@@ -116,7 +116,7 @@
 												<td><?php echo utf8_decode($empname); ?></td>
 												<td><?php echo $officecode; ?></td>
 												<td><?php echo $officename; ?></td>
-												<td><?php echo $signatory; ?></td>
+												<td><?php echo utf8_decode($signatory); ?></td>
 												<td><?php echo $profileid; ?></td>
 												<td></td>
 											</tr>

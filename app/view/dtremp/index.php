@@ -57,10 +57,10 @@
 									$profileid=$row["profileid"];
 									$biolocation=$row["bio_location"];
 									$biono=$row["bio_no"];
-									$empname=$row["emp_name"];
+									$empname=utf8_encode($row["emp_name"]);
 									$officecode=$row["officecode"];
 									$officename=$row["officename"];
-									$signatory=$row["headofficer"];
+									$signatory=utf8_encode($row["headofficer"]);
 									$xlinkz = "../../routes/dtr-print/?yrno=".$yrno."&monthno=".$monthno."&biolocation=".$biolocation."&biono=".$biono;
 							?>
 									<tr>
@@ -68,10 +68,10 @@
 										<td><?php echo $biolocation; ?></td>
 										<td><?php echo $biono; ?></td>
 										<td><?php echo $empid; ?></td>
-										<td><?php echo utf8_encode($empname); ?></td>
+										<td><?php echo utf8_decode($empname); ?></td>
 										<td><?php echo $officecode; ?></td>
 										<td><?php echo $officename; ?></td>
-										<td><?php echo $signatory; ?></td>
+										<td><?php echo utf8_decode($signatory); ?></td>
 										<td><?php echo $profileid; ?></td>
 										<td><a href="<?php echo trim($xlinkz); ?>" target="_blank">DTR</a></td>
 									</tr>
