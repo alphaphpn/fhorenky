@@ -7,4 +7,8 @@
 	$action = isset($_GET['action']) ? $_GET['action'] : "";
 	ini_set('default_charset', 'utf-8');
 
+	function isValidDate($date, $format = 'Y-m-d') {
+		$dateTime = DateTime::createFromFormat($format, $date);
+		return $dateTime && $dateTime->format($format) === $date;
+	}
 ?>

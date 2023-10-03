@@ -28,15 +28,15 @@
 					$profileid69 = trim($row_employeelist2['profileid']);
 					$biolocation69 = trim($row_employeelist2['bio_location']);
 					$biono69 = trim($row_employeelist2['bio_no']);
-					$empname69 = trim(utf8_encode($row_employeelist2['emp_name']));
+					$empname69 = trim($row_employeelist2['emp_name']);
 					$officeid69 = trim($row_employeelist2['officeid']);
 					$officecode69 = trim($row_employeelist2['officecode']);
 					$officename69 = trim($row_employeelist2['officename']);
 					$officetitle69 = trim($row_employeelist2['officetitle']);
 					$officeabrv69 = trim($row_employeelist2['officeabrv']);
-					$headofficer69 = trim(utf8_encode($row_employeelist2['headofficer']));
+					$headofficer69 = trim($row_employeelist2['headofficer']);
 					$headtitle69 = trim($row_employeelist2['headtitle']);
-					$authhead69 = trim(utf8_encode($row_employeelist2['auth_head']));
+					$authhead69 = trim($row_employeelist2['auth_head']);
 					$authtitle69 = trim($row_employeelist2['auth_title']);
 					$authdescription69 = trim($row_employeelist2['auth_description']);
 					$yearemployed69 = trim($row_employeelist2['year_employed']);
@@ -108,14 +108,16 @@
 
 						$x = 1;
 						while($x <= 31) {
-							$getdateloop = trim($filtermonth9)."/".trim($x)."/".trim($filteryear9);
+							$getdateloop = trim($filteryear9)."-".trim(substr(str_repeat(0, 2).$filtermonth9, - 2))."-".trim(substr(str_repeat(0, 2).$x, - 2));
 							$daynameloop = date('D', strtotime($getdateloop));
 							$countstrday = strlen($daynameloop);
 
-							if ($countstrday=3) {
-								$dayname1 = Trim($daynameloop);
+							$isDateValid = isValidDate($getdateloop);
+
+							if ($isDateValid) {
+								$daynamehjh = Trim($daynameloop);
 							} else {
-								$dayname1 = Trim("n/a");
+								$daynamehjh = Trim("n/a");
 							}
 
 							$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
@@ -133,7 +135,7 @@
 							";
 							$stmt_insert_subdtr = $cnn->prepare($qry_insert_subdtr);
 							$stmt_insert_subdtr->bindParam(':dtrcode', $dtrcode);
-							$stmt_insert_subdtr->bindParam(':nameday', $dayname1);
+							$stmt_insert_subdtr->bindParam(':nameday', $daynamehjh);
 							$stmt_insert_subdtr->bindParam(':dayno', $x);
 							$stmt_insert_subdtr->bindParam(':yearno', $filteryear9);
 							$stmt_insert_subdtr->bindParam(':monthno', $filtermonth9);
@@ -274,10 +276,10 @@
 										$pmtimeinx = new datetime($row_timeinpm['timelog']);
 										$rsltpminx = $pmtimeinx->format('g:i');
 
-										$validatetimeinpm = $pmtimeinx->format('gi');
+										$validatetimeinpm = $pmtimeinx->format('Hi');
 										$validatetimeinpmx = (int)$validatetimeinpm;
 
-										if ($validatetimeinpmx >= 459) {
+										if ($validatetimeinpmx <= 1659) {
 											$rsltpminxx = $rsltpminx;
 										} else {
 											$rsltpminxx = null;

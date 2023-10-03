@@ -1,3 +1,12 @@
+.font-size-6 {font-size: 6px;}
+.font-size-8 {font-size: 8px;}
+.font-size-10 {font-size: 10px;}
+.font-size-11 {font-size: 11px;}
+.font-size-12 {font-size: 12px;}
+.font-size-14 {font-size: 14px;}
+
+.text-indent-32 {text-indent: 32px;}
+
 .table tr:hover {
 	cursor: pointer;
 }

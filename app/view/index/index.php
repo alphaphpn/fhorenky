@@ -5,6 +5,8 @@
 ?>
 
 	<a href="routes/login">Login</a>
+	<br>
+	<a href="routes/dtr-emp" target="_blank">DTR</a>
 
 <?php
 	} elseif ($_SESSION["ulevel"]==1) {
