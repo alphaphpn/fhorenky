@@ -12,6 +12,7 @@
 	} elseif ($_SESSION["ulevel"]==1) {
 ?>
 
+	<a href="routes/dtr-emp" target="_blank">DTR</a>
 	<a href="routes/sign-up-employee">New Employee</a>
 	<a href="routes/update-employee">Update Employee</a>
 	<a href="routes/dtr-biolocation">DTR - Bio Location</a>
