@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<title><?php if (empty($page_title)) {echo trim($sysname);} else {echo trim($sysname.": ".$page_title);} ?></title>
+	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
