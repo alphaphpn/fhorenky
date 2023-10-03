@@ -8,7 +8,6 @@
 	if (isset($_GET['yrno']) && isset($_GET['monthno']) && isset($_GET['biolocation']) && isset($_GET['biono'])) {
 
 		$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
-		$cnn = set_charset("utf8");
 		$stmt_empdtr = $cnn->prepare("SELECT * FROM employee_dtr_tbl WHERE 
 			yearno=:yrno AND 
 			monthno=:monthno AND 
