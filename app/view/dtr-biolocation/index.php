@@ -316,7 +316,7 @@
 									DAY(datelog)=:dayno AND 
 									bio_location=:biolocation AND 
 									bio_no=:biono AND 
-									timelog>TIME_FORMAT('12:30:00','%T') 
+									timelog>=TIME_FORMAT('12:31:00','%T') 
 									ORDER BY TIME_FORMAT(timelog, '%H:%i') DESC 
 									LIMIT 1
 								";

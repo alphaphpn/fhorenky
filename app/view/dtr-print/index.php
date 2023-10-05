@@ -123,17 +123,53 @@
 											$daynohh = $row_timelogz['dayno'];
 											$namedayhh = $row_timelogz['nameday'];
 											$amtimeinhh = $row_timelogz['amtimein'];
+
+											$amtimeinxhjkd = new DateTime($amtimeinhh);
+											$amtimeinhhxf = $amtimeinxhjkd->format('gi');
+											if ($amtimeinhhxf>800) {
+												$xcolord = "#ff0000";
+											} else {
+												$xcolord = "#000000";
+											}
+
 											$amtimeouthh = $row_timelogz['amtimeout'];
+
+											$amtimeouthjkd = new DateTime($amtimeouthh);
+											$amtimeouthhxf = $amtimeouthjkd->format('gi');
+											if ($amtimeouthhxf<1159) {
+												$xcolordc = "#ff0000";
+											} else {
+												$xcolordc = "#000000";
+											}
+
 											$pmtimeinhh = $row_timelogz['pmtimein'];
+
+											$pmtimeinhjkd = new DateTime($pmtimeinhh);
+											$earlyEveningEnd = new DateTime('4:59');
+											$pmtimeinhhxf = $pmtimeinhjkd->format('gi');
+											if ($pmtimeinhjkd <= $earlyEveningEnd) {
+												$xcolorda = "#ff0000";
+											} else {
+												$xcolorda = "#000000";
+											}
+
 											$pmtimeouthh = $row_timelogz['pmtimeout'];
+
+											$pmtimeouthjkd = new DateTime($pmtimeouthh);
+											$pmtimeouthhxf = $pmtimeouthjkd->format('gi');
+											if ($pmtimeouthhxf<459) {
+												$xcolordb = "#ff0000";
+											} else {
+												$xcolordb = "#000000";
+											}
 
 											?>
 												<tr>
 													<td class="p-0 font-size-10 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($amtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($amtimeouthh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeouthh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
 													<td class="p-0 font-size-10 border-end"></td>
 													<td class="p-0 font-size-10"></td>
 												</tr>
@@ -254,17 +290,53 @@
 											$daynohh = $row_timelogz['dayno'];
 											$namedayhh = $row_timelogz['nameday'];
 											$amtimeinhh = $row_timelogz['amtimein'];
+
+											$amtimeinxhjkd = new DateTime($amtimeinhh);
+											$amtimeinhhxf = $amtimeinxhjkd->format('gi');
+											if ($amtimeinhhxf>800) {
+												$xcolord = "#ff0000";
+											} else {
+												$xcolord = "#000000";
+											}
+
 											$amtimeouthh = $row_timelogz['amtimeout'];
+
+											$amtimeouthjkd = new DateTime($amtimeouthh);
+											$amtimeouthhxf = $amtimeouthjkd->format('gi');
+											if ($amtimeouthhxf<1159) {
+												$xcolordc = "#ff0000";
+											} else {
+												$xcolordc = "#000000";
+											}
+
 											$pmtimeinhh = $row_timelogz['pmtimein'];
+
+											$pmtimeinhjkd = new DateTime($pmtimeinhh);
+											$earlyEveningEnd = new DateTime('4:59');
+											$pmtimeinhhxf = $pmtimeinhjkd->format('gi');
+											if ($pmtimeinhjkd <= $earlyEveningEnd) {
+												$xcolorda = "#ff0000";
+											} else {
+												$xcolorda = "#000000";
+											}
+
 											$pmtimeouthh = $row_timelogz['pmtimeout'];
+
+											$pmtimeouthjkd = new DateTime($pmtimeouthh);
+											$pmtimeouthhxf = $pmtimeouthjkd->format('gi');
+											if ($pmtimeouthhxf<459) {
+												$xcolordb = "#ff0000";
+											} else {
+												$xcolordb = "#000000";
+											}
 
 											?>
 												<tr>
 													<td class="p-0 font-size-10 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($amtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($amtimeouthh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeouthh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
 													<td class="p-0 font-size-10 border-end"></td>
 													<td class="p-0 font-size-10"></td>
 												</tr>
@@ -385,17 +457,53 @@
 											$daynohh = $row_timelogz['dayno'];
 											$namedayhh = $row_timelogz['nameday'];
 											$amtimeinhh = $row_timelogz['amtimein'];
+
+											$amtimeinxhjkd = new DateTime($amtimeinhh);
+											$amtimeinhhxf = $amtimeinxhjkd->format('gi');
+											if ($amtimeinhhxf>800) {
+												$xcolord = "#ff0000";
+											} else {
+												$xcolord = "#000000";
+											}
+
 											$amtimeouthh = $row_timelogz['amtimeout'];
+
+											$amtimeouthjkd = new DateTime($amtimeouthh);
+											$amtimeouthhxf = $amtimeouthjkd->format('gi');
+											if ($amtimeouthhxf<1159) {
+												$xcolordc = "#ff0000";
+											} else {
+												$xcolordc = "#000000";
+											}
+
 											$pmtimeinhh = $row_timelogz['pmtimein'];
+
+											$pmtimeinhjkd = new DateTime($pmtimeinhh);
+											$earlyEveningEnd = new DateTime('4:59');
+											$pmtimeinhhxf = $pmtimeinhjkd->format('gi');
+											if ($pmtimeinhjkd <= $earlyEveningEnd) {
+												$xcolorda = "#ff0000";
+											} else {
+												$xcolorda = "#000000";
+											}
+
 											$pmtimeouthh = $row_timelogz['pmtimeout'];
+
+											$pmtimeouthjkd = new DateTime($pmtimeouthh);
+											$pmtimeouthhxf = $pmtimeouthjkd->format('gi');
+											if ($pmtimeouthhxf<459) {
+												$xcolordb = "#ff0000";
+											} else {
+												$xcolordb = "#000000";
+											}
 
 											?>
 												<tr>
 													<td class="p-0 font-size-10 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($amtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($amtimeouthh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeouthh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
 													<td class="p-0 font-size-10 border-end"></td>
 													<td class="p-0 font-size-10"></td>
 												</tr>
@@ -516,17 +624,53 @@
 											$daynohh = $row_timelogz['dayno'];
 											$namedayhh = $row_timelogz['nameday'];
 											$amtimeinhh = $row_timelogz['amtimein'];
+
+											$amtimeinxhjkd = new DateTime($amtimeinhh);
+											$amtimeinhhxf = $amtimeinxhjkd->format('gi');
+											if ($amtimeinhhxf>800) {
+												$xcolord = "#ff0000";
+											} else {
+												$xcolord = "#000000";
+											}
+
 											$amtimeouthh = $row_timelogz['amtimeout'];
+
+											$amtimeouthjkd = new DateTime($amtimeouthh);
+											$amtimeouthhxf = $amtimeouthjkd->format('gi');
+											if ($amtimeouthhxf<1159) {
+												$xcolordc = "#ff0000";
+											} else {
+												$xcolordc = "#000000";
+											}
+
 											$pmtimeinhh = $row_timelogz['pmtimein'];
+
+											$pmtimeinhjkd = new DateTime($pmtimeinhh);
+											$earlyEveningEnd = new DateTime('4:59');
+											$pmtimeinhhxf = $pmtimeinhjkd->format('gi');
+											if ($pmtimeinhjkd <= $earlyEveningEnd) {
+												$xcolorda = "#ff0000";
+											} else {
+												$xcolorda = "#000000";
+											}
+
 											$pmtimeouthh = $row_timelogz['pmtimeout'];
+
+											$pmtimeouthjkd = new DateTime($pmtimeouthh);
+											$pmtimeouthhxf = $pmtimeouthjkd->format('gi');
+											if ($pmtimeouthhxf<459) {
+												$xcolordb = "#ff0000";
+											} else {
+												$xcolordb = "#000000";
+											}
 
 											?>
 												<tr>
 													<td class="p-0 font-size-10 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($amtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($amtimeouthh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeouthh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
+													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
 													<td class="p-0 font-size-10 border-end"></td>
 													<td class="p-0 font-size-10"></td>
 												</tr>
