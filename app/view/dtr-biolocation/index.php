@@ -387,26 +387,30 @@
 								If ($cnt_timein > 0) {
 									foreach ($stmt_timein as $row_timein) {
 										$amtimeinx = new DateTime($row_timein['am_in']);
-										$rsltaminx = $amtimeinx->format('g:i');
+										$xrsltamin = $amtimeinx->format('g:i');
 
-										$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
-										$qry_update_timein = "UPDATE employee_subdtr_tbl SET 
-											amtimein=:amtimein 
-											WHERE 
-											dayno=:dayno AND 
-											monthno=:monthno AND 
-											yearno=:yearno AND 
-											bio_location=:biolocation AND 
-											bio_no=:biono
-										";
-										$stmt_update_timein = $cnn->prepare($qry_update_timein);
-										$stmt_update_timein->bindParam(':amtimein', $rsltaminx);
-										$stmt_update_timein->bindParam(':yearno', $filteryear9);
-										$stmt_update_timein->bindParam(':monthno', $filtermonth9);
-										$stmt_update_timein->bindParam(':dayno', $x);
-										$stmt_update_timein->bindParam(':biolocation', $biolocation69);
-										$stmt_update_timein->bindParam(':biono', $biono69);
-										$stmt_update_timein->execute();
+										if (empty($row_timein['am_in'])) {
+
+										} else {
+											$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+											$qry_update_timein = "UPDATE employee_subdtr_tbl SET 
+												amtimein=:amtimein 
+												WHERE 
+												dayno=:dayno AND 
+												monthno=:monthno AND 
+												yearno=:yearno AND 
+												bio_location=:biolocation AND 
+												bio_no=:biono
+											";
+											$stmt_update_timein = $cnn->prepare($qry_update_timein);
+											$stmt_update_timein->bindParam(':amtimein', $xrsltamin);
+											$stmt_update_timein->bindParam(':yearno', $filteryear9);
+											$stmt_update_timein->bindParam(':monthno', $filtermonth9);
+											$stmt_update_timein->bindParam(':dayno', $x);
+											$stmt_update_timein->bindParam(':biolocation', $biolocation69);
+											$stmt_update_timein->bindParam(':biono', $biono69);
+											$stmt_update_timein->execute();
+										}
 									}
 								}
 
@@ -434,26 +438,30 @@
 								If ($cnt_timeout > 0) {
 									foreach ($stmt_timeout as $row_timeout) {
 										$amtimeoutx = new DateTime($row_timeout['am_out']);
-										$rsltamoutx = $amtimeoutx->format('g:i');
+										$xrsltamout = $amtimeoutx->format('g:i');
 
-										$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
-										$qry_update_timeout = "UPDATE employee_subdtr_tbl SET 
-											amtimeout=:amtimeout 
-											WHERE 
-											dayno=:dayno AND 
-											monthno=:monthno AND 
-											yearno=:yearno AND 
-											bio_location=:biolocation AND 
-											bio_no=:biono
-										";
-										$stmt_update_timeout = $cnn->prepare($qry_update_timeout);
-										$stmt_update_timeout->bindParam(':amtimeout', $rsltamoutx);
-										$stmt_update_timeout->bindParam(':yearno', $filteryear9);
-										$stmt_update_timeout->bindParam(':monthno', $filtermonth9);
-										$stmt_update_timeout->bindParam(':dayno', $x);
-										$stmt_update_timeout->bindParam(':biolocation', $biolocation69);
-										$stmt_update_timeout->bindParam(':biono', $biono69);
-										$stmt_update_timeout->execute();
+										if (empty($row_timeout['am_out'])) {
+
+										} else {
+											$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+											$qry_update_timeout = "UPDATE employee_subdtr_tbl SET 
+												amtimeout=:amtimeout 
+												WHERE 
+												dayno=:dayno AND 
+												monthno=:monthno AND 
+												yearno=:yearno AND 
+												bio_location=:biolocation AND 
+												bio_no=:biono
+											";
+											$stmt_update_timeout = $cnn->prepare($qry_update_timeout);
+											$stmt_update_timeout->bindParam(':amtimeout', $xrsltamout);
+											$stmt_update_timeout->bindParam(':yearno', $filteryear9);
+											$stmt_update_timeout->bindParam(':monthno', $filtermonth9);
+											$stmt_update_timeout->bindParam(':dayno', $x);
+											$stmt_update_timeout->bindParam(':biolocation', $biolocation69);
+											$stmt_update_timeout->bindParam(':biono', $biono69);
+											$stmt_update_timeout->execute();
+										}
 									}
 								}
 
@@ -481,26 +489,30 @@
 								If ($cnt_timeinpm > 0) {
 									foreach ($stmt_timeinpm as $row_timeinpm) {
 										$pmtimeinx = new datetime($row_timeinpm['pm_in']);
-										$rsltpminx = $pmtimeinx->format('g:i');
+										$xrsltpmin = $pmtimeinx->format('g:i');
 
-										$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
-										$qry_update_timeinpm = "UPDATE employee_subdtr_tbl SET 
-											pmtimein=:pmtimein 
-											WHERE 
-											dayno=:dayno AND 
-											monthno=:monthno AND 
-											yearno=:yearno AND 
-											bio_location=:biolocation AND 
-											bio_no=:biono
-										";
-										$stmt_update_timeinpm = $cnn->prepare($qry_update_timeinpm);
-										$stmt_update_timeinpm->bindParam(':pmtimein', $rsltpminx);
-										$stmt_update_timeinpm->bindParam(':yearno', $filteryear9);
-										$stmt_update_timeinpm->bindParam(':monthno', $filtermonth9);
-										$stmt_update_timeinpm->bindParam(':dayno', $x);
-										$stmt_update_timeinpm->bindParam(':biolocation', $biolocation69);
-										$stmt_update_timeinpm->bindParam(':biono', $biono69);
-										$stmt_update_timeinpm->execute();
+										if (empty($row_timeinpm['pm_in'])) {
+
+										} else {
+											$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+											$qry_update_timeinpm = "UPDATE employee_subdtr_tbl SET 
+												pmtimein=:pmtimein 
+												WHERE 
+												dayno=:dayno AND 
+												monthno=:monthno AND 
+												yearno=:yearno AND 
+												bio_location=:biolocation AND 
+												bio_no=:biono
+											";
+											$stmt_update_timeinpm = $cnn->prepare($qry_update_timeinpm);
+											$stmt_update_timeinpm->bindParam(':pmtimein', $xrsltpmin);
+											$stmt_update_timeinpm->bindParam(':yearno', $filteryear9);
+											$stmt_update_timeinpm->bindParam(':monthno', $filtermonth9);
+											$stmt_update_timeinpm->bindParam(':dayno', $x);
+											$stmt_update_timeinpm->bindParam(':biolocation', $biolocation69);
+											$stmt_update_timeinpm->bindParam(':biono', $biono69);
+											$stmt_update_timeinpm->execute();
+										}
 									}
 								}
 
@@ -528,26 +540,30 @@
 								If ($cnt_timeoutpm > 0) {
 									foreach ($stmt_timeoutpm as $row_timeoutpm) {
 										$pmtimeoutx = new DateTime($row_timeoutpm['pm_out']);
-										$rsltpmoutx = $pmtimeoutx->format('g:i');
+										$xrsltpmout = $pmtimeoutx->format('g:i');
 
-										$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
-										$qry_update_timeoutpm = "UPDATE employee_subdtr_tbl SET 
-											pmtimeout=:pmtimeout 
-											WHERE 
-											dayno=:dayno AND 
-											monthno=:monthno AND 
-											yearno=:yearno AND 
-											bio_location=:biolocation AND 
-											bio_no=:biono
-										";
-										$stmt_update_timeoutpm = $cnn->prepare($qry_update_timeoutpm);
-										$stmt_update_timeoutpm->bindParam(':pmtimeout', $rsltpmoutx);
-										$stmt_update_timeoutpm->bindParam(':yearno', $filteryear9);
-										$stmt_update_timeoutpm->bindParam(':monthno', $filtermonth9);
-										$stmt_update_timeoutpm->bindParam(':dayno', $x);
-										$stmt_update_timeoutpm->bindParam(':biolocation', $biolocation69);
-										$stmt_update_timeoutpm->bindParam(':biono', $biono69);
-										$stmt_update_timeoutpm->execute();
+										if (empty($row_timeoutpm['pm_out'])) {
+
+										} else {
+											$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+											$qry_update_timeoutpm = "UPDATE employee_subdtr_tbl SET 
+												pmtimeout=:pmtimeout 
+												WHERE 
+												dayno=:dayno AND 
+												monthno=:monthno AND 
+												yearno=:yearno AND 
+												bio_location=:biolocation AND 
+												bio_no=:biono
+											";
+											$stmt_update_timeoutpm = $cnn->prepare($qry_update_timeoutpm);
+											$stmt_update_timeoutpm->bindParam(':pmtimeout', $xrsltpmout);
+											$stmt_update_timeoutpm->bindParam(':yearno', $filteryear9);
+											$stmt_update_timeoutpm->bindParam(':monthno', $filtermonth9);
+											$stmt_update_timeoutpm->bindParam(':dayno', $x);
+											$stmt_update_timeoutpm->bindParam(':biolocation', $biolocation69);
+											$stmt_update_timeoutpm->bindParam(':biono', $biono69);
+											$stmt_update_timeoutpm->execute();
+										}
 									}
 								}
 

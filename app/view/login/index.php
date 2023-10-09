@@ -58,10 +58,16 @@
 
 					<!-- Password input -->
 					<div class="form-outline mb-3">
-						<input type="password" id="password" name="password" class="form-control form-control-md" placeholder="Enter password" required>
-						<div class="valid-feedback">Valid.</div>
-						<div class="invalid-feedback">Please fill out this field.</div>
-						<label class="form-label" for="password">Password</label>
+						<div class="input-group mb-3" id="show_hide_password">
+							<input type="password" class="form-control form-control-md password" id="password" placeholder="Password" name="password"  required>
+							<div class="input-group-prepend">
+								<span class="input-group-text">
+									<i class="fa fa-eye-slash" aria-hidden="true" onclick="PwHideShow()"></i>
+								</span>
+							</div>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please fill out this field.</div>
+						</div>
 					</div>
 
 					<div class="d-flex justify-content-between align-items-center">
