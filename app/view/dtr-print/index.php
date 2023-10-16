@@ -1,4 +1,7 @@
 <?php
+
+	$time_pattern = '/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/';
+	$word_pattern = '/^[A-Za-z]+$/';
 	
 	$yrno = isset($_GET['yrno']) ? $_GET['yrno'] : '';
 	$monthno = isset($_GET['monthno']) ? $_GET['monthno'] : '';
@@ -127,12 +130,14 @@
 											$namedayhh = $row_timelogz['nameday'];
 											$amtimeinhh = $row_timelogz['amtimein'];
 
-											$amtimeinxhjkd = new DateTime($amtimeinhh);
-											$amtimeinhhxf = $amtimeinxhjkd->format('gi');
-											if ($amtimeinhhxf>800) {
-												$xcolord = "#ff0000";
-											} else {
-												$xcolord = "#000000";
+											if (preg_match($time_pattern, $amtimeinhh)) {
+												$amtimeinxhjkd = new DateTime($amtimeinhh);
+												$amtimeinhhxf = $amtimeinxhjkd->format('gi');
+												if ($amtimeinhhxf>800) {
+													$xcolord = "#ff0000";
+												} else {
+													$xcolord = "#000000";
+												}
 											}
 
 											$amtimeouthh = $row_timelogz['amtimeout'];
@@ -174,14 +179,28 @@
 											?>
 												<tr>
 													<td class="p-0 font-size-10 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
-													<td class="p-0 font-size-10 border-end"></td>
-													<td class="p-0 font-size-10 border-end"></td>
-													<td class="p-0 font-size-10 border-end"></td>
-													<td class="p-0 font-size-10"></td>
+													<?php
+														if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB") {
+															?>
+																<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10"></td>
+															<?php
+														} else {
+															?>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10"></td>
+															<?php
+														}
+													?>
 												</tr>
 											<?php
 										}
@@ -313,12 +332,14 @@
 											$namedayhh = $row_timelogz['nameday'];
 											$amtimeinhh = $row_timelogz['amtimein'];
 
-											$amtimeinxhjkd = new DateTime($amtimeinhh);
-											$amtimeinhhxf = $amtimeinxhjkd->format('gi');
-											if ($amtimeinhhxf>800) {
-												$xcolord = "#ff0000";
-											} else {
-												$xcolord = "#000000";
+											if (preg_match($time_pattern, $amtimeinhh)) {
+												$amtimeinxhjkd = new DateTime($amtimeinhh);
+												$amtimeinhhxf = $amtimeinxhjkd->format('gi');
+												if ($amtimeinhhxf>800) {
+													$xcolord = "#ff0000";
+												} else {
+													$xcolord = "#000000";
+												}
 											}
 
 											$amtimeouthh = $row_timelogz['amtimeout'];
@@ -360,14 +381,28 @@
 											?>
 												<tr>
 													<td class="p-0 font-size-10 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
-													<td class="p-0 font-size-10 border-end"></td>
-													<td class="p-0 font-size-10 border-end"></td>
-													<td class="p-0 font-size-10 border-end"></td>
-													<td class="p-0 font-size-10"></td>
+													<?php
+														if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB") {
+															?>
+																<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10"></td>
+															<?php
+														} else {
+															?>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10"></td>
+															<?php
+														}
+													?>
 												</tr>
 											<?php
 										}
@@ -499,12 +534,14 @@
 											$namedayhh = $row_timelogz['nameday'];
 											$amtimeinhh = $row_timelogz['amtimein'];
 
-											$amtimeinxhjkd = new DateTime($amtimeinhh);
-											$amtimeinhhxf = $amtimeinxhjkd->format('gi');
-											if ($amtimeinhhxf>800) {
-												$xcolord = "#ff0000";
-											} else {
-												$xcolord = "#000000";
+											if (preg_match($time_pattern, $amtimeinhh)) {
+												$amtimeinxhjkd = new DateTime($amtimeinhh);
+												$amtimeinhhxf = $amtimeinxhjkd->format('gi');
+												if ($amtimeinhhxf>800) {
+													$xcolord = "#ff0000";
+												} else {
+													$xcolord = "#000000";
+												}
 											}
 
 											$amtimeouthh = $row_timelogz['amtimeout'];
@@ -546,14 +583,28 @@
 											?>
 												<tr>
 													<td class="p-0 font-size-10 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
-													<td class="p-0 font-size-10 border-end"></td>
-													<td class="p-0 font-size-10 border-end"></td>
-													<td class="p-0 font-size-10 border-end"></td>
-													<td class="p-0 font-size-10"></td>
+													<?php
+														if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB") {
+															?>
+																<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10"></td>
+															<?php
+														} else {
+															?>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10"></td>
+															<?php
+														}
+													?>
 												</tr>
 											<?php
 										}
@@ -685,12 +736,14 @@
 											$namedayhh = $row_timelogz['nameday'];
 											$amtimeinhh = $row_timelogz['amtimein'];
 
-											$amtimeinxhjkd = new DateTime($amtimeinhh);
-											$amtimeinhhxf = $amtimeinxhjkd->format('gi');
-											if ($amtimeinhhxf>800) {
-												$xcolord = "#ff0000";
-											} else {
-												$xcolord = "#000000";
+											if (preg_match($time_pattern, $amtimeinhh)) {
+												$amtimeinxhjkd = new DateTime($amtimeinhh);
+												$amtimeinhhxf = $amtimeinxhjkd->format('gi');
+												if ($amtimeinhhxf>800) {
+													$xcolord = "#ff0000";
+												} else {
+													$xcolord = "#000000";
+												}
 											}
 
 											$amtimeouthh = $row_timelogz['amtimeout'];
@@ -732,14 +785,28 @@
 											?>
 												<tr>
 													<td class="p-0 font-size-10 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
-													<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
-													<td class="p-0 font-size-10 border-end"></td>
-													<td class="p-0 font-size-10 border-end"></td>
-													<td class="p-0 font-size-10 border-end"></td>
-													<td class="p-0 font-size-10"></td>
+													<?php
+														if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB") {
+															?>
+																<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10"></td>
+															<?php
+														} else {
+															?>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
+																<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10 border-end"></td>
+																<td class="p-0 font-size-10"></td>
+															<?php
+														}
+													?>
 												</tr>
 											<?php
 										}
