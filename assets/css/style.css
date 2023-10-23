@@ -1,6 +1,12 @@
+.scrollable {
+	overflow-y: auto;
+}
+
 .txt-bg-f2f2f2 {
 	background-color: #f2f2f2!important;
 }
+
+.font-color-dark-blue {color: #000033!important;}
 
 .font-size-6 {font-size: 6px;}
 .font-size-8 {font-size: 8px;}
@@ -10,14 +16,6 @@
 .font-size-14 {font-size: 14px;}
 
 .text-indent-32 {text-indent: 32px;}
-
-.table tr:hover {
-	cursor: pointer;
-}
-
-.scrollable {
-	overflow-y: auto;
-}
 
 .vh-99 { height: 99vh; }
 .vh-98 { height: 98vh; }
@@ -29,6 +27,24 @@
 .vh-92 { height: 92vh; }
 .vh-91 { height: 91vh; }
 .vh-90 { height: 90vh; }
+
+.cursor-hand {cursor: pointer;}
+
+.mx-w-100 {max-width: 100px;}
+
+.border-bottom-width-0 {border-bottom-width: 0!important;}
+
+/** Navbar **/
+#main-logo {
+	max-height: 68px;
+	transition: 0.4s;
+}
+
+/** Data Table **/
+
+.table tr:hover {
+	cursor: pointer;
+}
 
 #listRecView tfoot tr td.remove-dropdown select, 
 #listRecView tfoot tr td.remove-dropdown input, 

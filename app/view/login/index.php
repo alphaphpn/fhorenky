@@ -23,7 +23,7 @@
 		<div class="row d-flex justify-content-center align-items-center h-100">
 			<div class="col-md-9 col-lg-6 col-xl-5 text-center">
 				<a href="../../">
-					<img src="//sibugay.gov.ph/wp-content/uploads/2022/08/cropped-favicon-zsp.png" class="img-fluid" alt="Sample image">
+					<img src="../../public/favicon-zsp.png" class="img-fluid" alt="The Logo">
 				</a>
 			</div>
 
@@ -53,15 +53,14 @@
 						<input type="text" id="userid" name="userid" class="form-control form-control-md" placeholder="Enter a valid User" required>
 						<div class="valid-feedback">Valid.</div>
 						<div class="invalid-feedback">Please fill out this field.</div>
-						<label class="form-label" for="userid">User</label>
 					</div>
 
 					<!-- Password input -->
 					<div class="form-outline mb-3">
 						<div class="input-group mb-3" id="show_hide_password">
 							<input type="password" class="form-control form-control-md password" id="password" placeholder="Password" name="password"  required>
-							<div class="input-group-prepend">
-								<span class="input-group-text">
+							<div class="input-group-prepend cursor-hand">
+								<span class="input-group-text h-100 rounded-0 rounded-end">
 									<i class="fa fa-eye-slash" aria-hidden="true" onclick="PwHideShow()"></i>
 								</span>
 							</div>

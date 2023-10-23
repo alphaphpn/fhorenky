@@ -63,17 +63,6 @@
 							$_SESSION["ustat"] = $ustatg;
 							$_SESSION["verified"] = $verifiedg;
 							$_SESSION["xdel"] = $xdelg;
-
-							// echo '<div class="alert alert-danger alert-dismissible fade show">';
-							// 	echo '<button type="button" class="btn-close" data-bs-dismiss="alert"></button>';
-							// 	echo $usercode.'<br>';
-							// 	echo $uname.'<br>';
-							// 	echo $ulevel.'<br>';
-							// 	echo $uposition.'<br>';
-							// 	echo $ustatg.'<br>';
-							// 	echo $verifiedg.'<br>';
-							// 	echo $xdelg.'<br>';
-							// echo '</div>';
 							
 							echo "<script>window.open('../../', '_self');</script>";
 						}

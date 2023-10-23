@@ -1,5 +1,7 @@
 <?php
 
+	include_once "../../app/theme/default/navbar.php";
+
 	$yrno = isset($_GET['yrno']) ? $_GET['yrno'] : '';
 	$monthno = isset($_GET['monthno']) ? $_GET['monthno'] : '';
 	$biolocation = isset($_GET['biolocation']) ? $_GET['biolocation'] : '';
@@ -7,8 +9,8 @@
 	if (isset($_GET['yrno']) && isset($_GET['monthno']) && isset($_GET['biolocation'])) {
 		?>
 		<section>
-			<div class="container">
-				<div id="" class="table-responsive-lg mt-3">
+			<div class="container-fluid">
+				<div class="table-responsive-lg mt-3">
 					<table id="listRecView" class="table table-striped table-hover table-sm">
 						<thead id="remSortH">
 							<tr>
@@ -62,6 +64,7 @@
 									$officename=$row["officename"];
 									$signatory=utf8_encode($row["headofficer"]);
 									$xlinkz = "../../routes/dtr-print/?yrno=".$yrno."&monthno=".$monthno."&biolocation=".$biolocation."&biono=".$biono;
+									$chklinkz = "../../routes/dtr-check/?yrno=".$yrno."&monthno=".$monthno."&biolocation=".$biolocation."&biono=".$biono;
 							?>
 									<tr>
 										<td><?php echo $xno; ?></td>
@@ -73,7 +76,12 @@
 										<td><?php echo $officename; ?></td>
 										<td><?php echo utf8_decode($signatory); ?></td>
 										<td><?php echo $profileid; ?></td>
-										<td><a href="<?php echo trim($xlinkz); ?>" target="_blank">DTR</a></td>
+										<td>
+											<a href="<?php echo trim($xlinkz); ?>" target="_blank" class="btn btn-primary btn-sm">DTR</a>
+											<a href="<?php echo trim($chklinkz); ?>" target="_blank" class="btn btn-danger btn-sm">
+												<i class="fa fa-check" aria-hidden="true"></i>
+											</a>
+										</td>
 									</tr>
 							<?php
 								}
