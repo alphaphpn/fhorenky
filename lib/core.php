@@ -8,7 +8,7 @@
 
 	set_time_limit(0);
 	
-	ini_set('default_charset', 'utf-8');
+	// ini_set('default_charset', 'utf-8');
 
 	function isValidDate($date, $format = 'Y-m-d') {
 		$dateTime = DateTime::createFromFormat($format, $date);

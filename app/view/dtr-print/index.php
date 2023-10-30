@@ -196,11 +196,22 @@
 															?>
 															<td colspan="9" class="p-0 font-size-10 text-center txt-bg-f2f2f2">NOT APPLICABLE</td>
 															<?php
+														} elseif (empty($amtimeinhh) && empty($amtimeouthh) && empty($pmtimeinhh) && empty($pmtimeouthh)) {
+															if ($namedayhh=='Sat' || $namedayhh=='Sun') {
+																?>
+																<td colspan="9" class="p-0 font-size-10 text-center txt-bg-f2f2f2"><?php echo trim(strtoupper($namedayhh)); ?></td>
+																<?php
+															} else {
+																?>
+																<td class="p-0 font-size-10 ps-2 border-end"><?php echo trim($namedayhh); ?></td>
+																<td colspan="8" class="p-0 font-size-10 text-center txt-bg-f2f2f2">ABSENT</td>
+																<?php
+															}
 														} else {
 															?>
 															<td class="p-0 font-size-10 ps-2 border-end"><?php echo trim($namedayhh); ?></td>
 															<?php
-															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="HOLIDAY" || $amtimeinhh=="New Year's Day" || $amtimeinhh=="Araw ng Kagitingan" || $amtimeinhh=="Maundy Thursday" || $amtimeinhh=="Good Friday" || $amtimeinhh=="Eid'l Fitr" || $amtimeinhh=="Labor Day" || $amtimeinhh=="Independence Day" || $amtimeinhh=="Eid'l Adha" || $amtimeinhh=="National Heroes Day" || $amtimeinhh=="All Saints' Day" || $amtimeinhh=="All Souls' Day" || $amtimeinhh=="Bonifacio Day" || $amtimeinhh=="Christmas Day" || $amtimeinhh=="Rizal Day" || $amtimeinhh=="MEMORANDUM CIRCULAR No.") {
+															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="HOLIDAY" || $amtimeinhh=="New Year's Day" || $amtimeinhh=="Araw ng Kagitingan" || $amtimeinhh=="Maundy Thursday" || $amtimeinhh=="Good Friday" || $amtimeinhh=="Eidl Fitr" || $amtimeinhh=="Labor Day" || $amtimeinhh=="Independence Day" || $amtimeinhh=="Eidl Adha" || $amtimeinhh=="National Heroes Day" || $amtimeinhh=="All Saints Day" || $amtimeinhh=="All Souls Day" || $amtimeinhh=="Bonifacio Day" || $amtimeinhh=="Christmas Day" || $amtimeinhh=="Rizal Day" || $amtimeinhh=="MEMORANDUM CIRCULAR No.") {
 																?>
 																	<td colspan="9" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
 																<?php
@@ -278,7 +289,7 @@
 								</tr>
 								<tr>
 									<td class="p-0 font-size-10 text-center"></td>
-									<td colspan="8" class="p-0 font-size-10 font-color-dark-blue"><b>ATTY. CHRISTIAN JAY M. MILLENA</b><br>Provincial Administrator</td>
+									<td colspan="8" class="p-0 font-size-10 font-color-dark-blue"><b class="border-top-dotted">ATTY. CHRISTIAN JAY M. MILLENA</b><br>Provincial Administrator</td>
 									<td class="p-0 font-size-10 text-center"></td>
 								</tr>
 								<?php

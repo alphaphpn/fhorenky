@@ -1,6 +1,6 @@
 	<section id="section-navbar" class="sticky-top">
 		<nav id="navbar" class="navbar navbar-expand-sm navbar-dark bg-dark">
-			<div class="container">
+			<div class="container-fluid">
 				<a class="navbar-brand" href="javascript:void(0)">
 					<img id="main-logo" src="<?php echo $domainhome.'/public/'.$navbarlogo; ?>">
 				</a>
@@ -23,8 +23,11 @@
 							<a class="nav-link" href="javascript:void(0)">Legislative</a>
 						</li>
 
-						<li class="nav-item">
-							<a class="nav-link" href="javascript:void(0)">Transparency</a>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0)">Transparency</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dtr-emp">DTR</a></li>
+							</ul>
 						</li>
 
 						<li class="nav-item">
@@ -75,8 +78,19 @@
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menu</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dtr-emp">DTR</a></li>
-								<li><a class="dropdown-item" href="#">Link 2</a></li>
-								<li><a class="dropdown-item" href="#">Link 3</a></li>
+							</ul>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo $domainhome; ?>/routes/logout">Logout</a>
+						</li>
+					<?php
+						} elseif ($_SESSION["ulevel"]==14 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
+					?>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menu</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/brgy-elec-result">BRGY ELEC</a></li>
 							</ul>
 						</li>
 

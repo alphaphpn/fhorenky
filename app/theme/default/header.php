@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<meta name="description" content="">
 	<meta name="author" content="">
-	<meta http-equiv="refresh" content="">
+	<meta http-equiv="refresh" content="<?php echo $idletime ?>">
 	<META HTTP-EQUIV="Pragma" CONTENT="no-cache">
 	<META HTTP-EQUIV="Expires" CONTENT="-1">
 	<meta name="google-signin-scope" content="profile email">
@@ -27,4 +27,4 @@
 	<script src="<?php echo $domainhome; ?>/assets/datatables/1.13.6/js/jquery.dataTables.min.js"></script>
 	<script src="<?php echo $domainhome; ?>/assets/datatables/1.13.6/js/dataTables.bootstrap5.min.js"></script>
 </head>
-<body id="home">
+<body id="home" data-spy="scroll" data-target=".navbar" data-offset="60" oncontextmenu="return true;">

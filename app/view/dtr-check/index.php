@@ -2,23 +2,33 @@
 
 	// AO Account Logged
 	if (empty($_SESSION["uid"]) || empty($_SESSION["uname"]) || empty($_SESSION["ulevel"]) || empty($_SESSION["uposition"]) || empty($_SESSION["ustat"]) || empty($_SESSION["verified"])) {
-		echo '<script>alert("Access denied!");window.open("../../routes/login","_self");</script>';
+		// echo '<script>alert("Access denied!");window.open("../../routes/login","_self");</script>';
+		header("Location: ../../routes/login");
+		exit;
 	} elseif ($_SESSION["ulevel"]==1) {
 
 	} elseif ($_SESSION["ulevel"]==13 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
 		
 	} elseif ($_SESSION["ustat"]==0) {
 		// Account Disabled.
-		echo '<script>alert("Your Account has been Disabled!");window.open("../../routes/login","_self");</script>';
+		// echo '<script>alert("Your Account has been Disabled!");window.open("../../routes/login","_self");</script>';
+		header("Location: ../../routes/login");
+		exit;
 	} elseif ($_SESSION["verified"]==0) {
 		// Account not verified.
-		echo '<script>alert("Your Account needs to be Verified!");window.open("../../routes/login","_self");</script>';
+		// echo '<script>alert("Your Account needs to be Verified!");window.open("../../routes/login","_self");</script>';
+		header("Location: ../../routes/login");
+		exit;
 	} elseif ($_SESSION["xdel"]==1) {
 		// Account deleted.
-		echo '<script>alert("Your Account has been Deleted!");window.open("../../routes/login","_self");</script>';
+		// echo '<script>alert("Your Account has been Deleted!");window.open("../../routes/login","_self");</script>';
+		header("Location: ../../routes/login");
+		exit;
 	} else {
 		// Access denied! Authorized person only.
-		echo '<script>alert("Access denied! Only Authorized account is allowed.");window.open("../../routes/login","_self");</script>';
+		// echo '<script>alert("Access denied! Only Authorized account is allowed.");window.open("../../routes/login","_self");</script>';
+		header("Location: ../../routes/login");
+		exit;
 	}
 
 	$time_pattern = '/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/';
@@ -246,7 +256,7 @@
 													?>
 															<td class="p-0 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
 													<?php
-															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="HOLIDAY" || $amtimeinhh=="New Year's Day" || $amtimeinhh=="Araw ng Kagitingan" || $amtimeinhh=="Maundy Thursday" || $amtimeinhh=="Good Friday" || $amtimeinhh=="Eid'l Fitr" || $amtimeinhh=="Labor Day" || $amtimeinhh=="Independence Day" || $amtimeinhh=="Eid'l Adha" || $amtimeinhh=="National Heroes Day" || $amtimeinhh=="All Saints' Day" || $amtimeinhh=="All Souls' Day" || $amtimeinhh=="Bonifacio Day" || $amtimeinhh=="Christmas Day" || $amtimeinhh=="Rizal Day" || $amtimeinhh=="MEMORANDUM CIRCULAR No.") {
+															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="HOLIDAY" || $amtimeinhh=="New Years Day" || $amtimeinhh=="Araw ng Kagitingan" || $amtimeinhh=="Maundy Thursday" || $amtimeinhh=="Good Friday" || $amtimeinhh=="Eidl Fitr" || $amtimeinhh=="Labor Day" || $amtimeinhh=="Independence Day" || $amtimeinhh=="Eidl Adha" || $amtimeinhh=="National Heroes Day" || $amtimeinhh=="All Saints Day" || $amtimeinhh=="All Souls Day" || $amtimeinhh=="Bonifacio Day" || $amtimeinhh=="Christmas Day" || $amtimeinhh=="Rizal Day" || $amtimeinhh=="MEMORANDUM CIRCULAR No.") {
 															?>
 																<td colspan="8" class="p-0 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
 															<?php
@@ -439,7 +449,7 @@
 						<label id="lbldate">Date:</label>
 						<div class="input-group">
 							<span id="labelingcap" class="input-group-text">Label</span>
-							<input list="valuefldlists" id="fldvaluex" class="form-control" name="datafeld" min="1" required>
+							<input list="valuefldlists" id="fldvaluex" class="form-control" name="datafeld" min="1" autofocus required>
 							<div class="valid-feedback">Valid.</div>
 							<div class="invalid-feedback">Please fill out this field.</div>
 
@@ -634,5 +644,7 @@
 			if (datafield=='amtimein') {
 				document.getElementById("valuefldlists").innerHTML = '<option value="ON LEAVE"></option><option value="OB">Official Business</option><option value="HOLIDAY"></option><option value="New Years Day">January 1</option><option value="Araw ng Kagitingan">April 10</option><option value="Maundy Thursday"></option><option value="Good Friday"></option><option value="Eidl Fitr">April 21</option><option value="Labor Day">May 1</option><option value="Independence Day">June 12</option><option value="Eidl Adha">June 28</option><option value="National Heroes Day">August 28</option><option value="All Saints Day">November 1</option><option value="All Souls Day">November 2</option><option value="Bonifacio Day">November 27</option><option value="Christmas Day">December 25</option><option value="Rizal Day">December 30</option><option value="MEMORANDUM CIRCULAR No."></option>';
 			}
+
+			document.getElementById("fldvaluex").focus();
 		}
 	</script>

@@ -2,4 +2,5 @@
 
 <?php
 	include_once "app/theme/default/navbar.php";
+	// include_once "app/theme/default/hero-banner.php";
 ?>
