@@ -1061,7 +1061,7 @@
 												$brgy_aspire = $barangay;
 												$zpcod_aspire = $zipcode;
 												$aspire_position = trim($_POST['positionbrgy']);
-												$aspirantdagan = trim($_POST['aspirantname']);
+												$aspirantdagan = trim(strtoupper($_POST['aspirantname']));
 												$teamparty = trim($_POST['teamparty']);
 												$numbvotes = trim($_POST['numbvotes']);
 
