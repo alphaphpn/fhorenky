@@ -1011,7 +1011,7 @@
 
 						<div class="input-group my-1">
 							<span class="input-group-text">Reg. Voters</span>
-							<input id="regvotey" type="number" class="form-control" name="regvotey" min="0" value="<?php echo trim($registeredvoters); ?>">
+							<input id="regvotey" type="number" class="form-control" name="regvotey" min="0" value="<?php echo trim($registeredvoters); ?>" readonly>
 						</div>
 
 						<div id="rem-towncity" class="input-group my-1">
