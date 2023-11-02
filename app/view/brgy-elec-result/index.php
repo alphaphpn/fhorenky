@@ -293,7 +293,7 @@
 											$stmt_barangaylist->execute();
 											$result_barangaylist = $stmt_barangaylist->setFetchMode(PDO::FETCH_ASSOC);
 											foreach ($stmt_barangaylist as $row_barangaylist) {
-												$brgyname = $row_barangaylist['barangay'];
+												$brgyname = utf8_encode($row_barangaylist['barangay']);
 												echo "<option id='brgy".$row_barangaylist['brgyid']."' value='".utf8_decode($brgyname)."' data-zipcode='".$row_barangaylist['zipcode']." data-municipal='".$row_barangaylist['municipal']." data-district='".$row_barangaylist['district']."'></option>";
 											}
 										?>
