@@ -133,6 +133,28 @@
 
 									if ($nmbrtimelogz>0) {
 										for($i=0; $row_timelogz = $stmt_timelogz->fetch(); $i++) {
+											$monthnohh = $row_timelogz['monthno'];
+											$daynohh = $row_timelogz['dayno'];
+											$yearnohh = $row_timelogz['yearno'];
+
+											/** Check Holidays - Start **/
+											$stmt_holiday = $cnn->prepare("SELECT * FROM holidays_tbl WHERE holiday_mno=:monthno AND holiday_day=:dayno AND holiday_year=:yearno");
+											$stmt_holiday->bindParam(':monthno', $monthnohh);
+											$stmt_holiday->bindParam(':dayno', $daynohh);
+											$stmt_holiday->bindParam(':yearno', $yearnohh);
+											$stmt_holiday->execute();
+											$nmbr_holiday = $stmt_holiday->rowCount();
+											$row_holiday = $stmt_holiday->fetch(PDO::FETCH_ASSOC);
+
+											if ($nmbr_holiday==0) {
+												// No Holiday
+												$holidayname = null;
+											} else {
+												// With Holiday
+												$holidayname = trim($row_holiday['holiday_name']);
+											}
+											/** Check Holidays - End **/
+
 											$daynohh = $row_timelogz['dayno'];
 											$namedayhh = $row_timelogz['nameday'];
 											$amtimeinhh = $row_timelogz['amtimein'];
@@ -204,7 +226,17 @@
 															} else {
 																?>
 																<td class="p-0 font-size-10 ps-2 border-end"><?php echo trim($namedayhh); ?></td>
-																<td colspan="8" class="p-0 font-size-10 text-center txt-bg-f2f2f2">ABSENT</td>
+																<?php
+																	if (empty($holidayname) || $holidayname == null) {
+																		?>
+																			<td colspan="8" class="p-0 font-size-10 text-center txt-bg-f2f2f2 text-danger">ABSENT</td>
+																		<?php
+																	} else {
+																		?>
+																			<td colspan="8" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim(strtoupper($holidayname)); ?></td>
+																		<?php
+																	}
+																?>
 																<?php
 															}
 														} else {
