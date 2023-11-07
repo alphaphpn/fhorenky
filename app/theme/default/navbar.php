@@ -62,7 +62,7 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menu</a>
 							<ul class="dropdown-menu">
-								<li><a class="dropdown-item" href="#">Link 1</a></li>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dtr-biolocation/">DTR Generator</a></li>
 								<li><a class="dropdown-item" href="#">Link 2</a></li>
 								<li><a class="dropdown-item" href="#">Link 3</a></li>
 							</ul>
