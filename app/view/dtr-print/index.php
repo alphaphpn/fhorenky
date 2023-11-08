@@ -230,6 +230,10 @@
 																	if (empty($holidayname) || $holidayname == null) {
 																		?>
 																			<td colspan="4" class="p-0 font-size-10 text-center txt-bg-f2f2f2 text-danger">ABSENT</td>
+																			<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimehour); ?></td>
+																			<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimemin); ?></td>
+																			<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
+																			<td class="p-0 font-size-10 text-center"><?php echo trim($overtimemin); ?></td>
 																		<?php
 																	} else {
 																		?>
