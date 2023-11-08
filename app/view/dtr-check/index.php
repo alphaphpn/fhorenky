@@ -26,7 +26,7 @@
 		exit;
 	} else {
 		// Access denied! Authorized person only.
-		// echo '<script>alert("Access denied! Only Authorized account is allowed.");window.open("../../routes/login","_self");</script>';
+		echo '<script>alert("Access denied! Only Authorized account is allowed.");</script>';
 		header("Location: ../../routes/login");
 		exit;
 	}
