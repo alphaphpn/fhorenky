@@ -256,7 +256,7 @@
 													?>
 															<td class="p-0 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
 													<?php
-															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="HOLIDAY" || $amtimeinhh=="New Years Day" || $amtimeinhh=="Araw ng Kagitingan" || $amtimeinhh=="Maundy Thursday" || $amtimeinhh=="Good Friday" || $amtimeinhh=="Eidl Fitr" || $amtimeinhh=="Labor Day" || $amtimeinhh=="Independence Day" || $amtimeinhh=="Eidl Adha" || $amtimeinhh=="National Heroes Day" || $amtimeinhh=="All Saints Day" || $amtimeinhh=="All Souls Day" || $amtimeinhh=="Bonifacio Day" || $amtimeinhh=="Christmas Day" || $amtimeinhh=="Rizal Day" || $amtimeinhh=="MEMORANDUM CIRCULAR No.") {
+															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB") {
 															?>
 																<td colspan="8" class="p-0 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
 															<?php
@@ -483,38 +483,6 @@
 												return TRUE;
 											} elseif ($valstat=="OB") {
 												return TRUE;
-											} elseif ($valstat=="HOLIDAY") {
-												return TRUE;
-											} elseif ($valstat=="New Years Day") {
-												return TRUE;
-											} elseif ($valstat=="Araw ng Kagitingan") {
-												return TRUE;
-											} elseif ($valstat=="Maundy Thursday") {
-												return TRUE;
-											} elseif ($valstat=="Good Friday") {
-												return TRUE;
-											} elseif ($valstat=="Eidl Fitr") {
-												return TRUE;
-											} elseif ($valstat=="Labor Day") {
-												return TRUE;
-											} elseif ($valstat=="Independence Day") {
-												return TRUE;
-											} elseif ($valstat=="Eidl Adha") {
-												return TRUE;
-											} elseif ($valstat=="National Heroes Day") {
-												return TRUE;
-											} elseif ($valstat=="All Saints Day") {
-												return TRUE;
-											} elseif ($valstat=="All Souls Day") {
-												return TRUE;
-											} elseif ($valstat=="Bonifacio Day") {
-												return TRUE;
-											} elseif ($valstat=="Christmas Day") {
-												return TRUE;
-											} elseif ($valstat=="Rizal Day") {
-												return TRUE;
-											} elseif ($valstat=="MEMORANDUM CIRCULAR No.") {
-												return TRUE;
 											} else {
 												return FALSE;
 											}
@@ -642,7 +610,7 @@
 			document.getElementById("fldvaluex").type = xtype;
 
 			if (datafield=='amtimein') {
-				document.getElementById("valuefldlists").innerHTML = '<option value="ON LEAVE"></option><option value="OB">Official Business</option><option value="HOLIDAY"></option><option value="New Years Day">January 1</option><option value="Araw ng Kagitingan">April 10</option><option value="Maundy Thursday"></option><option value="Good Friday"></option><option value="Eidl Fitr">April 21</option><option value="Labor Day">May 1</option><option value="Independence Day">June 12</option><option value="Eidl Adha">June 28</option><option value="National Heroes Day">August 28</option><option value="All Saints Day">November 1</option><option value="All Souls Day">November 2</option><option value="Bonifacio Day">November 27</option><option value="Christmas Day">December 25</option><option value="Rizal Day">December 30</option><option value="MEMORANDUM CIRCULAR No."></option>';
+				document.getElementById("valuefldlists").innerHTML = '<option value="ON LEAVE"></option><option value="OB">Official Business</option>';
 			}
 
 			document.getElementById("fldvaluex").focus();
