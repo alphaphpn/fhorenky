@@ -7,7 +7,7 @@
 		exit;
 	} elseif ($_SESSION["ulevel"]==1) {
 
-	} elseif ($_SESSION["ulevel"]==13 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
+	// } elseif ($_SESSION["ulevel"]==13 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
 		
 	} elseif ($_SESSION["ustat"]==0) {
 		// Account Disabled.
