@@ -229,7 +229,7 @@
 																<?php
 																	if (empty($holidayname) || $holidayname == null) {
 																		?>
-																			<td colspan="8" class="p-0 font-size-10 text-center txt-bg-f2f2f2 text-danger">ABSENT</td>
+																			<td colspan="4" class="p-0 font-size-10 text-center txt-bg-f2f2f2 text-danger">ABSENT</td>
 																		<?php
 																	} else {
 																		?>
