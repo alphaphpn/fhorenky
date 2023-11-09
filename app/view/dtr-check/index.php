@@ -7,7 +7,7 @@
 		exit;
 	} elseif ($_SESSION["ulevel"]==1) {
 
-	// } elseif ($_SESSION["ulevel"]==13 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
+	} elseif ($_SESSION["ulevel"]==13 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
 		
 	} elseif ($_SESSION["ustat"]==0) {
 		// Account Disabled.
@@ -26,7 +26,7 @@
 		exit;
 	} else {
 		// Access denied! Authorized person only.
-		echo '<script>alert("Access denied! Only Authorized account is allowed.");</script>';
+		// echo '<script>alert("Access denied! Only Authorized account is allowed.");</script>';
 		header("Location: ../../routes/login");
 		exit;
 	}

@@ -20,7 +20,7 @@
 								<th class="remove-dropdown"></th>
 								<th class="remove-dropdown"></th>
 								<th class="remove-dropdown"></th>
-								<th class="remove-dropdown"></th>
+								<th></th>
 								<th class="remove-dropdown"></th>
 								<th class="remove-dropdown"></th>
 								<th class="remove-dropdown"></th>
@@ -96,7 +96,7 @@
 								<td class="remove-dropdown"></td>
 								<td class="remove-dropdown"></td>
 								<td class="remove-dropdown"></td>
-								<td class="remove-dropdown"></td>
+								<td></td>
 								<td class="remove-dropdown"></td>
 								<td class="remove-dropdown"></td>
 								<td class="remove-dropdown"></td>
