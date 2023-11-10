@@ -146,7 +146,7 @@
 					</div>
 
 					<div class="card-body scrollable">
-						<table class="table" border="2">
+						<table class="table table-striped table-hover" border="2">
 							<thead>
 								<tr align="center">
 									<th rowspan="2" class="p-0 align-middle border-end">DTR No.</th>
