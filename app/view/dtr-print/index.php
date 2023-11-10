@@ -247,7 +247,7 @@
 															?>
 															<td class="p-0 font-size-10 ps-2 border-end"><?php echo trim($namedayhh); ?></td>
 															<?php
-															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="OT") {
+															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="OT" || $amtimeinhh=="DAY OFF") {
 																?>
 																	<td colspan="9" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
 																<?php
@@ -528,7 +528,7 @@
 															?>
 															<td class="p-0 font-size-10 ps-2 border-end"><?php echo trim($namedayhh); ?></td>
 															<?php
-															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="OT") {
+															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="OT" || $amtimeinhh=="DAY OFF") {
 																?>
 																	<td colspan="9" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
 																<?php
@@ -809,7 +809,7 @@
 															?>
 															<td class="p-0 font-size-10 ps-2 border-end"><?php echo trim($namedayhh); ?></td>
 															<?php
-															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="OT") {
+															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="OT" || $amtimeinhh=="DAY OFF") {
 																?>
 																	<td colspan="9" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
 																<?php
@@ -1090,7 +1090,7 @@
 															?>
 															<td class="p-0 font-size-10 ps-2 border-end"><?php echo trim($namedayhh); ?></td>
 															<?php
-															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="OT") {
+															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="OT" || $amtimeinhh=="DAY OFF") {
 																?>
 																	<td colspan="9" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
 																<?php
