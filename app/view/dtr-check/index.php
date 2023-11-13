@@ -256,7 +256,7 @@
 													?>
 															<td class="p-0 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
 													<?php
-															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="OB" || $amtimeinhh=="DAY OFF") {
+															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="DAY OFF" || $amtimeinhh=="NOT APPLICABLE") {
 															?>
 																<td colspan="8" class="p-0 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
 															<?php
@@ -487,6 +487,10 @@
 												return TRUE;
 											} elseif ($valstat=="DAY OFF") {
 												return TRUE;
+											} elseif ($valstat=="ABSENT") {
+												return TRUE;
+											} elseif ($valstat=="NOT APPLICABLE") {
+												return TRUE;
 											} else {
 												return FALSE;
 											}
@@ -614,7 +618,7 @@
 			document.getElementById("fldvaluex").type = xtype;
 
 			if (datafield=='amtimein') {
-				document.getElementById("valuefldlists").innerHTML = '<option value="ON LEAVE"></option><option value="OB">Official Business</option></option><option value="OT">Official Time</option><option value="DAY OFF">Day Off</option>';
+				document.getElementById("valuefldlists").innerHTML = '<option value="ON LEAVE"></option><option value="OB">Official Business</option></option><option value="OT">Official Time</option><option value="DAY OFF">Day Off</option><option value="ABSENT"></option><option value="NOT APPLICABLE"></option>';
 			}
 
 			document.getElementById("fldvaluex").focus();
