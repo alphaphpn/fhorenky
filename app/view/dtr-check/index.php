@@ -581,16 +581,20 @@
 													$feildnem = trim($_POST['feildnem']);
 													$fldidno = trim($_POST['fldidno']);
 
-													$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
-													$qry_update_timelogx = "UPDATE employee_subdtr_tbl SET ".$feildnem."=:datafeldgg WHERE subdtrid=:fldidnogg";
-													$stmt_update_timelogx = $cnn->prepare($qry_update_timelogx);
-													$stmt_update_timelogx->bindValue(':fldidnogg', $fldidno);
-													$stmt_update_timelogx->bindParam(':datafeldgg', $datafeld);
-													$stmt_update_timelogx->execute();
+													if ($_SESSION["ulevel"]==1) {
+														$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+														$qry_update_timelogx = "UPDATE employee_subdtr_tbl SET ".$feildnem."=:datafeldgg WHERE subdtrid=:fldidnogg";
+														$stmt_update_timelogx = $cnn->prepare($qry_update_timelogx);
+														$stmt_update_timelogx->bindValue(':fldidnogg', $fldidno);
+														$stmt_update_timelogx->bindParam(':datafeldgg', $datafeld);
+														$stmt_update_timelogx->execute();
 
-													$current_url = $_SERVER['REQUEST_URI'];
+														$current_url = $_SERVER['REQUEST_URI'];
 
-													echo '<script>window.open("'.$current_url.'","_self");</script>';
+														echo '<script>window.open("'.$current_url.'","_self");</script>';
+													} else {
+														echo '<script>alert("Access Denied!");</script>';
+													}
 												} else {
 													echo '<script>alert("Invalid Input! 2")</script>';
 												}
