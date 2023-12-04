@@ -1223,13 +1223,6 @@
 							<tfoot>
 								<tr>
 									<td colspan="6" class="p-0 font-size-10 text-end border-end">Total:</td>
-
-									<?php
-										if ($utlatemin > 59) {
-											$get_utlatemin = $utlatemin / 60;
-										}
-									?>
-
 									<td  align="center" class="p-0 font-size-10 border-end"><?php echo $utlatehr; ?></td>
 									<td align="center" class="p-0 font-size-10 border-end"><?php echo $utlatemin; ?></td>
 									<td align="center" class="p-0 font-size-10 border-end"><?php echo $othr; ?></td>

@@ -399,26 +399,48 @@
 									$totalovertimehour = $row_sumulateovertime['totalovertimehour'];
 									$totalovertimemin = $row_sumulateovertime['totalovertimemin'];
 
-									// Update Total UTime_Late and OT
-									$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
-									$qry_update_ulate_overtime = "UPDATE employee_dtr_tbl SET utlate_hr=:lateutimehour, utlate_min=:lateutimemin, ot_hr=:overtimehour, ot_min=:overtimemin WHERE dtrcode=:dtrcode";
-									$stmt_update_ulate_overtime = $cnn->prepare($qry_update_ulate_overtime);
-									$stmt_update_ulate_overtime->bindParam(':dtrcode', $dtrcodek);
-									$stmt_update_ulate_overtime->bindParam(':lateutimehour', $totallateutimehour);
-									$stmt_update_ulate_overtime->bindParam(':lateutimemin', $totallateutimemin);
-									$stmt_update_ulate_overtime->bindParam(':overtimehour', $totalovertimehour);
-									$stmt_update_ulate_overtime->bindParam(':overtimemin', $totalovertimemin);
-									$stmt_update_ulate_overtime->execute();
+									$thetotalhrz = $totallateutimehour;
+									$thetotalminz = $totallateutimemin;
+
+									if ($totallateutimemin > 59) {
+										$get_utlatemin = $totallateutimemin / 60;
+										$getutlatemin = intval($get_utlatemin) + $totallateutimehour;
+										$decimalPart = $get_utlatemin - floor($get_utlatemin);
+										$thetotalhrz = $getutlatemin;
+										$thetotalminz = $decimalPart * 60;
+
+										// Update Total UTime_Late and OT
+										$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+										$qry_update_ulate_overtime = "UPDATE employee_dtr_tbl SET utlate_hr=:lateutimehour, utlate_min=:lateutimemin, ot_hr=:overtimehour, ot_min=:overtimemin WHERE dtrcode=:dtrcode";
+										$stmt_update_ulate_overtime = $cnn->prepare($qry_update_ulate_overtime);
+										$stmt_update_ulate_overtime->bindParam(':dtrcode', $dtrcodek);
+										$stmt_update_ulate_overtime->bindValue(':lateutimehour', $thetotalhrz);
+										$stmt_update_ulate_overtime->bindValue(':lateutimemin', $thetotalminz);
+										$stmt_update_ulate_overtime->bindValue(':overtimehour', $totalovertimehour);
+										$stmt_update_ulate_overtime->bindValue(':overtimemin', $totalovertimemin);
+										$stmt_update_ulate_overtime->execute();
+									} else {
+										// Update Total UTime_Late and OT
+										$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+										$qry_update_ulate_overtime = "UPDATE employee_dtr_tbl SET utlate_hr=:lateutimehour, utlate_min=:lateutimemin, ot_hr=:overtimehour, ot_min=:overtimemin WHERE dtrcode=:dtrcode";
+										$stmt_update_ulate_overtime = $cnn->prepare($qry_update_ulate_overtime);
+										$stmt_update_ulate_overtime->bindParam(':dtrcode', $dtrcodek);
+										$stmt_update_ulate_overtime->bindParam(':lateutimehour', $totallateutimemin);
+										$stmt_update_ulate_overtime->bindParam(':lateutimemin', $totallateutimemin);
+										$stmt_update_ulate_overtime->bindParam(':overtimehour', $totalovertimehour);
+										$stmt_update_ulate_overtime->bindParam(':overtimemin', $totalovertimemin);
+										$stmt_update_ulate_overtime->execute();
+									}
 								?>
 							</tbody>
 
 							<tfoot>
 								<tr>
 									<td colspan="6" class="p-0 text-end border-end">Total:</td>
-									<td  align="center" class="p-0 border-end"><?php echo isset($utlatehr); ?></td>
-									<td align="center" class="p-0 border-end"><?php echo isset($utlatemin); ?></td>
-									<td align="center" class="p-0 border-end"><?php echo isset($othr); ?></td>
-									<td align="center" class="p-0 "><?php echo isset($otmin); ?></td>
+									<td  align="center" class="p-0 border-end"><?php echo $thetotalhrz; ?></td>
+									<td align="center" class="p-0 border-end"><?php echo $thetotalminz; ?></td>
+									<td align="center" class="p-0 border-end"></td>
+									<td align="center" class="p-0 "></td>
 								</tr>
 								<tr align="center">
 									<th colspan="6" class="p-0 border-end"></th>
