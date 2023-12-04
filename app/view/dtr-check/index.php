@@ -264,7 +264,7 @@
 													?>
 															<td class="p-0 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
 													<?php
-															if ($amtimeinhh=="LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="DAY OFF" || $amtimeinhh=="NOT APPLICABLE") {
+															if ($amtimeinhh=="LEAVE" || $amtimeinhh=="DAY OFF" || $amtimeinhh=="NOT APPLICABLE") {
 															?>
 																<td colspan="8" class="p-0 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
 															<?php
