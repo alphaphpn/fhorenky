@@ -47,6 +47,14 @@
 .bg-color-ffff99 {background-color: #ffff99;}
 .bg-color-66ff99 {background-color: #66ff99;}
 
+.del-x {
+	float: right;
+	text-decoration: none;
+	margin-top: -8px;
+	margin-right: 2px;
+
+}
+
 /** Navbar **/
 #main-logo {
 	max-height: 68px;

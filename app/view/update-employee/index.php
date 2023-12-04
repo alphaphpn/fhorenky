@@ -61,8 +61,9 @@
 										<th class="remove-dropdown"></th>
 										<th class="remove-dropdown"></th>
 										<th class="remove-dropdown"></th>
+										<th></th>
 										<th class="remove-dropdown"></th>
-										<th class="remove-dropdown"></th>
+										<th></th>
 										<th class="remove-dropdown"></th>
 										<th class="remove-dropdown"></th>
 										<th class="remove-dropdown"></th>
@@ -78,6 +79,7 @@
 										<th>Bio.#</th>
 										<th>Emp. ID</th>
 										<th>Employee</th>
+										<th>Type</th>
 										<th>Office#</th>
 										<th>Office</th>
 										<th>Signatory</th>
@@ -102,6 +104,7 @@
 											$biolocation=$row["bio_location"];
 											$biono=$row["bio_no"];
 											$empname=utf8_encode($row["emp_name"]);
+											$typeemployeeabrv=$row["type_employee_abrv"];
 											$officecode=$row["officecode"];
 											$officename=$row["officename"];
 											$signatory=utf8_encode($row["headofficer"]);
@@ -114,6 +117,7 @@
 												<td><?php echo $biono; ?></td>
 												<td><?php echo $empid; ?></td>
 												<td><?php echo utf8_decode($empname); ?></td>
+												<td><?php echo $typeemployeeabrv; ?></td>
 												<td><?php echo $officecode; ?></td>
 												<td><?php echo $officename; ?></td>
 												<td><?php echo utf8_decode($signatory); ?></td>
@@ -134,8 +138,9 @@
 										<td class="remove-dropdown"></td>
 										<td class="remove-dropdown"></td>
 										<td class="remove-dropdown"></td>
+										<td></td>
 										<td class="remove-dropdown"></td>
-										<td class="remove-dropdown"></td>
+										<td></td>
 										<td class="remove-dropdown"></td>
 										<td class="remove-dropdown"></td>
 										<td class="remove-dropdown"></td>

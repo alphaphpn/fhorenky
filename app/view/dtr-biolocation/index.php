@@ -79,7 +79,8 @@
 							headtitle=:headtitle, 
 							auth_head=:authhead, 
 							auth_title=:authtitle, 
-							auth_description=:authdescription
+							auth_description=:authdescription, 
+							type_employee_abrv=:typeemployeeabrv69
 						";
 
 						$stmt_insert_dtr = $cnn->prepare($qry_insert_dtr);
@@ -103,6 +104,8 @@
 						$stmt_insert_dtr->bindParam(':authhead', $authhead69);
 						$stmt_insert_dtr->bindParam(':authtitle', $authtitle69);
 						$stmt_insert_dtr->bindParam(':authdescription', $authdescription69);
+
+						$stmt_insert_dtr->bindParam(':typeemployeeabrv69', $typeemployeeabrv69);
 
 						$stmt_insert_dtr->execute();
 

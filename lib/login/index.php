@@ -88,7 +88,9 @@
 			echo "<p class='text-center'>Login to your account.</p>";
 		}
 	} catch (PDOException $error) {
-		die('ERROR: ' . $exception->getMessage());
+		$err_msg = $error->getMessage();
+		echo "<p>Error: {$err_msg}</p>";
+		die;
 	}
 
 	// Input Pattern

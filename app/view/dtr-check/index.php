@@ -1,12 +1,20 @@
 <?php
 
+	$xdeltime = 0;
+
 	// AO Account Logged
 	if (empty($_SESSION["uid"]) || empty($_SESSION["uname"]) || empty($_SESSION["ulevel"]) || empty($_SESSION["uposition"]) || empty($_SESSION["ustat"]) || empty($_SESSION["verified"])) {
 		// echo '<script>alert("Access denied!");window.open("../../routes/login","_self");</script>';
 		header("Location: ../../routes/login");
 		exit;
 	} elseif ($_SESSION["ulevel"]==1) {
+		$xdeltime = 1;
 
+		if (isset($_GET['del']) && isset($_GET['sdtridid']) && isset($_GET['feldnem'])) {
+			$kdel = trim($_GET['del']);
+			$ksdtridid = trim($_GET['sdtridid']);
+			$kfeldnem = trim($_GET['feldnem']);
+		}
 	} elseif ($_SESSION["ulevel"]==13 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
 		
 	} elseif ($_SESSION["ustat"]==0) {
@@ -256,7 +264,7 @@
 													?>
 															<td class="p-0 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
 													<?php
-															if ($amtimeinhh=="ON LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="DAY OFF" || $amtimeinhh=="NOT APPLICABLE") {
+															if ($amtimeinhh=="LEAVE" || $amtimeinhh=="OB" || $amtimeinhh=="DAY OFF" || $amtimeinhh=="NOT APPLICABLE") {
 															?>
 																<td colspan="8" class="p-0 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
 															<?php
@@ -267,7 +275,12 @@
 																		if (empty($amtimeinhh)) {
 																			echo '<button type="button" class="btn btn-outline-primary btn-sm" id="'.$subdtrid.'" data-field="amtimein" data-xlabel="AM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
 																		} else {
-																			echo trim($amtimeinhh);
+																			if ($xdeltime==1) {
+																				echo trim($amtimeinhh);
+																				echo '<a href="#" class="del-x">x</a>';
+																			} else {
+																				echo trim($amtimeinhh);
+																			}
 																		}
 																	?>
 																</td>
@@ -276,7 +289,12 @@
 																		if (empty($amtimeouthh)) {
 																			echo '<button type="button" class="btn btn-outline-primary btn-sm" id="'.$subdtrid.'" data-field="amtimeout" data-xlabel="AM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
 																		} else {
-																			echo trim($amtimeouthh);
+																			if ($xdeltime==1) {
+																				echo trim($amtimeouthh);
+																				echo '<a href="#" class="del-x">x</a>';
+																			} else {
+																				echo trim($amtimeouthh);
+																			}
 																		}
 																	?>
 																</td>
@@ -285,7 +303,12 @@
 																		if (empty($pmtimeinhh)) {
 																			echo '<button type="button" class="btn btn-outline-primary btn-sm" id="'.$subdtrid.'" data-field="pmtimein" data-xlabel="PM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
 																		} else {
-																			echo trim($pmtimeinhh);
+																			if ($xdeltime==1) {
+																				echo trim($pmtimeinhh);
+																				echo '<a href="#" class="del-x">x</a>';
+																			} else {
+																				echo trim($pmtimeinhh);
+																			}
 																		}
 																	?>
 																</td>
@@ -294,7 +317,12 @@
 																		if (empty($pmtimeouthh)) {
 																			echo '<button type="button" class="btn btn-outline-primary btn-sm" id="'.$subdtrid.'" data-field="pmtimeout" data-xlabel="PM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
 																		} else {
-																			echo trim($pmtimeouthh);
+																			if ($xdeltime==1) {
+																				echo trim($pmtimeouthh);
+																				echo '<a href="#" class="del-x">x</a>';
+																			} else {
+																				echo trim($pmtimeouthh);
+																			}
 																		}
 																	?>
 																</td>
@@ -387,10 +415,10 @@
 							<tfoot>
 								<tr>
 									<td colspan="6" class="p-0 text-end border-end">Total:</td>
-									<td  align="center" class="p-0 border-end"><?php echo $utlatehr; ?></td>
-									<td align="center" class="p-0 border-end"><?php echo $utlatemin; ?></td>
-									<td align="center" class="p-0 border-end"><?php echo $othr; ?></td>
-									<td align="center" class="p-0 "><?php echo $otmin; ?></td>
+									<td  align="center" class="p-0 border-end"><?php echo isset($utlatehr); ?></td>
+									<td align="center" class="p-0 border-end"><?php echo isset($utlatemin); ?></td>
+									<td align="center" class="p-0 border-end"><?php echo isset($othr); ?></td>
+									<td align="center" class="p-0 "><?php echo isset($otmin); ?></td>
 								</tr>
 								<tr align="center">
 									<th colspan="6" class="p-0 border-end"></th>
@@ -479,7 +507,7 @@
 										}
 
 										function checkIsValStat($valstat) {
-											if ($valstat=="ON LEAVE") {
+											if ($valstat=="LEAVE") {
 												return TRUE;
 											} elseif ($valstat=="OB") {
 												return TRUE;
@@ -529,10 +557,25 @@
 													echo '<script>alert("Must be greater than 0 Zero.")</script>';
 												}
 											} else {
-												echo '<script>alert("Invalid Input!")</script>';
+												echo '<script>alert("Invalid Input! 0")</script>';
 											}
 										} else {
-											if ($feildnemx!='amtimein') {
+											If (checkIsValStat($datafeldx)) {
+												$datafeld = trim($_POST['datafeld']);
+												$feildnem = trim($_POST['feildnem']);
+												$fldidno = trim($_POST['fldidno']);
+
+												$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+												$qry_update_timelogx = "UPDATE employee_subdtr_tbl SET ".$feildnem."=:datafeldgg WHERE subdtrid=:fldidnogg";
+												$stmt_update_timelogx = $cnn->prepare($qry_update_timelogx);
+												$stmt_update_timelogx->bindValue(':fldidnogg', $fldidno);
+												$stmt_update_timelogx->bindParam(':datafeldgg', $datafeld);
+												$stmt_update_timelogx->execute();
+
+												$current_url = $_SERVER['REQUEST_URI'];
+
+												echo '<script>window.open("'.$current_url.'","_self");</script>';
+											} else {
 												if (checkIsTime($datafeldx)) {
 													$datafeld = trim($_POST['datafeld']);
 													$feildnem = trim($_POST['feildnem']);
@@ -549,46 +592,12 @@
 
 													echo '<script>window.open("'.$current_url.'","_self");</script>';
 												} else {
-													echo '<script>alert("Invalid Input!")</script>';
-												}
-											} else {
-												If (checkIsValStat($datafeldx)) {
-													$datafeld = trim($_POST['datafeld']);
-													$feildnem = trim($_POST['feildnem']);
-													$fldidno = trim($_POST['fldidno']);
-
-													$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
-													$qry_update_timelogx = "UPDATE employee_subdtr_tbl SET ".$feildnem."=:datafeldgg WHERE subdtrid=:fldidnogg";
-													$stmt_update_timelogx = $cnn->prepare($qry_update_timelogx);
-													$stmt_update_timelogx->bindValue(':fldidnogg', $fldidno);
-													$stmt_update_timelogx->bindParam(':datafeldgg', $datafeld);
-													$stmt_update_timelogx->execute();
-
-													$current_url = $_SERVER['REQUEST_URI'];
-
-													echo '<script>window.open("'.$current_url.'","_self");</script>';
-												} else {
-													if (checkIsTime($datafeldx)) {
-														$datafeld = trim($_POST['datafeld']);
-														$feildnem = trim($_POST['feildnem']);
-														$fldidno = trim($_POST['fldidno']);
-
-														$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
-														$qry_update_timelogx = "UPDATE employee_subdtr_tbl SET ".$feildnem."=:datafeldgg WHERE subdtrid=:fldidnogg";
-														$stmt_update_timelogx = $cnn->prepare($qry_update_timelogx);
-														$stmt_update_timelogx->bindValue(':fldidnogg', $fldidno);
-														$stmt_update_timelogx->bindParam(':datafeldgg', $datafeld);
-														$stmt_update_timelogx->execute();
-
-														$current_url = $_SERVER['REQUEST_URI'];
-
-														echo '<script>window.open("'.$current_url.'","_self");</script>';
-													} else {
-														echo '<script>alert("Invalid Input!")</script>';
-													}
+													echo '<script>alert("Invalid Input! 2")</script>';
 												}
 											}
 										}
+									} elseif (isset($_POST['btnCellDataDelete'])) {
+										echo '<script>alert("Empty Cell!")</script>';
 									}
 								?>
 							</div>
@@ -618,7 +627,9 @@
 			document.getElementById("fldvaluex").type = xtype;
 
 			if (datafield=='amtimein') {
-				document.getElementById("valuefldlists").innerHTML = '<option value="ON LEAVE"></option><option value="OB">Official Business</option></option><option value="OT">Official Time</option><option value="DAY OFF">Day Off</option><option value="ABSENT"></option><option value="NOT APPLICABLE"></option>';
+				document.getElementById("valuefldlists").innerHTML = '<option value="LEAVE"></option><option value="OB">Official Business</option></option><option value="OT">Official Time</option><option value="DAY OFF">Day Off</option><option value="ABSENT"></option><option value="NOT APPLICABLE"></option>';
+			} else if (datafield=='amtimeout' || datafield=='pmtimein' || datafield=='pmtimeout') {
+				document.getElementById("valuefldlists").innerHTML = '<option value="OB">Official Business</option></option><option value="OT">Official Time</option>';
 			}
 
 			document.getElementById("fldvaluex").focus();

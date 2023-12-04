@@ -69,7 +69,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="routes/logout">Logout</a>
+							<a class="nav-link" href="<?php echo $domainhome; ?>/routes/logout">Logout</a>
 						</li>
 					<?php
 						} elseif ($_SESSION["ulevel"]==13 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {

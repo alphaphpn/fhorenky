@@ -21,6 +21,7 @@
 								<th class="remove-dropdown"></th>
 								<th class="remove-dropdown"></th>
 								<th></th>
+								<th></th>
 								<th class="remove-dropdown"></th>
 								<th class="remove-dropdown"></th>
 								<th class="remove-dropdown"></th>
@@ -36,6 +37,7 @@
 								<th>Employee</th>
 								<th>Office#</th>
 								<th>Office</th>
+								<th>Type</th>
 								<th>Signatory</th>
 								<th>PID</th>
 								<th class="text-right">Action</th>
@@ -62,6 +64,7 @@
 									$empname=utf8_encode($row["emp_name"]);
 									$officecode=$row["officecode"];
 									$officename=$row["officename"];
+									$typeemployeeabrv=$row["type_employee_abrv"];
 									$signatory=utf8_encode($row["headofficer"]);
 									$xlinkz = "../../routes/dtr-print/?yrno=".$yrno."&monthno=".$monthno."&biolocation=".$biolocation."&biono=".$biono;
 									$chklinkz = "../../routes/dtr-check/?yrno=".$yrno."&monthno=".$monthno."&biolocation=".$biolocation."&biono=".$biono;
@@ -74,6 +77,7 @@
 										<td><?php echo utf8_decode($empname); ?></td>
 										<td><?php echo $officecode; ?></td>
 										<td><?php echo $officename; ?></td>
+										<td><?php echo $typeemployeeabrv; ?></td>
 										<td><?php echo utf8_decode($signatory); ?></td>
 										<td><?php echo $profileid; ?></td>
 										<td>
@@ -96,6 +100,7 @@
 								<td class="remove-dropdown"></td>
 								<td class="remove-dropdown"></td>
 								<td class="remove-dropdown"></td>
+								<td></td>
 								<td></td>
 								<td class="remove-dropdown"></td>
 								<td class="remove-dropdown"></td>
