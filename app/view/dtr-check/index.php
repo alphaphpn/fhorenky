@@ -217,7 +217,7 @@
 
 											$pmtimeinhh = $row_timelogz['pmtimein'];
 
-											if (preg_match($time_pattern, $amtimeouthh)) {
+											if (preg_match($time_pattern, $pmtimeinhh)) {
 												$pmtimeinhjkd = new DateTime($pmtimeinhh);
 												$earlyEveningEnd = new DateTime('4:59');
 												$lateEveningEnd = new DateTime('1:00');
@@ -235,7 +235,7 @@
 
 											$pmtimeouthh = $row_timelogz['pmtimeout'];
 
-											if (preg_match($time_pattern, $amtimeouthh)) {
+											if (preg_match($time_pattern, $pmtimeouthh)) {
 												$pmtimeouthjkd = new DateTime($pmtimeouthh);
 												$pmtimeouthhxf = $pmtimeouthjkd->format('gi');
 												if ($pmtimeouthhxf<459) {
