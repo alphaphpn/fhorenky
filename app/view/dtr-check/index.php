@@ -15,6 +15,15 @@
 			$ksdtridid = trim($_GET['sdtridid']);
 			$kfeldnem = trim($_GET['feldnem']);
 		}
+	} elseif ($_SESSION["ulevel"]==15) {
+		// DTR Editor
+		$xdeltime = 1;
+
+		if (isset($_GET['del']) && isset($_GET['sdtridid']) && isset($_GET['feldnem'])) {
+			$kdel = trim($_GET['del']);
+			$ksdtridid = trim($_GET['sdtridid']);
+			$kfeldnem = trim($_GET['feldnem']);
+		}
 	} elseif ($_SESSION["ulevel"]==13 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
 		
 	} elseif ($_SESSION["ustat"]==0) {
@@ -603,7 +612,7 @@
 													$feildnem = trim($_POST['feildnem']);
 													$fldidno = trim($_POST['fldidno']);
 
-													if ($_SESSION["ulevel"]==1) {
+													if ($_SESSION["ulevel"]==1 || $_SESSION["ulevel"]==15) {
 														$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
 														$qry_update_timelogx = "UPDATE employee_subdtr_tbl SET ".$feildnem."=:datafeldgg WHERE subdtrid=:fldidnogg";
 														$stmt_update_timelogx = $cnn->prepare($qry_update_timelogx);

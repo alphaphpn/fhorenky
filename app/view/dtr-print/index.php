@@ -109,7 +109,7 @@
 									<th colspan="2" class="p-0 font-size-10 border-end">AM</th>
 									<th colspan="2" class="p-0 font-size-10 border-end">PM</th>
 									<th colspan="2" class="p-0 font-size-8 border-end">U.Time/Late</th>
-									<th colspan="2" class="p-0 font-size-8">OT</th>
+									<th colspan="2" class="p-0 font-size-8">Overtime</th>
 								</tr>
 								<tr align="center">
 									<th class="p-0 font-size-8 border-end">Arrival</th>
@@ -412,7 +412,7 @@
 									<th colspan="2" class="p-0 font-size-10 border-end">AM</th>
 									<th colspan="2" class="p-0 font-size-10 border-end">PM</th>
 									<th colspan="2" class="p-0 font-size-8 border-end">U.Time/Late</th>
-									<th colspan="2" class="p-0 font-size-8">OT</th>
+									<th colspan="2" class="p-0 font-size-8">Overtime</th>
 								</tr>
 								<tr align="center">
 									<th class="p-0 font-size-8 border-end">Arrival</th>
@@ -715,7 +715,7 @@
 									<th colspan="2" class="p-0 font-size-10 border-end">AM</th>
 									<th colspan="2" class="p-0 font-size-10 border-end">PM</th>
 									<th colspan="2" class="p-0 font-size-8 border-end">U.Time/Late</th>
-									<th colspan="2" class="p-0 font-size-8">OT</th>
+									<th colspan="2" class="p-0 font-size-8">Overtime</th>
 								</tr>
 								<tr align="center">
 									<th class="p-0 font-size-8 border-end">Arrival</th>
@@ -1018,7 +1018,7 @@
 									<th colspan="2" class="p-0 font-size-10 border-end">AM</th>
 									<th colspan="2" class="p-0 font-size-10 border-end">PM</th>
 									<th colspan="2" class="p-0 font-size-8 border-end">U.Time/Late</th>
-									<th colspan="2" class="p-0 font-size-8">OT</th>
+									<th colspan="2" class="p-0 font-size-8">Overtime</th>
 								</tr>
 								<tr align="center">
 									<th class="p-0 font-size-8 border-end">Arrival</th>
