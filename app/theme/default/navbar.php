@@ -85,6 +85,19 @@
 							<a class="nav-link" href="<?php echo $domainhome; ?>/routes/logout">Logout</a>
 						</li>
 					<?php
+						} elseif ($_SESSION["ulevel"]==15 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
+					?>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menu</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dtr-emp">DTR</a></li>
+							</ul>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo $domainhome; ?>/routes/logout">Logout</a>
+						</li>
+					<?php
 						} elseif ($_SESSION["ulevel"]==14 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
 					?>
 						<li class="nav-item dropdown">
