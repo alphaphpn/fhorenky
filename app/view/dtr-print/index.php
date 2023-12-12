@@ -275,6 +275,14 @@
 																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
 																	<td class="p-0 font-size-10 text-center"><?php echo trim($overtimemin); ?></td>
 																<?php
+															} elseif (strpos($amtimeinhh, 'OB')!==false && strpos($amtimeouthh, 'OB')!==false && strpos($pmtimeinhh, 'OB')!==false && strpos($pmtimeouthh, 'OB')!==false) {
+																?>
+																	<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 text-danger">OB</td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimemin); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center"><?php echo trim($overtimemin); ?></td>
+																<?php
 															} elseif ($amtimeinhh=="ABSENT") {
 																?>
 																	<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 text-danger"><?php echo trim($amtimeinhh); ?></td>
