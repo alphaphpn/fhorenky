@@ -269,7 +269,7 @@
 																<?php
 															} elseif (strpos($amtimeinhh, 'OB')!==false && empty($amtimeouthh) && empty($pmtimeinhh) && empty($pmtimeouthh)) {
 																?>
-																	<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue">OB</td>
+																	<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?></td>
 																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimehour); ?></td>
 																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimemin); ?></td>
 																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
@@ -277,7 +277,7 @@
 																<?php
 															} elseif (strpos($amtimeinhh, 'OB')!==false && strpos($amtimeouthh, 'OB')!==false && strpos($pmtimeinhh, 'OB')!==false && strpos($pmtimeouthh, 'OB')!==false) {
 																?>
-																	<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue">OB</td>
+																	<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?></td>
 																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimehour); ?></td>
 																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimemin); ?></td>
 																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
