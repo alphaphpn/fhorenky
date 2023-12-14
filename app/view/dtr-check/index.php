@@ -20,9 +20,13 @@
 		$xdeltime = 1;
 
 		if (isset($_GET['del']) && isset($_GET['sdtridid']) && isset($_GET['feldnem'])) {
-			$kdel = trim($_GET['del']);
-			$ksdtridid = trim($_GET['sdtridid']);
-			$kfeldnem = trim($_GET['feldnem']);
+			$kdel = isset($_GET['del']) ? $_GET['del'] : '';
+			$ksdtridid = trim($_GET['sdtridid']) ? $_GET['sdtridid'] : '';
+			$kfeldnem = trim($_GET['feldnem']) ? $_GET['feldnem'] : '';
+			$yrno = isset($_GET['yrno']) ? $_GET['yrno'] : '';
+			$monthno = isset($_GET['monthno']) ? $_GET['monthno'] : '';
+			$biolocation = isset($_GET['biolocation']) ? $_GET['biolocation'] : '';
+			$biono = isset($_GET['biono']) ? $_GET['biono'] : '';
 
 			if ($kdel==1) {
 				echo '<script>alert("Delete")</script>';
@@ -412,8 +416,8 @@
 									$totalovertimehour = $row_sumulateovertime['totalovertimehour'];
 									$totalovertimemin = $row_sumulateovertime['totalovertimemin'];
 
-									$thetotalhrz = $totallateutimehour;
 									$thetotalminz = $totallateutimemin;
+									$thetotalhrz = $totallateutimehour;
 
 									if ($totallateutimemin > 59) {
 										$get_utlatemin = $totallateutimemin / 60;
