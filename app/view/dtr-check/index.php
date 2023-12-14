@@ -442,7 +442,7 @@
 										$qry_update_ulate_overtime = "UPDATE employee_dtr_tbl SET utlate_hr=:lateutimehour, utlate_min=:lateutimemin, ot_hr=:overtimehour, ot_min=:overtimemin WHERE dtrcode=:dtrcode";
 										$stmt_update_ulate_overtime = $cnn->prepare($qry_update_ulate_overtime);
 										$stmt_update_ulate_overtime->bindParam(':dtrcode', $dtrcodek);
-										$stmt_update_ulate_overtime->bindParam(':lateutimehour', $totallateutimemin);
+										$stmt_update_ulate_overtime->bindParam(':lateutimehour', $totallateutimehour);
 										$stmt_update_ulate_overtime->bindParam(':lateutimemin', $totallateutimemin);
 										$stmt_update_ulate_overtime->bindParam(':overtimehour', $totalovertimehour);
 										$stmt_update_ulate_overtime->bindParam(':overtimemin', $totalovertimemin);
