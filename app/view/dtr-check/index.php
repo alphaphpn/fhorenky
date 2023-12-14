@@ -23,6 +23,10 @@
 			$kdel = trim($_GET['del']);
 			$ksdtridid = trim($_GET['sdtridid']);
 			$kfeldnem = trim($_GET['feldnem']);
+
+			if ($kdel==1) {
+				echo '<script>alert("Delete")</script>';
+			}
 		}
 	} elseif ($_SESSION["ulevel"]==13 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
 		
@@ -328,7 +332,7 @@
 																		} else {
 																			if ($xdeltime==1) {
 																				echo trim($pmtimeouthh);
-																				echo '<a href="#" class="del-x">x</a>';
+																				echo '<a href="/?del=1" class="del-x">x</a>';
 																			} else {
 																				echo trim($pmtimeouthh);
 																			}
@@ -415,8 +419,8 @@
 										$get_utlatemin = $totallateutimemin / 60;
 										$getutlatemin = intval($get_utlatemin) + $totallateutimehour;
 										$decimalPart = $get_utlatemin - floor($get_utlatemin);
-										$thetotalhrz = $getutlatemin;
 										$thetotalminz = $decimalPart * 60;
+										$thetotalhrz = $getutlatemin;
 
 										// Update Total UTime_Late and OT
 										$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
@@ -492,6 +496,12 @@
 			</form>
 		</div>
 	</section>
+
+	<div class="modal fade" id="mdiTimeLogMove">
+		<div class="modal-dialog">
+			<div class="modal-content"></div>
+		</div>
+	</div>
 
 	<div class="modal fade" id="mdiTimeLogEdit">
 		<div class="modal-dialog">

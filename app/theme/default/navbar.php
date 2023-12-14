@@ -111,6 +111,21 @@
 							<a class="nav-link" href="<?php echo $domainhome; ?>/routes/logout">Logout</a>
 						</li>
 					<?php
+						// Staff or User
+						} elseif ($_SESSION["ulevel"]==5 || $_SESSION["ulevel"]==16 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
+					?>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">My Account</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/#">Profile</a></li>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/#">Job Status</a></li>
+							</ul>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo $domainhome; ?>/routes/logout">Logout</a>
+						</li>
+					<?php
 						} elseif ($_SESSION["ustat"]==0) {
 							// Account Disabled.
 							echo '<script>alert("Your Account has been Disabled!");window.open("routes/login","_self");</script>';
