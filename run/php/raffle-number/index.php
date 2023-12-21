@@ -4,15 +4,18 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Raffle Number</title>
+	<link href="https://fonts.cdnfonts.com/css/lcd" rel="stylesheet">
 	<style>
 		.raffle-section {
 			text-align: center;
 			height: 100vh;
+			display: flex;
 		}
 
 		#output {
 			margin: auto;
 			font-size: 32em;
+			font-family: 'Arial', sans-serif;
 		}
 	</style>
 </head>
