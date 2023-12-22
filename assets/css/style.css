@@ -274,7 +274,7 @@
 
 #pasko-sibugay {
 	background-image: url('../../public/pasko-sibugay-2023-bg.png');
-	background-position: center;
-	background-size: cover;
+	background-position: center center;
+	background-size: 100%;
 	background-repeat: no-repeat;
 }
