@@ -8,7 +8,7 @@
 	<style>
 		.raffle-section {
 			text-align: center;
-			height: 100vh;
+			height: 96vh;
 			display: flex;
 		}
 
