@@ -25,7 +25,7 @@
 		<div class="container py-10rem">
 			<div class="card vh-65">
 				<div class="card-header text-end">
-					<a href="" class="btn btn-primary">Reset</a>
+					<a href="" target="_blank" class="btn btn-primary">Reset</a>
 					<button class="btn btn-danger" name="btndraw" id="btndraw" onclick="nextclick();">Draw</button>
 				</div>
 				<div class="card-body scrollable">
