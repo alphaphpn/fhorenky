@@ -22,8 +22,8 @@
 	?>
 
 	<section id="pasko-sibugay" class="vh-100">
-		<div class="container py-10rem">
-			<div class="card vh-65">
+		<div class="container pt-18rem">
+			<div class="card">
 				<div class="card-header text-end">
 					<a href="" target="_blank" class="btn btn-primary">Reset</a>
 					<button class="btn btn-danger" name="btndraw" id="btndraw" onclick="nextclick();">Draw</button>

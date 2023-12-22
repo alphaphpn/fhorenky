@@ -34,6 +34,8 @@
 .vh-90 { height: 90vh; }
 .vh-65 { height: 65vh; }
 
+.pt-18rem { padding-top: 18rem; }
+
 .py-10rem { padding-top: 10rem; padding-bottom: 10rem; }
 
 .cursor-hand {cursor: pointer;}
@@ -268,7 +270,7 @@
 }
 
 .int-raffle {
-	font-size: 18rem;
+	font-size: 16rem;
 	text-align: center;
 	font-weight: 700;
 }
