@@ -32,6 +32,9 @@
 .vh-92 { height: 92vh; }
 .vh-91 { height: 91vh; }
 .vh-90 { height: 90vh; }
+.vh-65 { height: 65vh; }
+
+.py-10rem { padding-top: 10rem; padding-bottom: 10rem; }
 
 .cursor-hand {cursor: pointer;}
 
@@ -262,4 +265,9 @@
 	height: 80px;
 	background-color: #fff;
 	margin: 8px;
+}
+
+.int-raffle {
+	font-size: 18rem;
+	text-align: center;
 }
