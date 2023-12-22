@@ -78,25 +78,25 @@
 
 						<!-------->
 
-						<div class="row">
+						<div class="row" hidden>
 							<div class="col">
-								<input type="button" data-out="int1" data-result="<?php echo $digit1; ?>" class="form-control" name="btnd1" id="btnd1" value="*" onclick="startCountdown(9,dataset.out,dataset.result);" hidden>
+								<input type="button" data-out="int1" data-result="<?php echo $digit1; ?>" class="form-control" name="btnd1" id="btnd1" value="*" onclick="startCountdown(9,dataset.out,dataset.result);">
 							</div>
 
 							<div class="col">
-								<input type="button" data-out="int2" data-result="<?php echo $digit2; ?>" class="form-control" name="btnd2" id="btnd2" value="*" onclick="startCountdown(9,dataset.out,dataset.result);" hidden>
+								<input type="button" data-out="int2" data-result="<?php echo $digit2; ?>" class="form-control" name="btnd2" id="btnd2" value="*" onclick="startCountdown(9,dataset.out,dataset.result);">
 							</div>
 
 							<div class="col">
-								<input type="button" data-out="int3" data-result="<?php echo $digit3; ?>" class="form-control" name="btnd3" id="btnd3" value="*" onclick="startCountdown(9,dataset.out,dataset.result);" hidden>
+								<input type="button" data-out="int3" data-result="<?php echo $digit3; ?>" class="form-control" name="btnd3" id="btnd3" value="*" onclick="startCountdown(9,dataset.out,dataset.result);">
 							</div>
 
 							<div class="col">
-								<input type="button" data-out="int4" data-result="<?php echo $digit4; ?>" class="form-control" name="btnd4" id="btnd4" value="*" onclick="startCountdown(9,dataset.out,dataset.result);" hidden>
+								<input type="button" data-out="int4" data-result="<?php echo $digit4; ?>" class="form-control" name="btnd4" id="btnd4" value="*" onclick="startCountdown(9,dataset.out,dataset.result);">
 							</div>
 
 							<div class="col">
-								<input type="button" data-out="int5" data-result="<?php echo $digit5; ?>" class="form-control" name="btnd5" id="btnd5" value="*" onclick="startCountdown(9,dataset.out,dataset.result);" hidden>
+								<input type="button" data-out="int5" data-result="<?php echo $digit5; ?>" class="form-control" name="btnd5" id="btnd5" value="*" onclick="startCountdown(9,dataset.out,dataset.result);">
 							</div>
 						</div>
 					</form>
@@ -114,30 +114,45 @@
 			btnd4 = document.getElementById('btnd4');
 			btnd5 = document.getElementById('btnd5');
 			btndraw = document.getElementById('btndraw');
-
-			btnd1.click();
-			btnd2.click();
-			btnd3.click();
-			btnd4.click();
-			btnd5.click();
-
 			btndraw.hidden = true;
+
+			let mecount = 0;
+
+			const timerxv = setInterval(() => {
+				mecount++;
+
+				if (mecount==10) {
+					btnd1.click();
+				} else if (mecount==20) {
+					btnd2.click();
+				} else if (mecount==30) {
+					btnd3.click();
+				} else if (mecount==40) {
+					btnd4.click();
+				} else if (mecount==50) {
+					btnd5.click();
+					clearInterval(timerxv);
+				}
+			}, 50);
 		}
 
 		function startCountdown(seconds,output,result) {
-			let counter = seconds;
+			let counter = 60;
 
 			const interval = setInterval(() => {
-				console.log(counter);
 				counter--;
 
-				if (counter < result ) {
+				if (counter < result) {
 					clearInterval(interval);
-					console.log(result);
 					document.getElementById(output).value = result;
 				} else {
-					document.getElementById(output).value = counter;
+					if (counter > 9) {
+						myString = counter.toString();
+						document.getElementById(output).value = myString.charAt(1);
+					} else {
+						document.getElementById(output).value = counter;
+					}
 				}
-			}, 100);
+			}, 50);
 		}
 	</script>

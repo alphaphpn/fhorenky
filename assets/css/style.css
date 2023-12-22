@@ -270,10 +270,11 @@
 .int-raffle {
 	font-size: 18rem;
 	text-align: center;
+	font-weight: 700;
 }
 
 #pasko-sibugay {
-	background-image: url('../../public/pasko-sibugay-2023-bg.png');
+	background-image: url('../../public/raffle-bg.jpg');
 	background-position: center center;
 	background-size: 100%;
 	background-repeat: no-repeat;
