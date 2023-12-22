@@ -271,3 +271,10 @@
 	font-size: 18rem;
 	text-align: center;
 }
+
+#pasko-sibugay {
+	background-image: url('../../public/pasko-sibugay-2023-bg.png');
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+}

@@ -21,7 +21,7 @@
 		// echo "Digit 5: $digit5 <br>";
 	?>
 
-	<section>
+	<section id="pasko-sibugay">
 		<div class="container py-10rem">
 			<div class="card vh-65">
 				<div class="card-header text-end">
