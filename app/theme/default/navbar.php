@@ -27,6 +27,7 @@
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0)">Transparency</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dtr-emp">DTR</a></li>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/raffle-number">Raffle</a></li>
 							</ul>
 						</li>
 

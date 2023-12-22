@@ -1,7 +1,5 @@
 <?php
 
-	include_once "../../env.php";
-
 	try {
 		
 		$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
