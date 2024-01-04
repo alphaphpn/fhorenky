@@ -321,7 +321,11 @@
 																	if (empty($lateutimehour)) {
 																		echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="lateutime_hour" data-xlabel="Undertime / Late - Hour" data-xdate="'.$xdatenowxf.'" data-type="number" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
 																	} else {
-																		echo trim($lateutimehour);
+																		if ($xdeltime==1) {
+																			echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="lateutime_hour" data-xlabel="Hour Late" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$lateutimehour.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($lateutimehour).'</button>';
+																		} else {
+																			echo trim($lateutimehour);
+																		}
 																	}
 																?>
 															</td>
@@ -330,7 +334,11 @@
 																	if (empty($lateutimemin)) {
 																		echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="lateutime_min" data-xlabel="Undertime / Late - Minute" data-xdate="'.$xdatenowxf.'" data-type="number" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
 																	} else {
-																		echo trim($lateutimemin);
+																		if ($xdeltime==1) {
+																			echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="lateutime_min" data-xlabel="Minute Late" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$lateutimemin.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($lateutimemin).'</button>';
+																		} else {
+																			echo trim($lateutimemin);
+																		}
 																	}
 																?>
 															</td>
@@ -339,7 +347,12 @@
 																	if (empty($overtimehour)) {
 																		echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="overtime_hour" data-xlabel="Overtime - Hour" data-xdate="'.$xdatenowxf.'" data-type="number" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
 																	} else {
-																		echo trim($overtimehour);
+																		if ($xdeltime==1) {
+																			echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="overtime_hour" data-xlabel="Overtime Hour" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$overtimehour.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($overtimehour).'</button>';
+																		} else {
+																			echo trim($overtimehour);
+																		}
+																		
 																	}
 																?>
 															</td>
@@ -348,7 +361,12 @@
 																	if (empty($overtimemin)) {
 																		echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="overtime_min" data-xlabel="Overtime - Minute" data-xdate="'.$xdatenowxf.'" data-type="number" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
 																	} else {
-																		echo trim($overtimemin);
+																		if ($xdeltime==1) {
+																			echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="overtime_min" data-xlabel="Overtime Minute" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$overtimemin.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($overtimemin).'</button>';
+																		} else {
+																			echo trim($overtimemin);
+																		}
+																		
 																	}
 																?>
 															</td>
@@ -494,11 +512,7 @@
 
 						<div class="input-group mb-1 mt-1">
 							<select class="form-select form-select-l" id="optaction" name="optaction">>
-								<option value="delete">Delete</option>
-								<option value="amtimein">Move to AM In</option>
-								<option value="amtimeout">Move to AM Out</option>
-								<option value="pmtimein">Move to PM In</option>
-								<option value="pmtimeout">Move to PM Out</option>
+								
 							</select>
 						</div>
 
@@ -532,8 +546,16 @@
 												echo '<script>alert("Delete PM In.")</script>';
 											} elseif ($feildnemx2=='pmtimeout') {
 												echo '<script>alert("Delete PM Out.")</script>';
+											} elseif ($feildnemx2=='lateutime_hour') {
+												echo '<script>alert("Delete Hour Late.")</script>';
+											} elseif ($feildnemx2=='lateutime_min') {
+												echo '<script>alert("Delete Minute Late.")</script>';
+											} elseif ($feildnemx2=='overtime_hour') {
+												echo '<script>alert("Delete Hour Overtime.")</script>';
+											} elseif ($feildnemx2=='overtime_min') {
+												echo '<script>alert("Delete Minute Overtime.")</script>';
 											} else {
-												echo '<script>alert("No Time Deleted.")</script>';
+												echo '<script>alert("No Time/Data Deleted.")</script>';
 											}
 
 											echo '<script>window.open("'.$current_url.'","_self");</script>';
@@ -785,5 +807,11 @@
 			document.getElementById("feildnem2").value = datafield;
 			document.getElementById("fldidno2").value = id;
 			document.getElementById("fldvaluex2").type = xtype;
+
+			if (datafield=='lateutime_hour' || datafield=='lateutime_min' || datafield=='overtime_hour' || datafield=='overtime_min') {
+				document.getElementById("optaction").innerHTML = '<option value="delete">Delete</option>';
+			} else {
+				document.getElementById("optaction").innerHTML = '<option value="delete">Delete</option><option value="amtimein">Move to AM In</option><option value="amtimeout">Move to AM Out</option><option value="pmtimein">Move to PM In</option><option value="pmtimeout">Move to PM Out</option>';
+			}
 		}
 	</script>
