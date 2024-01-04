@@ -277,8 +277,7 @@
 																			echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="amtimein" data-xlabel="AM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
 																		} else {
 																			if ($xdeltime==1) {
-																				echo trim($amtimeinhh);
-																				echo '<a href="#" class="del-x">?</a>';
+																				echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="amtimein" data-xlabel="AM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$amtimeinhh.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($amtimeinhh).'</button>';
 																			} else {
 																				echo trim($amtimeinhh);
 																			}
@@ -291,8 +290,7 @@
 																			echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="amtimeout" data-xlabel="AM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
 																		} else {
 																			if ($xdeltime==1) {
-																				echo trim($amtimeouthh);
-																				echo '<a href="#" class="del-x">?</a>';
+																				echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="amtimeout" data-xlabel="AM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$amtimeouthh.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($amtimeouthh).'</button>';
 																			} else {
 																				echo trim($amtimeouthh);
 																			}
@@ -305,7 +303,7 @@
 																			echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="pmtimein" data-xlabel="PM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
 																		} else {
 																			if ($xdeltime==1) {
-																				echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="pmtimein" data-xlabel="PM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog();">'.trim($pmtimeinhh).'</button>';
+																				echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="pmtimein" data-xlabel="PM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$pmtimeinhh.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($pmtimeinhh).'</button>';
 																			} else {
 																				echo trim($pmtimeinhh);
 																			}
@@ -318,8 +316,7 @@
 																			echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="pmtimeout" data-xlabel="PM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
 																		} else {
 																			if ($xdeltime==1) {
-																				echo trim($pmtimeouthh);
-																				echo '<a href="/?del=1" class="del-x">?</a>';
+																				echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="pmtimeout" data-xlabel="PM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$pmtimeouthh.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($pmtimeouthh).'</button>';
 																			} else {
 																				echo trim($pmtimeouthh);
 																			}
@@ -496,7 +493,109 @@
 
 					<!-- Modal body -->
 					<div class="modal-body">
-						
+						<label id="lbldate2">Date:</label>
+
+						<div class="input-group mb-1 mt-1">
+							<span id="labelingcap2" class="input-group-text">Label</span>
+							<input id="fldvaluex2" class="form-control" name="datafeld2" readonly>
+						</div>
+
+						<div class="input-group mb-1 mt-1">
+							<select class="form-select form-select-l" id="optaction" name="optaction">>
+								<option value="delete">Delete</option>
+								<option value="amtimein">Move to AM In</option>
+								<option value="amtimeout">Move to AM Out</option>
+								<option value="pmtimein">Move to PM In</option>
+								<option value="pmtimeout">Move to PM Out</option>
+							</select>
+						</div>
+
+						<input id="feildnem2" type="text" name="feildnem2" class="form-control" required readonly hidden>
+						<input id="fldidno2" type="number" name="fldidno2" class="form-control" required readonly hidden>
+
+						<div class="row">
+							<div class="col">
+								<?php
+									if (isset($_POST['btnTimeReMove'])) {
+										$datafeldx2 = trim($_POST['datafeld2']);
+										$feildnemx2 = trim($_POST['feildnem2']);
+										$optaction = trim($_POST['optaction']);
+										$fldidno2 = trim($_POST['fldidno2']);
+										$datafeldz2 = "";
+										$current_url = $_SERVER['REQUEST_URI'];
+
+										if ($optaction=='delete') {
+											$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+											$qry_deletetimelog = "UPDATE employee_subdtr_tbl SET ".$feildnemx2."=:datafeldz2 WHERE subdtrid=:fldidno2";
+											$stmt_deletetimelog = $cnn->prepare($qry_deletetimelog);
+											$stmt_deletetimelog->bindValue(':fldidno2', $fldidno2);
+											$stmt_deletetimelog->bindParam(':datafeldz2', $datafeldz2);
+											$stmt_deletetimelog->execute();
+
+											if ($feildnemx2=='amtimein') {
+												echo '<script>alert("Delete AM In.")</script>';
+											} elseif ($feildnemx2=='amtimeout') {
+												echo '<script>alert("Delete AM Out.")</script>';
+											} elseif ($feildnemx2=='pmtimein') {
+												echo '<script>alert("Delete PM In.")</script>';
+											} elseif ($feildnemx2=='pmtimeout') {
+												echo '<script>alert("Delete PM Out.")</script>';
+											} else {
+												echo '<script>alert("No Time Deleted.")</script>';
+											}
+
+											echo '<script>window.open("'.$current_url.'","_self");</script>';
+										} elseif ($optaction=='amtimein') {
+											$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+											$qry_moveamtimein = "UPDATE employee_subdtr_tbl SET ".$optaction."=:datafeldx2, ".$feildnemx2."=:datafeldz2 WHERE subdtrid=:fldidno2";
+											$stmt_moveamtimein = $cnn->prepare($qry_moveamtimein);
+											$stmt_moveamtimein->bindValue(':fldidno2', $fldidno2);
+											$stmt_moveamtimein->bindParam(':datafeldx2', $datafeldx2);
+											$stmt_moveamtimein->bindParam(':datafeldz2', $datafeldz2);
+											$stmt_moveamtimein->execute();
+
+											echo '<script>alert("Move to AM In.")</script>';
+											echo '<script>window.open("'.$current_url.'","_self");</script>';
+										} elseif ($optaction=='amtimeout') {
+											$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+											$qry_moveamtimeout = "UPDATE employee_subdtr_tbl SET ".$optaction."=:datafeldx2, ".$feildnemx2."=:datafeldz2 WHERE subdtrid=:fldidno2";
+											$stmt_moveamtimeout = $cnn->prepare($qry_moveamtimeout);
+											$stmt_moveamtimeout->bindValue(':fldidno2', $fldidno2);
+											$stmt_moveamtimeout->bindParam(':datafeldx2', $datafeldx2);
+											$stmt_moveamtimeout->bindParam(':datafeldz2', $datafeldz2);
+											$stmt_moveamtimeout->execute();
+
+											echo '<script>alert("Move to AM Out.")</script>';
+											echo '<script>window.open("'.$current_url.'","_self");</script>';
+										} elseif ($optaction=='pmtimein') {
+											$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+											$qry_movepmtimein = "UPDATE employee_subdtr_tbl SET ".$optaction."=:datafeldx2, ".$feildnemx2."=:datafeldz2 WHERE subdtrid=:fldidno2";
+											$stmt_movepmtimein = $cnn->prepare($qry_movepmtimein);
+											$stmt_movepmtimein->bindValue(':fldidno2', $fldidno2);
+											$stmt_movepmtimein->bindParam(':datafeldx2', $datafeldx2);
+											$stmt_movepmtimein->bindParam(':datafeldz2', $datafeldz2);
+											$stmt_movepmtimein->execute();
+
+											echo '<script>alert("Move to PM In.")</script>';
+											echo '<script>window.open("'.$current_url.'","_self");</script>';
+										} elseif ($optaction=='pmtimeout') {
+											$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+											$qry_movepmtimeout = "UPDATE employee_subdtr_tbl SET ".$optaction."=:datafeldx2, ".$feildnemx2."=:datafeldz2 WHERE subdtrid=:fldidno2";
+											$stmt_movepmtimeout = $cnn->prepare($qry_movepmtimeout);
+											$stmt_movepmtimeout->bindValue(':fldidno2', $fldidno2);
+											$stmt_movepmtimeout->bindParam(':datafeldx2', $datafeldx2);
+											$stmt_movepmtimeout->bindParam(':datafeldz2', $datafeldz2);
+											$stmt_movepmtimeout->execute();
+
+											echo '<script>alert("Move to PM Out.")</script>';
+											echo '<script>window.open("'.$current_url.'","_self");</script>';
+										} else {
+											echo '<script>alert("No Action.")</script>';
+										}
+									}
+								?>
+							</div>
+						</div>
 					</div>
 
 					<!-- Modal footer -->
@@ -686,7 +785,13 @@
 			document.getElementById("fldvaluex").focus();
 		}
 
-		function fnReMoveTimeLog() {
-
+		function fnReMoveTimeLog(id,datafield,xlabel,xdate,xtype,xvalue) {
+			document.getElementById("fldvaluex2").value = xvalue;
+			document.getElementById("fldvaluex2").type = "text";
+			document.getElementById("lbldate2").innerHTML = "<b>Date:</b> " + xdate;
+			document.getElementById("labelingcap2").innerHTML = xlabel;
+			document.getElementById("feildnem2").value = datafield;
+			document.getElementById("fldidno2").value = id;
+			document.getElementById("fldvaluex2").type = xtype;
 		}
 	</script>
