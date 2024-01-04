@@ -264,103 +264,95 @@
 														} else {
 													?>
 															<td class="p-0 ps-2 border-end"><b><?php echo trim($daynohh); ?></b> <?php echo trim($namedayhh); ?></td>
+															<td class="p-0 text-center border-end" style="color: <?php echo $xcolord; ?>;">
+																<?php 
+																	if (empty($amtimeinhh)) {
+																		echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="amtimein" data-xlabel="AM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
+																	} else {
+																		if ($xdeltime==1) {
+																			echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="amtimein" data-xlabel="AM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$amtimeinhh.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($amtimeinhh).'</button>';
+																		} else {
+																			echo trim($amtimeinhh);
+																		}
+																	}
+																?>
+															</td>
+															<td class="p-0 text-center border-end" style="color: <?php echo $xcolordc; ?>;">
+																<?php 
+																	if (empty($amtimeouthh)) {
+																		echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="amtimeout" data-xlabel="AM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
+																	} else {
+																		if ($xdeltime==1) {
+																			echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="amtimeout" data-xlabel="AM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$amtimeouthh.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($amtimeouthh).'</button>';
+																		} else {
+																			echo trim($amtimeouthh);
+																		}
+																	}
+																?>
+															</td>
+															<td class="p-0 text-center border-end" style="color: <?php echo $xcolorda; ?>;">
+																<?php 
+																	if (empty($pmtimeinhh)) {
+																		echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="pmtimein" data-xlabel="PM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
+																	} else {
+																		if ($xdeltime==1) {
+																			echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="pmtimein" data-xlabel="PM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$pmtimeinhh.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($pmtimeinhh).'</button>';
+																		} else {
+																			echo trim($pmtimeinhh);
+																		}
+																	}
+																?>
+															</td>
+															<td class="p-0 text-center border-end" style="color: <?php echo $xcolordb; ?>;">
+																<?php 
+																	if (empty($pmtimeouthh)) {
+																		echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="pmtimeout" data-xlabel="PM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
+																	} else {
+																		if ($xdeltime==1) {
+																			echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="pmtimeout" data-xlabel="PM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$pmtimeouthh.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($pmtimeouthh).'</button>';
+																		} else {
+																			echo trim($pmtimeouthh);
+																		}
+																	}
+																?>
+															</td>
+															<td class="p-0 text-center border-end">
+																<?php 
+																	if (empty($lateutimehour)) {
+																		echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="lateutime_hour" data-xlabel="Undertime / Late - Hour" data-xdate="'.$xdatenowxf.'" data-type="number" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
+																	} else {
+																		echo trim($lateutimehour);
+																	}
+																?>
+															</td>
+															<td class="p-0 text-center border-end">
+																<?php 
+																	if (empty($lateutimemin)) {
+																		echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="lateutime_min" data-xlabel="Undertime / Late - Minute" data-xdate="'.$xdatenowxf.'" data-type="number" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
+																	} else {
+																		echo trim($lateutimemin);
+																	}
+																?>
+															</td>
+															<td class="p-0 text-center border-end">
+																<?php 
+																	if (empty($overtimehour)) {
+																		echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="overtime_hour" data-xlabel="Overtime - Hour" data-xdate="'.$xdatenowxf.'" data-type="number" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
+																	} else {
+																		echo trim($overtimehour);
+																	}
+																?>
+															</td>
+															<td class="p-0 text-center">
+																<?php 
+																	if (empty($overtimemin)) {
+																		echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="overtime_min" data-xlabel="Overtime - Minute" data-xdate="'.$xdatenowxf.'" data-type="number" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
+																	} else {
+																		echo trim($overtimemin);
+																	}
+																?>
+															</td>
 													<?php
-															if ($amtimeinhh=="LEAVE" || $amtimeinhh=="DAY OFF" || $amtimeinhh=="NOT APPLICABLE") {
-															?>
-																<td colspan="8" class="p-0 text-center border-end txt-bg-f2f2f2"><?php echo trim($amtimeinhh); ?></td>
-															<?php
-														} else {
-															?>
-																<td class="p-0 text-center border-end" style="color: <?php echo $xcolord; ?>;">
-																	<?php 
-																		if (empty($amtimeinhh)) {
-																			echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="amtimein" data-xlabel="AM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
-																		} else {
-																			if ($xdeltime==1) {
-																				echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="amtimein" data-xlabel="AM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$amtimeinhh.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($amtimeinhh).'</button>';
-																			} else {
-																				echo trim($amtimeinhh);
-																			}
-																		}
-																	?>
-																</td>
-																<td class="p-0 text-center border-end" style="color: <?php echo $xcolordc; ?>;">
-																	<?php 
-																		if (empty($amtimeouthh)) {
-																			echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="amtimeout" data-xlabel="AM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
-																		} else {
-																			if ($xdeltime==1) {
-																				echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="amtimeout" data-xlabel="AM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$amtimeouthh.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($amtimeouthh).'</button>';
-																			} else {
-																				echo trim($amtimeouthh);
-																			}
-																		}
-																	?>
-																</td>
-																<td class="p-0 text-center border-end" style="color: <?php echo $xcolorda; ?>;">
-																	<?php 
-																		if (empty($pmtimeinhh)) {
-																			echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="pmtimein" data-xlabel="PM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
-																		} else {
-																			if ($xdeltime==1) {
-																				echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="pmtimein" data-xlabel="PM In" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$pmtimeinhh.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($pmtimeinhh).'</button>';
-																			} else {
-																				echo trim($pmtimeinhh);
-																			}
-																		}
-																	?>
-																</td>
-																<td class="p-0 text-center border-end" style="color: <?php echo $xcolordb; ?>;">
-																	<?php 
-																		if (empty($pmtimeouthh)) {
-																			echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="pmtimeout" data-xlabel="PM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
-																		} else {
-																			if ($xdeltime==1) {
-																				echo '<button type="button" class="btn btn-outline-secondary w-100" id="'.$subdtrid.'" data-field="pmtimeout" data-xlabel="PM Out" data-xdate="'.$xdatenowxf.'" data-type="text" data-value="'.$pmtimeouthh.'" data-bs-toggle="modal" data-bs-target="#mdiTimeLogReMove" onclick="fnReMoveTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type,dataset.value);">'.trim($pmtimeouthh).'</button>';
-																			} else {
-																				echo trim($pmtimeouthh);
-																			}
-																		}
-																	?>
-																</td>
-																<td class="p-0 text-center border-end">
-																	<?php 
-																		if (empty($lateutimehour)) {
-																			echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="lateutime_hour" data-xlabel="Undertime / Late - Hour" data-xdate="'.$xdatenowxf.'" data-type="number" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
-																		} else {
-																			echo trim($lateutimehour);
-																		}
-																	?>
-																</td>
-																<td class="p-0 text-center border-end">
-																	<?php 
-																		if (empty($lateutimemin)) {
-																			echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="lateutime_min" data-xlabel="Undertime / Late - Minute" data-xdate="'.$xdatenowxf.'" data-type="number" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
-																		} else {
-																			echo trim($lateutimemin);
-																		}
-																	?>
-																</td>
-																<td class="p-0 text-center border-end">
-																	<?php 
-																		if (empty($overtimehour)) {
-																			echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="overtime_hour" data-xlabel="Overtime - Hour" data-xdate="'.$xdatenowxf.'" data-type="number" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
-																		} else {
-																			echo trim($overtimehour);
-																		}
-																	?>
-																</td>
-																<td class="p-0 text-center">
-																	<?php 
-																		if (empty($overtimemin)) {
-																			echo '<button type="button" class="btn btn-outline-primary btn-sm w-100" id="'.$subdtrid.'" data-field="overtime_min" data-xlabel="Overtime - Minute" data-xdate="'.$xdatenowxf.'" data-type="number" data-bs-toggle="modal" data-bs-target="#mdiTimeLogEdit" onclick="fnTimeLog(id,dataset.field,dataset.xlabel,dataset.xdate,dataset.type);">Edit</button>';
-																		} else {
-																			echo trim($overtimemin);
-																		}
-																	?>
-																</td>
-														<?php
-															}
 														}
 													?>
 												</tr>
