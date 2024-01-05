@@ -630,6 +630,26 @@
 																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
 																	<td class="p-0 font-size-10 text-center"><?php echo trim($overtimemin); ?></td>
 																<?php
+															} elseif (empty($amtimeinhh) && empty($amtimeouthh)) {
+																?>
+																	<td colspan="2" class="p-0 font-size-10 text-danger text-center border-end">TARDY</td>
+																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimemin); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center"><?php echo trim($overtimemin); ?></td>
+																<?php
+															} elseif (empty($pmtimeinhh) && empty($pmtimeouthh)) {
+																?>
+																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
+																	<td colspan="2" class="p-0 font-size-10 text-danger text-center border-end">UNDERTIME</td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimemin); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center"><?php echo trim($overtimemin); ?></td>
+																<?php
 															} else {
 																?>
 																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
@@ -949,6 +969,26 @@
 																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
 																	<td class="p-0 font-size-10 text-center"><?php echo trim($overtimemin); ?></td>
 																<?php
+															} elseif (empty($amtimeinhh) && empty($amtimeouthh)) {
+																?>
+																	<td colspan="2" class="p-0 font-size-10 text-danger text-center border-end">TARDY</td>
+																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimemin); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center"><?php echo trim($overtimemin); ?></td>
+																<?php
+															} elseif (empty($pmtimeinhh) && empty($pmtimeouthh)) {
+																?>
+																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
+																	<td colspan="2" class="p-0 font-size-10 text-danger text-center border-end">UNDERTIME</td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimemin); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center"><?php echo trim($overtimemin); ?></td>
+																<?php
 															} else {
 																?>
 																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
@@ -1263,6 +1303,26 @@
 															} elseif ($amtimeinhh=="ABSENT") {
 																?>
 																	<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 text-danger"><?php echo trim($amtimeinhh); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimemin); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center"><?php echo trim($overtimemin); ?></td>
+																<?php
+															} elseif (empty($amtimeinhh) && empty($amtimeouthh)) {
+																?>
+																	<td colspan="2" class="p-0 font-size-10 text-danger text-center border-end">TARDY</td>
+																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;"><?php echo trim($pmtimeouthh); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimemin); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
+																	<td class="p-0 font-size-10 text-center"><?php echo trim($overtimemin); ?></td>
+																<?php
+															} elseif (empty($pmtimeinhh) && empty($pmtimeouthh)) {
+																?>
+																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
+																	<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordc; ?>;"><?php echo trim($amtimeouthh); ?></td>
+																	<td colspan="2" class="p-0 font-size-10 text-danger text-center border-end">UNDERTIME</td>
 																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimehour); ?></td>
 																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($lateutimemin); ?></td>
 																	<td class="p-0 font-size-10 text-center border-end"><?php echo trim($overtimehour); ?></td>
