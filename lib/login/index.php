@@ -27,6 +27,8 @@
 						$uname = $row_user['uname'];
 						$ulevel = $row_user['ulevel'];
 						$uposition = $row_user['uposition'];
+						$officeid = $row_user['officeid'];
+						$officeabvr = $row_user['officeabvr'];
 					}
 
 					if ($xdelg==1) {
@@ -63,8 +65,14 @@
 							$_SESSION["ustat"] = $ustatg;
 							$_SESSION["verified"] = $verifiedg;
 							$_SESSION["xdel"] = $xdelg;
+							$_SESSION["officeid"] = $officeid;
+							$_SESSION["officeabvr"] = $officeabvr;
 							
-							echo "<script>window.open('../../', '_self');</script>";
+							if ($ulevel==20 || $ulevel==21) {
+								echo "<script>window.open('../../routes/dashpanel', '_self');</script>";
+							} else {
+								echo "<script>window.open('../../', '_self');</script>";
+							}
 						}
 					} else {
 						$_SESSION["uid"] = $usercode;
@@ -74,8 +82,14 @@
 						$_SESSION["ustat"] = $ustatg;
 						$_SESSION["verified"] = $verifiedg;
 						$_SESSION["xdel"] = $xdelg;
+						$_SESSION["officeid"] = $officeid;
+						$_SESSION["officeabvr"] = $officeabvr;
 						
-						echo "<script>window.open('../../', '_self');</script>";
+						if ($ulevel==20 || $ulevel==21) {
+							echo "<script>window.open('../../routes/dashpanel', '_self');</script>";
+						} else {
+							echo "<script>window.open('../../', '_self');</script>";
+						}
 					}
 				} else {
 					echo '<div class="alert alert-danger alert-dismissible fade show">';

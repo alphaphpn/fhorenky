@@ -63,6 +63,7 @@
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menu</a>
 							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dashpanel/">DashPanel</a></li>
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dtr-biolocation/">DTR Generator</a></li>
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/sign-up-employee/">Add Employee</a></li>
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/update-employee/">Update Employee</a></li>
@@ -140,7 +141,7 @@
 							echo '<script>alert("Your Account has been Deleted!");window.open("routes/login","_self");</script>';
 						} else {
 							// Access denied! Authorized person only.
-							echo '<script>alert("Access denied! Only Admin Account is Authorized.");window.open("routes/login","_self");</script>';
+							echo '<script>alert("Access denied! Only Admin Account is Authorized.");window.open("routes/logout","_self");</script>';
 						}
 					?>
 					</ul>

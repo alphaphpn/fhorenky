@@ -1,0 +1,87 @@
+	<canvas id="particle-animate" style="position: fixed; overflow: hidden; width: 100%; height: 100vh;"></canvas>
+
+	<div id="layoutSidenav">
+		<div id="layoutSidenav_nav">
+			<nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+				<div class="sb-sidenav-header d-flex">
+					<img src="" alt="<?php echo strtoupper(substr($_SESSION["uname"],0,1)); ?>" class="img-responsive rounded-2" style="min-width: 30%; background-color: #fd7e14;">
+					<div class="d-flex flex-column ms-2">
+						<span class="user-name font-size-14">
+							<?php echo $_SESSION["uname"]; ?><br>
+							<strong><?php echo $_SESSION["uposition"]; ?></strong>
+						</span>
+						<span class="user-role font-size-10"><?php echo $_SESSION["officeid"].' '.$_SESSION["officeabvr"]; ?></span>
+						<span class="user-status font-size-10">
+							<i class="fa fa-circle text-success"></i>
+							<span>Online</span>
+						</span>
+					</div>
+				</div>
+
+				<div class="sb-sidenav-menu">
+					<div class="nav">
+						<div class="sb-sidenav-menu-heading">Core</div>
+							<a class="nav-link" href="../../routes/dashpanel">
+								<div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+								<span class="w-100">DashPanel</span>
+								<span class="badge bg-primary">Main</span>
+							</a>
+
+						<div class="sb-sidenav-menu-heading">Current</div>
+							<a class="nav-link" href="#">
+								<div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
+								<span class="w-100">Profile</span>
+								<span class="badge bg-info">Info</span>
+							</a>
+
+						<div class="sb-sidenav-menu-heading">Sub-System</div>
+							<a class="nav-link" href="../../routes/biometric-upload">
+								<div class="sb-nav-link-icon"><i class="fas fa-upload"></i></div>
+								Upload Timelogs
+							</a>
+
+							<?php
+								if ($_SESSION["ulevel"]==1) {
+							?>
+									<a class="nav-link" href="../../routes/dtr-builder">
+										<div class="sb-nav-link-icon"><i class="fas fa-clock"></i></div>
+										DTR Builder
+									</a>
+							<?php
+								}
+							?>
+
+							<a class="nav-link" href="../../routes/dtr-office-yr-month">
+								<div class="sb-nav-link-icon"><i class="far fa-clock"></i></div>
+								Daily TIme Record (DTR)
+							</a>
+					</div>
+				</div>
+				<div class="sb-sidenav-footer">
+					<a href="#" class="text-decoration-none ms-3" title="Notification">
+						<i class="fas fa-bell"></i>
+						<span class="badge bg-warning rounded-circle position-relative" style="top: -8px; margin-left: -8px;">3</span>
+					</a>
+					<a href="#" title="Message" class="text-decoration-none ms-3">
+						<i class="fa fa-envelope"></i>
+						<span class="badge bg-success rounded-circle position-relative" style="top: -8px; margin-left: -8px;">7</span>
+					</a>
+					<a href="../../" title="Settings" class="text-decoration-none ms-3">
+						<i class="fa fa-cog"></i>
+					</a>
+					<a href="" class="text-decoration-none ms-3" title="Refresh">
+						<i class="fas fa-sync"></i>
+					</a>
+					<a href="../../routes/logout" class="text-decoration-none ms-3" title="Logout">
+						<i class="fa fa-power-off"></i>
+					</a>
+				</div>
+			</nav>
+		</div>
+		<div id="layoutSidenav_content">
+			<main>
+				<div class="container-fluid px-4">
+					<h1 class="mt-4"><?php echo $page_title; ?></h1>
+					<ol class="breadcrumb mb-4">
+						<li class="breadcrumb-item active"><?php echo $breadcrumb; ?></li>
+					</ol>

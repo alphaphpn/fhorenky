@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fingerprint Capture</title>
+  <!-- Include NCRY FingerBee SDK (example path, adjust accordingly) -->
+  <script src="path/to/ncry-fingerbee-sdk.js"></script>
+</head>
+<body>
+  <h1>Fingerprint Capture</h1>
+  <button onclick="captureFingerprint()">Capture Fingerprint</button>
+
+  <script>
+    function captureFingerprint() {
+      // Initialize NCRY FingerBee SDK
+      var fingerBeeSDK = new NCRYFingerBeeSDK();
+
+      // Open connection to the fingerprint scanner
+      fingerBeeSDK.openScanner(function (result) {
+        if (result.success) {
+          // Capture fingerprint
+          fingerBeeSDK.captureFingerprint(function (captureResult) {
+            if (captureResult.success) {
+              var fingerprintData = captureResult.data;
+
+              // Handle the captured fingerprint data (send to server, etc.)
+              console.log('Fingerprint captured:', fingerprintData);
+            } else {
+              console.error('Fingerprint capture failed:', captureResult.error);
+            }
+
+            // Close the connection to the fingerprint scanner
+            fingerBeeSDK.closeScanner();
+          });
+        } else {
+          console.error('Fingerprint scanner could not be opened:', result.error);
+        }
+      });
+    }
+  </script>
+</body>
+</html>
