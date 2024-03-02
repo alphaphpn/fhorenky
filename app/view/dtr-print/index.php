@@ -341,7 +341,6 @@
 																	}
 																} else {
 																	?>
-																		<!-- 2 lanes PM -->
 																		<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;">
 																			<?php
 																				if (empty($amtimeinhh)) {
@@ -374,7 +373,7 @@
 																				if (empty($pmtimeinhh)) {
 																					echo 'UNDERTIME';
 																				} else {
-																					echo trim($pmtimeinhh);
+																					echo trim($pmtimeinhh).'ludwig';
 																				}
 																			?>
 																		</td>
