@@ -55,7 +55,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="routes/login">Login</a>
+							<a class="nav-link" href="<?php echo $domainhome; ?>/routes/login">Login</a>
 						</li>
 					<?php
 						} elseif ($_SESSION["ulevel"]==1) {
@@ -127,7 +127,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="../../routes/logout">Logout</a>
+							<a class="nav-link" href="<?php echo $domainhome; ?>/routes/logout">Logout</a>
 						</li>
 					<?php
 						} elseif ($_SESSION["ustat"]==0) {
@@ -138,7 +138,7 @@
 							echo '<script>alert("Your Account needs to be Verified!");window.open("routes/login","_self");</script>';
 						} elseif ($_SESSION["xdel"]==1) {
 							// Account deleted.
-							echo '<script>alert("Your Account has been Deleted!");window.open("routes/login","_self");</script>';
+							echo '<script>alert("Your Account has been Deleted!");window.open("outes/login","_self");</script>';
 						} else {
 							// Access denied! Authorized person only.
 							echo '<script>alert("Access denied! Only Admin Account is Authorized.");window.open("routes/logout","_self");</script>';
