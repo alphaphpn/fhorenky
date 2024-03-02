@@ -27,6 +27,8 @@
 								<span class="badge bg-primary">Main</span>
 							</a>
 
+							<?php include_once "sidenav-core.php"; ?>
+
 						<div class="sb-sidenav-menu-heading">Current</div>
 							<a class="nav-link" href="#">
 								<div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
@@ -40,21 +42,14 @@
 								Upload Timelogs
 							</a>
 
-							<?php
-								if ($_SESSION["ulevel"]==1) {
-							?>
-									<a class="nav-link" href="../../routes/dtr-builder">
-										<div class="sb-nav-link-icon"><i class="fas fa-clock"></i></div>
-										DTR Builder
-									</a>
-							<?php
-								}
-							?>
-
 							<a class="nav-link" href="../../routes/dtr-office-yr-month">
 								<div class="sb-nav-link-icon"><i class="far fa-clock"></i></div>
 								Daily TIme Record (DTR)
 							</a>
+
+							<?php include_once "sidenav-subsys.php"; ?>
+
+						<div class="sb-sidenav-menu-heading">Deptartment System</div>
 					</div>
 				</div>
 				<div class="sb-sidenav-footer">
