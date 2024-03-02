@@ -21,6 +21,7 @@
 	<script src="<?php echo $domainhome; ?>/assets/demo/chart-area-demo.js"></script>
 	<script src="<?php echo $domainhome; ?>/assets/demo/chart-bar-demo.js"></script>
 	<script src="<?php echo $domainhome; ?>/assets/demo/chart-pie-demo.js"></script>
+	<script src="<?php echo $domainhome; ?>/assets/js/functions.js"></script>
 </body>
 </html>
 <?php /* Fhorenky PHP CMS Framework */ ?>

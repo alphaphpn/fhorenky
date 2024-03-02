@@ -25,6 +25,11 @@
 								<div class="sb-nav-link-icon"><i class="fa fa-inbox"></i></div>
 								Contact(s)
 							</a>
+
+							<a class="nav-link" href="../../routes/pw-encrytp">
+								<div class="sb-nav-link-icon"><i class="fas fa-fingerprint"></i></div>
+								Password Encrypt
+							</a>
 						<?php
 							}
 						?>

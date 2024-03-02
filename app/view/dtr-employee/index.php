@@ -125,7 +125,7 @@
 												$typeemployeeabrv=$row["type_employee_abrv"];
 												$signatory=utf8_encode($row["headofficer"]);
 												$xlinkz = "../../routes/dtr-print/?yrno=".$yrno."&monthno=".$monthno."&biolocation=".$biolocation."&biono=".$biono;
-												$chklinkz = "../../routes/dtr-check/?yrno=".$yrno."&monthno=".$monthno."&biolocation=".$biolocation."&biono=".$biono;
+												$chklinkz = "../../routes/dtr-checker/?yrno=".$yrno."&monthno=".$monthno."&biolocation=".$biolocation."&biono=".$biono;
 										?>
 												<tr>
 													<td><?php echo $xno; ?></td>
@@ -140,7 +140,7 @@
 													<td><?php echo $profileid; ?></td>
 													<td>
 														<a href="<?php echo trim($xlinkz); ?>" target="_blank" class="btn btn-primary btn-sm">DTR</a>
-														<a href="<?php echo trim($chklinkz); ?>" target="_blank" class="btn btn-danger btn-sm">
+														<a href="<?php echo trim($chklinkz); ?>" class="btn btn-danger btn-sm">
 															<i class="fa fa-check" aria-hidden="true"></i>
 														</a>
 													</td>

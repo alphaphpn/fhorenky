@@ -37,16 +37,6 @@
 							</a>
 
 						<div class="sb-sidenav-menu-heading">Sub-System</div>
-							<a class="nav-link" href="../../routes/biometric-upload">
-								<div class="sb-nav-link-icon"><i class="fas fa-upload"></i></div>
-								Upload Timelogs
-							</a>
-
-							<a class="nav-link" href="../../routes/dtr-office-yr-month">
-								<div class="sb-nav-link-icon"><i class="far fa-clock"></i></div>
-								Daily TIme Record (DTR)
-							</a>
-
 							<?php include_once "sidenav-subsys.php"; ?>
 
 						<div class="sb-sidenav-menu-heading">Deptartment System</div>
@@ -75,7 +65,16 @@
 		</div>
 		<div id="layoutSidenav_content">
 			<main>
-				<div class="container-fluid px-4">
+				<div class="container-fluid px-4 clearfix">
+				<?php
+					if ($page_title=="DashPanel") {
+
+					} else {
+				?>
+					<a href="javascript: history.back()" class="float-end btn btn-sm btn-danger">Back</a>
+				<?php
+					}
+				?>
 					<h1 class="mt-4"><?php echo $page_title; ?></h1>
 					<ol class="breadcrumb mb-4">
 						<li class="breadcrumb-item active"><?php echo $breadcrumb; ?></li>

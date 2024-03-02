@@ -64,7 +64,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<!-- DTR- Start -->
-				<div class="col-sm-3">
+				<div class="col-sm-3 border border-secondary border-dashed">
 					<div>
 						<div class="d-flex justify-content-between">
 							<label class="font-size-10">BioTag: <?php echo trim($biolocationk); ?></label>
@@ -77,7 +77,19 @@
 						<table class="table" border="2">
 							<thead>
 								<tr>
-									<th colspan="10" class="p-0 font-size-12">CIVIL SERVICE FORM No. 48</th>
+									<th colspan="6" class="p-0 font-size-12">CIVIL SERVICE FORM No. 48</th>
+									<th colspan="4" class="p-0 font-size-10 text-center">
+										<div class="d-flex">
+											<div class="flex-fill bg-secondary text-light">Accounting Copy</div>
+										</div>
+
+										<!-- div class="d-flex">
+											<div class="flex-fill">CC: </div>
+											<div class="flex-fill bg-secondary text-light">Employee | In-Charge/HR</div>
+											<div class="flex-fill bg-danger text-light">Accounting</div>
+											<div class="flex-fill bg-warning text-light">COA</div>
+										</div -->
+									</th>
 								</tr>
 								<tr align="center">
 									<th colspan="10" class="p-0 font-size-14">DAILY TIME RECORD</th>
@@ -271,7 +283,7 @@
 																<?php
 															} elseif (isset($amtimeinhh) && empty($amtimeouthh) && empty($pmtimeinhh) && empty($pmtimeouthh)) {
 																// AM Time-In and All Empty
-																if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $amtimeinhh)) {
+																if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $amtimeinhh) || checkIsTime($amtimeinhh)) {
 																	?>
 																		<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
 																		<td class="p-0 font-size-10 text-center border-end">--:--</td>
@@ -279,7 +291,7 @@
 																	<?php
 																} else {
 																	?>
-																		<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?></td>
+																		<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?>xxx</td>
 																	<?php
 																}
 															} elseif (trim($amtimeinhh)==trim($amtimeouthh) && trim($amtimeouthh)!=trim($pmtimeinhh) && trim($pmtimeinhh)!=trim($pmtimeouthh)) {
@@ -288,7 +300,7 @@
 																		<!-- 2 lanes AM -->
 																		<td colspan="2" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 text-danger">TARDY</td>
 																		<?php
-																			if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $pmtimeinhh)) {
+																			if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh) || checkIsTime($pmtimeinhh)) {
 																				?>
 																					<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
 																					<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;">--:--</td>
@@ -325,7 +337,7 @@
 																<?php
 															} elseif (trim($pmtimeouthh)==trim($pmtimeinhh) && trim($pmtimeinhh)!=trim($amtimeouthh) && trim($amtimeouthh)!=trim($amtimeinhh)) {
 																if (empty($amtimeinhh) && isset($amtimeouthh) && empty($pmtimeinhh) && empty($pmtimeouthh)) {
-																	if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $amtimeouthh)) {
+																	if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $amtimeouthh) || checkIsTime($amtimeouthh)) {
 																		?>
 																			<!-- 2 lanes PM -->
 																			<td class="p-0 font-size-10 text-center border-end">--:--</td>
@@ -361,7 +373,7 @@
 																		</td>
 																		
 																	<?php
-																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh)) {
+																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh) || checkIsTime($pmtimeinhh)) {
 																	?>
 																		<td class="p-0 font-size-10 text-center border-end">--:--</td>
 																		<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
@@ -392,7 +404,7 @@
 																	<!-- 2 lanes PM AM_In-Out Empty-->
 																	<td colspan="2" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 text-danger">TARDY</td>
 																	<?php
-																		if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $pmtimeinhh)) {
+																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh) || checkIsTime($pmtimeinhh)) {
 																			echo '<td class="p-0 font-size-10 text-center border-end">--:--</td>';
 																			echo '<td class="p-0 font-size-10 text-center border-end">'.trim($pmtimeinhh).'</td>';
 																		} else {
@@ -544,7 +556,19 @@
 						<table class="table" border="2">
 							<thead>
 								<tr>
-									<th colspan="10" class="p-0 font-size-12">CIVIL SERVICE FORM No. 48</th>
+									<th colspan="7" class="p-0 font-size-12">CIVIL SERVICE FORM No. 48</th>
+									<th colspan="3" class="p-0 font-size-10 text-center">
+										<div class="d-flex">
+											<div class="flex-fill bg-secondary text-light">COA Copy</div>
+										</div>
+
+										<!-- div class="d-flex">
+											<div class="flex-fill">CC: </div>
+											<div class="flex-fill bg-secondary text-light">Employee | In-Charge/HR</div>
+											<div class="flex-fill bg-danger text-light">Accounting</div>
+											<div class="flex-fill bg-warning text-light">COA</div>
+										</div -->
+									</th>
 								</tr>
 								<tr align="center">
 									<th colspan="10" class="p-0 font-size-14">DAILY TIME RECORD</th>
@@ -738,7 +762,7 @@
 																<?php
 															} elseif (isset($amtimeinhh) && empty($amtimeouthh) && empty($pmtimeinhh) && empty($pmtimeouthh)) {
 																// AM Time-In and All Empty
-																if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $amtimeinhh)) {
+																if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $amtimeinhh) || checkIsTime($amtimeinhh)) {
 																	?>
 																		<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
 																		<td class="p-0 font-size-10 text-center border-end">--:--</td>
@@ -746,7 +770,7 @@
 																	<?php
 																} else {
 																	?>
-																		<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?></td>
+																		<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?>xxx</td>
 																	<?php
 																}
 															} elseif (trim($amtimeinhh)==trim($amtimeouthh) && trim($amtimeouthh)!=trim($pmtimeinhh) && trim($pmtimeinhh)!=trim($pmtimeouthh)) {
@@ -755,7 +779,7 @@
 																		<!-- 2 lanes AM -->
 																		<td colspan="2" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 text-danger">TARDY</td>
 																		<?php
-																			if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $pmtimeinhh)) {
+																			if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh) || checkIsTime($pmtimeinhh)) {
 																				?>
 																					<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
 																					<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;">--:--</td>
@@ -792,7 +816,7 @@
 																<?php
 															} elseif (trim($pmtimeouthh)==trim($pmtimeinhh) && trim($pmtimeinhh)!=trim($amtimeouthh) && trim($amtimeouthh)!=trim($amtimeinhh)) {
 																if (empty($amtimeinhh) && isset($amtimeouthh) && empty($pmtimeinhh) && empty($pmtimeouthh)) {
-																	if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $amtimeouthh)) {
+																	if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $amtimeouthh) || checkIsTime($amtimeouthh)) {
 																		?>
 																			<!-- 2 lanes PM -->
 																			<td class="p-0 font-size-10 text-center border-end">--:--</td>
@@ -828,7 +852,7 @@
 																		</td>
 																		
 																	<?php
-																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh)) {
+																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh) || checkIsTime($pmtimeinhh)) {
 																	?>
 																		<td class="p-0 font-size-10 text-center border-end">--:--</td>
 																		<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
@@ -859,7 +883,7 @@
 																	<!-- 2 lanes PM AM_In-Out Empty-->
 																	<td colspan="2" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 text-danger">TARDY</td>
 																	<?php
-																		if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $pmtimeinhh)) {
+																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh) || checkIsTime($pmtimeinhh)) {
 																			echo '<td class="p-0 font-size-10 text-center border-end">--:--</td>';
 																			echo '<td class="p-0 font-size-10 text-center border-end">'.trim($pmtimeinhh).'</td>';
 																		} else {
@@ -996,7 +1020,7 @@
 					</div>
 				</div>
 
-				<div class="col-sm-3">
+				<div class="col-sm-3 border border-secondary border-dashed">
 					<div>
 						<div class="d-flex justify-content-between">
 							<label class="font-size-10">BioTag: <?php echo trim($biolocationk); ?></label>
@@ -1009,7 +1033,19 @@
 						<table class="table" border="2">
 							<thead>
 								<tr>
-									<th colspan="10" class="p-0 font-size-12">CIVIL SERVICE FORM No. 48</th>
+									<th colspan="5" class="p-0 font-size-12">CIVIL SERVICE FORM No. 48</th>
+									<th colspan="5" class="p-0 font-size-10 text-center">
+										<div class="d-flex">
+											<div class="flex-fill bg-secondary text-light">Employee | In-Charge/HR Copy</div>
+										</div>
+
+										<!-- div class="d-flex">
+											<div class="flex-fill">CC: </div>
+											<div class="flex-fill bg-secondary text-light">Employee | In-Charge/HR</div>
+											<div class="flex-fill bg-danger text-light">Accounting</div>
+											<div class="flex-fill bg-warning text-light">COA</div>
+										</div -->
+									</th>
 								</tr>
 								<tr align="center">
 									<th colspan="10" class="p-0 font-size-14">DAILY TIME RECORD</th>
@@ -1203,7 +1239,7 @@
 																<?php
 															} elseif (isset($amtimeinhh) && empty($amtimeouthh) && empty($pmtimeinhh) && empty($pmtimeouthh)) {
 																// AM Time-In and All Empty
-																if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $amtimeinhh)) {
+																if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $amtimeinhh) || checkIsTime($amtimeinhh)) {
 																	?>
 																		<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolord; ?>;"><?php echo trim($amtimeinhh); ?></td>
 																		<td class="p-0 font-size-10 text-center border-end">--:--</td>
@@ -1211,7 +1247,7 @@
 																	<?php
 																} else {
 																	?>
-																		<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?></td>
+																		<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?>xxx</td>
 																	<?php
 																}
 															} elseif (trim($amtimeinhh)==trim($amtimeouthh) && trim($amtimeouthh)!=trim($pmtimeinhh) && trim($pmtimeinhh)!=trim($pmtimeouthh)) {
@@ -1220,7 +1256,7 @@
 																		<!-- 2 lanes AM -->
 																		<td colspan="2" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 text-danger">TARDY</td>
 																		<?php
-																			if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $pmtimeinhh)) {
+																			if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh) || checkIsTime($pmtimeinhh)) {
 																				?>
 																					<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolorda; ?>;"><?php echo trim($pmtimeinhh); ?></td>
 																					<td class="p-0 font-size-10 text-center border-end" style="color: <?php echo $xcolordb; ?>;">--:--</td>
@@ -1257,7 +1293,7 @@
 																<?php
 															} elseif (trim($pmtimeouthh)==trim($pmtimeinhh) && trim($pmtimeinhh)!=trim($amtimeouthh) && trim($amtimeouthh)!=trim($amtimeinhh)) {
 																if (empty($amtimeinhh) && isset($amtimeouthh) && empty($pmtimeinhh) && empty($pmtimeouthh)) {
-																	if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $amtimeouthh)) {
+																	if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $amtimeouthh) || checkIsTime($amtimeouthh)) {
 																		?>
 																			<!-- 2 lanes PM -->
 																			<td class="p-0 font-size-10 text-center border-end">--:--</td>
@@ -1293,7 +1329,7 @@
 																		</td>
 																		
 																	<?php
-																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh)) {
+																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh) || checkIsTime($pmtimeinhh)) {
 																	?>
 																		<td class="p-0 font-size-10 text-center border-end">--:--</td>
 																		<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
@@ -1324,7 +1360,7 @@
 																	<!-- 2 lanes PM AM_In-Out Empty-->
 																	<td colspan="2" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 text-danger">TARDY</td>
 																	<?php
-																		if (preg_match("/^(?:2[0-3]|[01][0-9]):[0-5][0-9]$/", $pmtimeinhh)) {
+																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh) || checkIsTime($pmtimeinhh)) {
 																			echo '<td class="p-0 font-size-10 text-center border-end">--:--</td>';
 																			echo '<td class="p-0 font-size-10 text-center border-end">'.trim($pmtimeinhh).'</td>';
 																		} else {
@@ -1477,7 +1513,7 @@
 							<thead>
 								<tr>
 									<th colspan="2" class="p-0 font-size-12">BIOMETRIC</th>
-									<th colspan="8" class="p-0 font-size-10 text-end">Employee Copy | In-Charge/HR Copy | Accounting Copy | Auditor Copy</th>
+									<th colspan="8" class="p-0 font-size-10 text-end">CC: Employee | In-Charge/HR | Accounting | COA</th>
 								</tr>
 								<tr align="center">
 									<th colspan="10" class="p-0 font-size-14">ATTENDANCE LOG</th>
@@ -1561,7 +1597,7 @@
 														} else {
 															?>
 															<td class="p-0 font-size-10 ps-2 border-end" style="width: 34px;"><?php echo trim($namedayhh); ?></td>
-															<td colspan="8" class="p-0 font-size-10 text-center">
+															<td colspan="8" class="p-0 font-size-10 text-center d-flex flex-wrap">
 																<?php
 																	/** Check Timelogs from Att_Log - Start **/
 
@@ -1586,10 +1622,10 @@
 																			$attendtimelog = new DateTime($row_attlog['timelog']);
 																			$atendtimlog = $attendtimelog->format('g:i A');
 
-																			echo $atendtimlog.' <b class="font-color-dark-blue">*|*</b> ';
+																			echo '<div class="flex-fill border-end">'.$atendtimlog.'</div>';
 																		}
 																	} else {
-																		echo '<p class="p-0 m-0 text-danger">NO TIME REGISTERED</p>';
+																		echo '<div class="flex-fill text-danger border-end">NO TIME REGISTERED</div>';
 																	}
 																?>
 															</td>
@@ -1614,16 +1650,16 @@
 								<tr>
 									<td colspan="10" class="p-0 font-size-10 border-0 text-indent-32"></td>
 								</tr>
-								<tr class="border-0">
-									<td colspan="5" class="pb-0 border-0"></td>
-									<td colspan="5" class="pb-0 border-bottom"></td>
-								</tr>
+								
 								<tr>
 									<td colspan="5"></td>
 									<td colspan="5" class="p-0 font-size-10 text-center"></td>
 								</tr>
 								<tr>
-									<td colspan="10" class="p-0 font-size-10 pb-4">Verified timelog(s) from Biometric Machine</td>
+									<td colspan="10" class="p-0 font-size-10 pb-4">
+										Verified timelog(s) from Biometric Machine<br>
+										by Authorized Personnel, Office In-Charge or HR
+									</td>
 								</tr>
 								<tr align="center">
 									<td colspan="10" class="p-0 font-size-12"><b>_________________________</td>

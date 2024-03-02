@@ -32,6 +32,7 @@
 .vh-92 { height: 92vh; }
 .vh-91 { height: 91vh; }
 .vh-90 { height: 90vh; }
+.vh-70 { height: 70vh; }
 .vh-65 { height: 65vh; }
 
 .pt-18rem { padding-top: 18rem; }
@@ -47,6 +48,10 @@
 .border-top-dotted {
 	border-top-style: dotted;
 	border-top-width: 1px;
+}
+
+.border-dashed {
+	border-style: dashed!important;
 }
 
 .bg-color-ffff99 {background-color: #ffff99;}
