@@ -361,7 +361,7 @@
 																		</td>
 																		
 																	<?php
-																		if (checkIsTime($pmtimeinhh)) {
+																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh)) {
 																	?>
 																		<td class="p-0 font-size-10 text-center border-end">--:--</td>
 																		<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
@@ -373,7 +373,7 @@
 																				if (empty($pmtimeinhh)) {
 																					echo 'UNDERTIME';
 																				} else {
-																					echo trim($pmtimeinhh).'ludwig';
+																					echo trim($pmtimeinhh);
 																				}
 																			?>
 																		</td>
