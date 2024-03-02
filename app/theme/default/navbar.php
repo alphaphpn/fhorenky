@@ -127,7 +127,7 @@
 						</li>
 
 						<li class="nav-item">
-							<a class="nav-link" href="<?php echo $domainhome; ?>/routes/logout">Logout</a>
+							<a class="nav-link" href="../../routes/logout">Logout</a>
 						</li>
 					<?php
 						} elseif ($_SESSION["ustat"]==0) {
