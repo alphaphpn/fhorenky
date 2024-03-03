@@ -135,6 +135,7 @@
 									<th class="p-0 font-size-8">Min</th>
 								</tr>
 							</thead>
+
 							<tbody>
 
 								<?php
@@ -291,7 +292,7 @@
 																	<?php
 																} else {
 																	?>
-																		<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?>xxx</td>
+																		<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?></td>
 																	<?php
 																}
 															} elseif (trim($amtimeinhh)==trim($amtimeouthh) && trim($amtimeouthh)!=trim($pmtimeinhh) && trim($pmtimeinhh)!=trim($pmtimeouthh)) {
@@ -374,10 +375,21 @@
 																		
 																	<?php
 																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh) || checkIsTime($pmtimeinhh)) {
-																	?>
-																		<td class="p-0 font-size-10 text-center border-end">--:--</td>
-																		<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
-																	<?php
+																			$pmtimeinxyz = new DateTime($pmtimeinhh);
+																			$xyzpmtimein = $pmtimeinxyz->format('Hi');
+																			$validatepmtimeinxyz = (int)$xyzpmtimein;
+
+																			if ($validatepmtimeinxyz < 1259) {
+																				?>
+																					<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
+																					<td class="p-0 font-size-10 text-center border-end">--:--</td>
+																				<?php
+																			} else {
+																				?>
+																					<td class="p-0 font-size-10 text-center border-end">--:--</td>
+																					<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
+																				<?php
+																			}
 																		} else {
 																	?>
 																		<td colspan="2" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 text-danger">
@@ -471,7 +483,7 @@
 										?>
 
 											<tr>
-												<td class="p-0 font-size-10 text-center border-end"><b>0</b> Xxx</td>
+												<td class="p-0 font-size-10 text-center border-end"><b>0</b></td>
 												<td class="p-0 font-size-10 text-center border-end">00:00</td>
 												<td class="p-0 font-size-10 text-center border-end">00:00</td>
 												<td class="p-0 font-size-10 text-center border-end">00:00</td>
@@ -486,6 +498,7 @@
 									}
 								?>
 							</tbody>
+
 							<tfoot>
 								<tr>
 									<td colspan="6" class="p-0 font-size-10 text-end border-end">Total:</td>
@@ -614,6 +627,7 @@
 									<th class="p-0 font-size-8">Min</th>
 								</tr>
 							</thead>
+
 							<tbody>
 
 								<?php
@@ -770,7 +784,7 @@
 																	<?php
 																} else {
 																	?>
-																		<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?>xxx</td>
+																		<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?></td>
 																	<?php
 																}
 															} elseif (trim($amtimeinhh)==trim($amtimeouthh) && trim($amtimeouthh)!=trim($pmtimeinhh) && trim($pmtimeinhh)!=trim($pmtimeouthh)) {
@@ -853,10 +867,21 @@
 																		
 																	<?php
 																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh) || checkIsTime($pmtimeinhh)) {
-																	?>
-																		<td class="p-0 font-size-10 text-center border-end">--:--</td>
-																		<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
-																	<?php
+																			$pmtimeinxyz = new DateTime($pmtimeinhh);
+																			$xyzpmtimein = $pmtimeinxyz->format('Hi');
+																			$validatepmtimeinxyz = (int)$xyzpmtimein;
+
+																			if ($validatepmtimeinxyz < 1259) {
+																				?>
+																					<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
+																					<td class="p-0 font-size-10 text-center border-end">--:--</td>
+																				<?php
+																			} else {
+																				?>
+																					<td class="p-0 font-size-10 text-center border-end">--:--</td>
+																					<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
+																				<?php
+																			}
 																		} else {
 																	?>
 																		<td colspan="2" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 text-danger">
@@ -950,7 +975,7 @@
 										?>
 
 											<tr>
-												<td class="p-0 font-size-10 text-center border-end"><b>0</b> Xxx</td>
+												<td class="p-0 font-size-10 text-center border-end"><b>0</b></td>
 												<td class="p-0 font-size-10 text-center border-end">00:00</td>
 												<td class="p-0 font-size-10 text-center border-end">00:00</td>
 												<td class="p-0 font-size-10 text-center border-end">00:00</td>
@@ -965,6 +990,7 @@
 									}
 								?>
 							</tbody>
+
 							<tfoot>
 								<tr>
 									<td colspan="6" class="p-0 font-size-10 text-end border-end">Total:</td>
@@ -1091,6 +1117,7 @@
 									<th class="p-0 font-size-8">Min</th>
 								</tr>
 							</thead>
+
 							<tbody>
 
 								<?php
@@ -1247,7 +1274,7 @@
 																	<?php
 																} else {
 																	?>
-																		<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?>xxx</td>
+																		<td colspan="4" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 font-color-dark-blue"><?php echo trim($amtimeinhh); ?></td>
 																	<?php
 																}
 															} elseif (trim($amtimeinhh)==trim($amtimeouthh) && trim($amtimeouthh)!=trim($pmtimeinhh) && trim($pmtimeinhh)!=trim($pmtimeouthh)) {
@@ -1330,10 +1357,21 @@
 																		
 																	<?php
 																		if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $pmtimeinhh) || checkIsTime($pmtimeinhh)) {
-																	?>
-																		<td class="p-0 font-size-10 text-center border-end">--:--</td>
-																		<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
-																	<?php
+																			$pmtimeinxyz = new DateTime($pmtimeinhh);
+																			$xyzpmtimein = $pmtimeinxyz->format('Hi');
+																			$validatepmtimeinxyz = (int)$xyzpmtimein;
+
+																			if ($validatepmtimeinxyz < 1259) {
+																				?>
+																					<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
+																					<td class="p-0 font-size-10 text-center border-end">--:--</td>
+																				<?php
+																			} else {
+																				?>
+																					<td class="p-0 font-size-10 text-center border-end">--:--</td>
+																					<td class="p-0 font-size-10 text-center border-end"><?php echo trim($pmtimeinhh); ?></td>
+																				<?php
+																			}
 																		} else {
 																	?>
 																		<td colspan="2" class="p-0 font-size-10 text-center border-end txt-bg-f2f2f2 text-danger">
@@ -1427,7 +1465,7 @@
 										?>
 
 											<tr>
-												<td class="p-0 font-size-10 text-center border-end"><b>0</b> Xxx</td>
+												<td class="p-0 font-size-10 text-center border-end"><b>0</b></td>
 												<td class="p-0 font-size-10 text-center border-end">00:00</td>
 												<td class="p-0 font-size-10 text-center border-end">00:00</td>
 												<td class="p-0 font-size-10 text-center border-end">00:00</td>
@@ -1442,6 +1480,7 @@
 									}
 								?>
 							</tbody>
+							
 							<tfoot>
 								<tr>
 									<td colspan="6" class="p-0 font-size-10 text-end border-end">Total:</td>
@@ -1638,7 +1677,7 @@
 									} else {
 										?>
 											<tr>
-												<td class="p-0 font-size-10 text-center border-end"><b>0</b> Xxx</td>
+												<td class="p-0 font-size-10 text-center border-end"><b>0</b></td>
 												<td class="p-0 font-size-10 text-center border-end">00:00</td>
 											</tr>
 

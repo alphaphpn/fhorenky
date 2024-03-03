@@ -98,16 +98,16 @@
 
 		<!-- Right -->
 		<div>
-			<a href="#!" class="text-white me-4">
+			<a href="#!" class="text-white text-decoration-none me-4">
 				<i class="fab fa-facebook-f"></i>
 			</a>
-			<a href="#!" class="text-white me-4">
+			<a href="#!" class="text-white text-decoration-none me-4">
 				<i class="fab fa-twitter"></i>
 			</a>
-			<a href="#!" class="text-white me-4">
+			<a href="#!" class="text-white text-decoration-none me-4">
 				<i class="fab fa-google"></i>
 			</a>
-			<a href="#!" class="text-white">
+			<a href="#!" class="text-white text-decoration-none">
 				<i class="fab fa-linkedin-in"></i>
 			</a>
 		</div>

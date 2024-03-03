@@ -322,7 +322,7 @@
 									DAY(datelog)=:dayno AND 
 									bio_location=:biolocation AND 
 									bio_no=:biono AND 
-									timelog>=TIME_FORMAT('12:31:00','%T') 
+									timelog>TIME_FORMAT('12:30:00','%T') 
 									ORDER BY TIME_FORMAT(timelog, '%H:%i') DESC 
 									LIMIT 1
 								";
@@ -340,9 +340,18 @@
 										$pmtimeoutx = new DateTime($row_timeoutpm['timelog']);
 										$rsltpmoutx = $pmtimeoutx->format('g:i');
 
-										// if ($rsltpmoutx==$rsltpminx) {
-										// 	$rsltpmoutx=null;
-										// }
+										$validatetimeoutpm = $pmtimeoutx->format('Hi');
+										$validatetimeoutpmx = (int)$validatetimeoutpm;
+
+										if (empty($rsltpminx)) {
+											if ($validatetimeinpmx < 2359) {
+												if ($rsltpmoutx==$rsltpminx) {
+													$rsltpmoutx=null;
+												} else {
+													$rsltpmoutx = $pmtimeoutx->format('g:i');
+												}
+											}
+										}
 
 										$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
 										$qry_update_timeoutpm = "UPDATE employee_subdtr_tbl SET 
