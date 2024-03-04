@@ -1266,12 +1266,12 @@
 
 																echo '<script>window.open("'.$current_url.'","_self");</script>';
 															} else {
-																if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $datafeldx)) {
+																if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $datafeldx) || checkIsTime($datafeldx)) {
 																	$datafeld = trim($_POST['datafeld']);
 																	$feildnem = trim($_POST['feildnem']);
 																	$fldidno = trim($_POST['fldidno']);
 
-																	if ($_SESSION["ulevel"]==1 || $_SESSION["ulevel"]==15) {
+																	if ($_SESSION["ulevel"]==1 || $_SESSION["ulevel"]==15 || $_SESSION["ulevel"]==20) {
 																		$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
 																		$qry_update_timelogx = "UPDATE employee_subdtr_tbl SET ".$feildnem."=:datafeldgg WHERE subdtrid=:fldidnogg";
 																		$stmt_update_timelogx = $cnn->prepare($qry_update_timelogx);
