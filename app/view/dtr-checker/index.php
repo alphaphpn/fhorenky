@@ -1266,7 +1266,7 @@
 
 																echo '<script>window.open("'.$current_url.'","_self");</script>';
 															} else {
-																if (checkIsTime($datafeldx)) {
+																if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $datafeldx)) {
 																	$datafeld = trim($_POST['datafeld']);
 																	$feildnem = trim($_POST['feildnem']);
 																	$fldidno = trim($_POST['fldidno']);
