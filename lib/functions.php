@@ -8,7 +8,7 @@
 		$timeformat=DateTime::createFromFormat('g:i', $timeformat);
 		$time_errors = DateTime::getLastErrors();
 
-		if ($time_errors + $time_errors == 0) {
+		if ($time_errors['warning_count'] + $time_errors['error_count'] == 0) {
 			return TRUE;
 		} else {
 			return FALSE;
