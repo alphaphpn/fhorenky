@@ -528,7 +528,8 @@
 							} else {
 								?>
 								<tr>
-									<td colspan="10" class="p-0 font-size-10 border-bottom-width-0">Verified as to the prescribed office hours</td>
+									<td colspan="5" class="p-0 font-size-10 border-bottom-width-0">Verified as to the prescribed office hours</td>
+									<td colspan="5" class="p-0 font-size-10 border-bottom-width-0">Original Signature</td>
 								</tr>
 								<tr>
 									<td class="p-0 font-size-10 text-center border-bottom-width-0"></td>

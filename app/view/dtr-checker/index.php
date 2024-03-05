@@ -1197,6 +1197,8 @@
 																return TRUE;
 															} elseif ($valstat=="DAY OFF") {
 																return TRUE;
+															} elseif ($valstat=="OFF DUTY") {
+																return TRUE;
 															} elseif ($valstat=="SWAP") {
 																return TRUE;
 															} elseif ($valstat=="OFFSET") {

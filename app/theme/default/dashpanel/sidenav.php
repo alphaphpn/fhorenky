@@ -40,6 +40,7 @@
 							<?php include_once "sidenav-subsys.php"; ?>
 
 						<div class="sb-sidenav-menu-heading">Deptartment System</div>
+							<?php include_once "sidenav-depsys.php"; ?>
 					</div>
 				</div>
 				<div class="sb-sidenav-footer">
