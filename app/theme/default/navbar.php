@@ -27,6 +27,7 @@
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="javascript:void(0)">Transparency</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dtr-emp">DTR</a></li>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/doctrack">DocTrack</a></li>
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/raffle-number" target="_blank">Raffle</a></li>
 							</ul>
 						</li>
@@ -47,7 +48,7 @@
 						</li>
 
 					<?php
-						// Admin Logged
+						// DashPanel
 						if (empty($_SESSION["uid"]) || empty($_SESSION["uname"]) || empty($_SESSION["ulevel"]) || empty($_SESSION["uposition"]) || empty($_SESSION["ustat"]) || empty($_SESSION["verified"])) {
 					?>
 						<li class="nav-item">
@@ -59,6 +60,7 @@
 						</li>
 					<?php
 						} elseif ($_SESSION["ulevel"]==1) {
+							// Super Admin
 					?>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menu</a>
@@ -75,6 +77,7 @@
 						</li>
 					<?php
 						} elseif ($_SESSION["ulevel"]==13 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
+							// DTR Editor
 					?>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menu</a>
@@ -89,6 +92,7 @@
 						</li>
 					<?php
 						} elseif ($_SESSION["ulevel"]==15 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
+							// Admin Officer
 					?>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menu</a>
@@ -103,6 +107,7 @@
 						</li>
 					<?php
 						} elseif ($_SESSION["ulevel"]==14 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
+							// Election
 					?>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menu</a>
@@ -116,11 +121,18 @@
 						</li>
 					<?php
 						// Staff or User
-						} elseif ($_SESSION["ulevel"]==5 || $_SESSION["ulevel"]==16 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
+						} elseif ($_SESSION["ulevel"]==1 || $_SESSION["ulevel"]==2 || $_SESSION["ulevel"]==3 || $_SESSION["ulevel"]==4 || $_SESSION["ulevel"]==5 || $_SESSION["ulevel"]==6 || $_SESSION["ulevel"]==7 || $_SESSION["ulevel"]==16 || $_SESSION["ulevel"]==20 || $_SESSION["ulevel"]==21 && $_SESSION["ustat"]==1 && $_SESSION["verified"]==1 && $_SESSION["xdel"]==0) {
 					?>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">My Account</a>
 							<ul class="dropdown-menu">
+					<?php
+						if ($_SESSION["ulevel"]==1 || $_SESSION["ulevel"]==2 || $_SESSION["ulevel"]==3 || $_SESSION["ulevel"]==4 || $_SESSION["ulevel"]==5 || $_SESSION["ulevel"]==6 || $_SESSION["ulevel"]==7 || $_SESSION["ulevel"]==20 || $_SESSION["ulevel"]==21) {
+					?>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dashpanel">DashPanel</a></li>
+					<?php
+						}
+					?>
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/#">Profile</a></li>
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/#">Job Status</a></li>
 							</ul>

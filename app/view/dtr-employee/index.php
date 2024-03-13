@@ -139,7 +139,7 @@
 													<td><?php echo utf8_decode($signatory); ?></td>
 													<td><?php echo $profileid; ?></td>
 													<td>
-														<a href="<?php echo trim($xlinkz); ?>" target="_blank" class="btn btn-primary btn-sm">DTR</a>
+														<a href="<?php echo trim($xlinkz); ?>" target="_blank" class="btn btn-primary btn-sm"><i class="far fa-clock"></i></a>
 														<a href="<?php echo trim($chklinkz); ?>" class="btn btn-danger btn-sm">
 															<i class="fa fa-check" aria-hidden="true"></i>
 														</a>

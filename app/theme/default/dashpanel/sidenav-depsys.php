@@ -6,9 +6,9 @@
 						<?php
 							if ($_SESSION["officeid"]=="*") {
 						?>
-							<a class="nav-link" href="../../routes/dtr-builder">
-								<div class="sb-nav-link-icon"><i class="fas fa-clock"></i></div>
-								DTR Builder
+							<a class="nav-link" href="../../routes/dashpanel">
+								<div class="sb-nav-link-icon"><i class="fas fa-desktop"></i></div>
+								SysApp
 							</a>
 						<?php
 							}

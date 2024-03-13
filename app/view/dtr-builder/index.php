@@ -180,6 +180,15 @@
 										$amtimeinx = new DateTime($row_timein['timelog']);
 										$rsltaminx = $amtimeinx->format('g:i');
 
+										$validatetimeinam = $amtimeinx->format('Hi');
+										$validatetimeinamx = (int)$validatetimeinam;
+
+										if ($validatetimeinamx < 800) {
+											$late_am = $validatetimeinamx - 800;
+										} else {
+											$late_am = 0;
+										}
+
 										$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
 										$qry_update_timein = "UPDATE employee_subdtr_tbl SET 
 											amtimein=:amtimein 
