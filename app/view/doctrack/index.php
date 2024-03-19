@@ -3,6 +3,8 @@
 <?php
 	include_once "../../app/theme/default/navbar.php";
 	// include_once "../../app/theme/default/hero-banner.php";
+
+	
 ?>
 
 	<section class="position-relative w-100">
@@ -15,8 +17,9 @@
 			if ($_SESSION["ulevel"]==1 || $_SESSION["ulevel"]==2 || $_SESSION["ulevel"]==3 || $_SESSION["ulevel"]==4 || $_SESSION["ulevel"]==5 || $_SESSION["ulevel"]==6 || $_SESSION["ulevel"]==7 || $_SESSION["ulevel"]==16 || $_SESSION["ulevel"]==20 || $_SESSION["ulevel"]==21) {
 	?>
 				<hr>
-				<div class="w-100 d-flex">
-					<button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#mdiDokTrakAdd">Add</button>
+				<div class="w-100 d-flex justify-content-center">
+					<button class="btn btn-primary btn-lg m-1" data-bs-toggle="modal" data-bs-target="#mdiDokTrakAdd">Add</button>
+					<a href="../../routes/doctrack-add" class="btn btn-primary btn-lg m-1">Add</a>
 				</div>
 	<?php
 			}
@@ -27,11 +30,12 @@
 
 				<h4>Search for specific Tracking Number</h4>
 
-				<form id="doktrkfmr" method="post" class="needs-validation" novalidate>
+				<form id="doktrkfmr" method="post" name="doktrkfmr" class="needs-validation" enctype="multipart/form-data" novalidate>
 					<div class="form-outline mb-3">
 						<div class="input-group mb-3">
 							<input id="trackno" type="number" class="form-control form-control-lg" placeholder="Tracking Number" name="trackno" required>
 							<button id="btnSrchDoc" type="submit" name="btnSrchDoc" class="btn btn-primary"><i class="fas fa-search"></i></button>
+							<a href="../../routes/doctrack" class="btn btn-success btn-lg m-1">Reset</a>
 							<div class="valid-feedback">Valid.</div>
 							<div class="invalid-feedback">Please fill out this field.</div>
 						</div>
@@ -47,30 +51,24 @@
 							<tr>
 								<th class="remove-dropdown"></th>
 								<th></th>
-								<th></th>
-								<th></th>
-								<th class="remove-dropdown"></th>
-								<th class="remove-dropdown"></th>
 								<th class="remove-dropdown"></th>
 								<th></th>
 								<th></th>
 								<th></th>
+								<th class="min-phone-l"></th>
 								<th class="remove-dropdown"></th>
-								<th class="remove-dropdown"></th>
+								<th id="inaction" class="remove-dropdown"></th>
 							</tr>
 						</thead>
 
 						<thead id="theadtitle">
 							<tr>
-								<th>DocTrack#</th>
-								<th colspan="2">Status</th>
+								<th>No.</th>
 								<th>Type</th>
 								<th>Particular(s)</th>
-								<th>Name</th>
-								<th>Amount</th>
 								<th>Office</th>
-								<th>In/Out Office</th>
 								<th>Staff</th>
+								<th colspan="2" class="text-center">Status</th>
 								<th>Date</th>
 								<th>Action</th>
 							</tr>
@@ -79,7 +77,18 @@
 						<tbody>
 						<?php
 							$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
-							$stmt_doctrackdetails = $cnn->prepare("SELECT * FROM doctrack_details_tbl ORDER BY docid DESC");
+
+							if (isset($_POST['btnSrchDoc'])) {
+								if (isset($_POST['trackno'])) {
+									$stmt_doctrackdetails = $cnn->prepare("SELECT * FROM doctrack_details_tbl WHERE trackno=:trackno ORDER BY docid DESC");
+									$stmt_doctrackdetails->bindParam(':trackno', $_POST['trackno']);
+								} else {
+									$stmt_doctrackdetails = $cnn->prepare("SELECT * FROM doctrack_details_tbl ORDER BY docid DESC");
+								}
+							} else {
+								$stmt_doctrackdetails = $cnn->prepare("SELECT * FROM doctrack_details_tbl ORDER BY docid DESC");
+							}
+
 							$stmt_doctrackdetails->execute();
 							$nmbrdoctrackdetails = $stmt_doctrackdetails->rowCount();
 				
@@ -134,17 +143,23 @@
 						?>
 							<tr>
 								<td><?php echo trim($trackno); ?></td>
-								<td><?php echo trim($in_out); ?></td>
-								<td><?php echo trim($status); ?></td>
-								<td><?php echo trim($doctype); ?></td>
+								<td><?php echo trim(strtoupper($doctype)); ?></td>
 								<td><button id="doctrak-<?php echo trim($trackno); ?>" type="button" data-bs-toggle="modal" data-bs-target="#mdiDokTrakImg" class="btn" data-image="<?php echo trim($imgfile); ?>" onclick="fnDocTrakImg(id,dataset.image);"><?php echo trim($particulars); ?></button></td>
-								<td><?php echo trim($pname); ?></td>
-								<td><?php echo trim($docamt); ?></td>
-								<td><?php echo trim($officename); ?></td>
-								<td><?php echo trim($last_officename); ?></td>
-								<td><?php echo trim($lastusername); ?></td>
-								<td><?php echo trim($modified); ?></td>
-								<td>
+								<td><?php echo trim(strtoupper($last_officename)); ?></td>
+								<td><?php echo trim(strtoupper($lastusername)); ?></td>
+								<?php 
+									if ($in_out=="in") {
+										echo '<td class="text-primary font-bold">';
+									} else {
+										echo '<td class="text-danger font-bold">';
+									}
+
+									echo trim(strtoupper($in_out));
+								?>
+								</td>
+								<td><?php echo trim(strtoupper($status)); ?></td>
+								<td><?php echo date("Y-m-d h:iA", strtotime($modified)); ?></td>
+								<td class="inaction d-flex justify-content-between">
 					<?php
 						if (isset($_SESSION["ulevel"])) {
 							if ($_SESSION["ulevel"]==1 || $_SESSION["ulevel"]==2 || $_SESSION["ulevel"]==3 || $_SESSION["ulevel"]==4 || $_SESSION["ulevel"]==5 || $_SESSION["ulevel"]==6 || $_SESSION["ulevel"]==7 || $_SESSION["ulevel"]==16 || $_SESSION["ulevel"]==20 || $_SESSION["ulevel"]==21) {
@@ -178,9 +193,6 @@
 								<td>Xxxx</td>
 								<td>Xxxx</td>
 								<td>Xxxx</td>
-								<td>Xxxx</td>
-								<td>Xxxx</td>
-								<td>Xxxx</td>
 							</tr>
 						<?php
 							}
@@ -191,11 +203,8 @@
 							<tr>
 								<td class="remove-dropdown"></td>
 								<td></td>
+								<td class="remove-dropdown"></td>
 								<td></td>
-								<td></td>
-								<td class="remove-dropdown"></td>
-								<td class="remove-dropdown"></td>
-								<td class="remove-dropdown"></td>
 								<td></td>
 								<td></td>
 								<td></td>
@@ -229,7 +238,7 @@
 
 	<!-- Add Document -->
 	<div class="modal fade" id="mdiDokTrakAdd">
-		<div class="modal-dialog">
+		<div class="modal-dialog modal-xl modal-dialog-scrollable">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h4 class="modal-title">Add Document</h4>
@@ -237,7 +246,75 @@
 				</div>
 
 				<div class="modal-body">
-					<input id="" type="text" name="" placeholder="" class="" required>
+					<form>
+						<div class="mb-3">
+							<label class="form-label">Capture Frontpage File</label>
+							
+							<div class="row mb-2 justify-content-center">
+								<div id="disp-vid" class="col-md-6 mb-2">
+									<video id="video" title="Picture" class="border w-100 h-auto" autoplay></video>
+								</div>
+
+								<div id="disp-pix" class="col-md-6 mb-2 d-none">
+									<canvas id="canvas" class="border w-100 h-auto"></canvas>
+								</div>
+							</div>
+
+							<div class="row mb-2">
+								<div class="col-md-12 mb-2 d-none">
+									<textarea id="imgdata" class="w-100" name="imgdata"></textarea>
+								</div>
+							</div>
+
+							<div class="row mb-2">
+								<div class="col mb-2 text-center">
+									<button id="start-camera" type="button" class="btn btn-primary">Start Camera</button>
+									<button id="retake-photo" type="button" class="btn btn-warning d-none">Re-Take Photo</button>
+									<button id="click-photo" type="button" class="btn btn-success d-none">Click Photo</button>
+								</div>
+							</div>
+						</div>
+
+						<div class="mb-3">
+							<label for="filetype" class="form-label">File Type</label>
+							<input id="filetype" type="text" name="filetype" class="form-control" list="filetypeList" required>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please fill out this field.</div>
+							<datalist id="filetypeList">
+							<?php
+								$stmtfiletype = $cnn->prepare("SELECT * FROM doctrack_details_tbl GROUP BY doctype ORDER BY doctype ASC");
+								$stmtfiletype->execute();
+								$resultunit = $stmtfiletype->setFetchMode(PDO::FETCH_ASSOC);
+								foreach ($stmtfiletype as $row) {
+									echo "<option value='".$row['doctype']."'>";
+								}
+							?>
+							</datalist>
+						</div>
+
+						<div class="mb-3">
+							<label for="particulars" class="form-label">Particular(s)</label>
+							<textarea id="particulars" name="particulars" class="form-control" required></textarea>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please fill out this field.</div>
+						</div>
+
+						<div class="mb-3">
+							<label for="" class="form-label"></label>
+							<input id="" type="" name="" class="form-control" required>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please fill out this field.</div>
+						</div>
+
+						<div class="mb-3">
+							<label for="" class="form-label"></label>
+							<input id="" type="" name="" class="form-control" required>
+							<div class="valid-feedback">Valid.</div>
+							<div class="invalid-feedback">Please fill out this field.</div>
+						</div>
+
+						<button id="submitNewDoc" type="submit" name="submitNewDoc" class="btn btn-primary">Submit</button>
+					</form>
 				</div>
 
 				<div class="modal-footer">
@@ -326,7 +403,9 @@
 						// });
 						/** Search for each column End **/
 					});
-				}
+				}, 
+
+				order: [[ 0, 'desc' ]]
 			});
 
 			$("#listRecView_info, #listRecView_paginate").detach().appendTo('#trnsfrPaginate');
@@ -361,4 +440,48 @@
 		function fnDocTrakImg(id,ximage) {
 			document.getElementById("vwimgfrmfile").src = ximage;
 		}
+
+		let camera_button = document.querySelector("#start-camera");
+		let dispvid = document.querySelector("#disp-vid");
+		let video = document.querySelector("#video");
+		let retakephoto = document.querySelector("#retake-photo");
+		let click_button = document.querySelector("#click-photo");
+		let disppix = document.querySelector("#disp-pix");
+		let canvas = document.querySelector("#canvas");
+		let imgdata = document.querySelector("#imgdata");
+
+		let videowidth = video.offsetWidth;
+		let videoheight = video.offsetHeight;
+
+		camera_button.addEventListener('click', async function() {
+			let stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+			video.srcObject = stream;
+
+			camera_button.classList.add("d-none");
+			click_button.classList.remove('d-none');
+		});
+
+		click_button.addEventListener('click', async function() {
+			disppix.classList.remove('d-none');
+
+			canvas.getContext('2d').drawImage(video, 0, 0, videowidth, videoheight);
+			canvas.style.width = videowidth+'px';
+			canvas.style.height = video.offsetHeight+'px';
+			let image_data_url = canvas.toDataURL('image/jpeg');
+
+			// data url of the image
+			console.log(image_data_url);
+			imgdata.value = image_data_url;
+
+			retakephoto.classList.remove('d-none');
+			click_button.classList.add('d-none');
+		});
+
+		retakephoto.addEventListener('click', async function() {
+			disppix.classList.add('d-none');
+
+			camera_button.classList.add("d-none");
+			retakephoto.classList.add('d-none');
+			click_button.classList.remove('d-none');
+		});
 	</script>

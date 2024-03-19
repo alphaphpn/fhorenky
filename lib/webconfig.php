@@ -70,7 +70,7 @@
 		$err = $e->getMessage();
 		$err2 = strrchr($e,"1049");
 		if($err2=1049){
-			echo "Error: Unknown Database.<br><a href='".$dir."#'>Fix It!</a>";
+			echo "Error: Unknown Database.<br><a href='".$dir."'>Fix It!</a>";
 			die;
 		}
 	}

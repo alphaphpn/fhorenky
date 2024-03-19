@@ -29,11 +29,16 @@
 
 							<?php include_once "sidenav-core.php"; ?>
 
-						<div class="sb-sidenav-menu-heading">Current</div>
+						<div class="sb-sidenav-menu-heading">Your</div>
 							<a class="nav-link" href="#">
 								<div class="sb-nav-link-icon"><i class="fas fa-user"></i></div>
 								<span class="w-100">Profile</span>
 								<span class="badge bg-info">Info</span>
+							</a>
+
+							<a class="nav-link" href="../../routes/dashpanel">
+								<div class="sb-nav-link-icon"><i class="fas fa-calendar-alt"></i></div>
+								Calendar
 							</a>
 
 						<div class="sb-sidenav-menu-heading">Sub-System</div>

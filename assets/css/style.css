@@ -11,6 +11,10 @@
 	background-color: purple!important;
 }
 
+.font-bold {
+	font-weight: bold!important;
+}
+
 .font-color-dark-blue {color: #000099!important;}
 
 .font-size-6 {font-size: 6px;}
@@ -272,6 +276,10 @@
 	height: 80px;
 	background-color: #fff;
 	margin: 8px;
+}
+
+.inaction {
+	width: auto!important;
 }
 
 .int-raffle {
