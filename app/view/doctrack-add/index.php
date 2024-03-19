@@ -24,7 +24,7 @@
 							</div>
 
 							<div id="disp-pix" class="col-md-6 mb-2 d-none">
-								<canvas id="canvas" class="border w-100"></canvas>
+								<canvas id="canvas" class="border"></canvas>
 							</div>
 						</div>
 
