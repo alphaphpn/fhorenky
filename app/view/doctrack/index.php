@@ -466,7 +466,7 @@
 
 			canvas.getContext('2d').drawImage(video, 0, 0, videowidth, videoheight);
 			canvas.style.width = videowidth+'px';
-			canvas.style.height = video.offsetHeight+'px';
+			canvas.style.height = videoheight+'px';
 			let image_data_url = canvas.toDataURL('image/jpeg');
 
 			// data url of the image

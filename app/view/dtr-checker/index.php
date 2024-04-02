@@ -1185,6 +1185,8 @@
 														function checkIsValStat($valstat) {
 															if ($valstat=="LEAVE") {
 																return TRUE;
+															} elseif ($valstat=="MEMO") {
+																return TRUE;
 															} elseif ($valstat=="PASS-SLIP") {
 																return TRUE;
 															} elseif ($valstat=="OB") {
@@ -1268,7 +1270,7 @@
 
 																echo '<script>window.open("'.$current_url.'","_self");</script>';
 															} else {
-																if (preg_match("/^(?:1[012]|0[0-9]):[0-5][0-9]$/", $datafeldx) || checkIsTime($datafeldx)) {
+																if (preg_match($time_pattern, $datafeldx) || checkIsTime($datafeldx)) {
 																	$datafeld = trim($_POST['datafeld']);
 																	$feildnem = trim($_POST['feildnem']);
 																	$fldidno = trim($_POST['fldidno']);
@@ -1326,15 +1328,15 @@
 
 							if (datafield=='amtimein') {
 								if (etype=='JO' || etype=='COS') {
-									document.getElementById("valuefldlists").innerHTML = '<option value="ABSENT">Absent</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="OB">Official Business</option><option value="OT">Official Time</option><option value="PASS-SLIP">Pass Slip</option><option value="MEETING">Meeting</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option><option value="NOT APPLICABLE">n/a</option>';
+									document.getElementById("valuefldlists").innerHTML = '<option value="MEMO">Memo</option><option value="ABSENT">Absent</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="OB">Official Business</option><option value="OT">Official Time</option><option value="PASS-SLIP">Pass Slip</option><option value="MEETING">Meeting</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option><option value="NOT APPLICABLE">n/a</option>';
 								} else {
-									document.getElementById("valuefldlists").innerHTML = '<option value="LEAVE">Leave</option><option value="OB">Official Business</option><option value="OT">Official Time</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="PASS-SLIP">Pass Slip</option><option value="MEETING">Meeting</option><option value="BAC Meeting">BAC Meeting</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option><option value="ABSENT">Absent</option><option value="NOT APPLICABLE">n/a</option>';
+									document.getElementById("valuefldlists").innerHTML = '<option value="MEMO">Memo</option><option value="LEAVE">Leave</option><option value="OB">Official Business</option><option value="OT">Official Time</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="PASS-SLIP">Pass Slip</option><option value="MEETING">Meeting</option><option value="BAC Meeting">BAC Meeting</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option><option value="ABSENT">Absent</option><option value="NOT APPLICABLE">n/a</option>';
 								}
 							} else if (datafield=='amtimeout' || datafield=='pmtimein' || datafield=='pmtimeout') {
 								if (etype=='JO' || etype=='COS') {
-									document.getElementById("valuefldlists").innerHTML = '<option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="OB">Official Business</option></option><option value="OT">Official Time</option><option value="PASS-SLIP">Pass Slip</option><option value="MEETING">Meeting</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option>';
+									document.getElementById("valuefldlists").innerHTML = '<option value="MEMO">Memo</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="OB">Official Business</option></option><option value="OT">Official Time</option><option value="PASS-SLIP">Pass Slip</option><option value="MEETING">Meeting</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option>';
 								} else {
-									document.getElementById("valuefldlists").innerHTML = '<option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="LEAVE">Leave</option><option value="OB">Official Business</option></option><option value="OT">Official Time</option><option value="MEETING">Meeting</option><option value="BAC Meeting">BAC Meeting</option><option value="PASS-SLIP">Pass Slip</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option>';
+									document.getElementById("valuefldlists").innerHTML = '<option value="MEMO">Memo</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="LEAVE">Leave</option><option value="OB">Official Business</option></option><option value="OT">Official Time</option><option value="MEETING">Meeting</option><option value="BAC Meeting">BAC Meeting</option><option value="PASS-SLIP">Pass Slip</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option>';
 								}
 							}
 

@@ -18,18 +18,20 @@
 					<div class="mb-3">
 						<label class="form-label">Capture Frontpage File</label>
 						
-						<div class="row mb-2 justify-content-center">
-							<div id="disp-vid" class="col-md-6 mb-2">
+						<div class="row text-center">
+							<div id="disp-vid" class="col-md-12 mb-2">
 								<video id="video" title="Picture" class="border" autoplay></video>
-							</div>
-
-							<div id="disp-pix" class="col-md-6 mb-2 d-none">
-								<canvas id="canvas" class="border w-100 h-100"></canvas>
 							</div>
 						</div>
 
-						<div class="row mb-2">
-							<div class="col-md-12 mb-2 d-none">
+						<div class="row text-center">
+							<div id="disp-pix" class="col-md-12 mb-2 d-none">
+								<canvas id="canvas" class="border"></canvas>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12 mb-2">
 								<textarea id="imgdata" class="w-100" name="imgdata"></textarea>
 							</div>
 						</div>
@@ -91,7 +93,7 @@
 			disppix.classList.remove('d-none');
 
 			canvas.getContext('2d').drawImage(video, 0, 0, videowidth, videoheight);
-			canvas.style.width = videowidth+'px';
+			canvas.style.width = video.offsetWidth+'px';
 			canvas.style.height = video.offsetHeight+'px';
 			let image_data_url = canvas.toDataURL('image/jpeg');
 
@@ -99,6 +101,7 @@
 			console.log(image_data_url);
 			imgdata.value = image_data_url;
 
+			video.classList.add('d-none');
 			retakephoto.classList.remove('d-none');
 			click_button.classList.add('d-none');
 		});
@@ -109,5 +112,6 @@
 			camera_button.classList.add("d-none");
 			retakephoto.classList.add('d-none');
 			click_button.classList.remove('d-none');
+			video.classList.remove('d-none');
 		});
 	</script>

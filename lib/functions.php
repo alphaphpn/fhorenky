@@ -5,14 +5,19 @@
 	$word_pattern = '/^[A-Za-z]+$/';
 
 	function checkIsTime($timeformat) {
-		$timeformat=DateTime::createFromFormat('g:i', $timeformat);
-		$time_errors = DateTime::getLastErrors();
+		global $time_pattern;
+		$timeformat = trim($timeformat); // Trim any leading or trailing whitespace
 
-		if ($time_errors['warning_count'] + $time_errors['error_count'] == 0) {
-			return TRUE;
-		} else {
-			return FALSE;
+		if (preg_match($time_pattern, $timeformat)) {
+			$time = DateTime::createFromFormat('H:i', $timeformat);
+			$time_errors = DateTime::getLastErrors();
+
+			// Check if $time_errors is an array before accessing its elements
+			if (is_array($time_errors) && $time_errors['warning_count'] + $time_errors['error_count'] == 0) {
+				return true;
+			}
 		}
+		return false;
 	}
 	// Time Check Verifier - End
 
