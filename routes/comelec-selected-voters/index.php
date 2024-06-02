@@ -4,10 +4,10 @@
 	include_once "../../env.php";
 	include_once "../../lib/webconfig.php";
 	include_once "../../lib/functions.php";
-	$page_title = "Attendance Log Uploader";
-	$breadcrumb = "Upload your attendance log from the result of your Biometric Machine/Device";
+	$page_title = "Selected Voter's";
+	$breadcrumb = "List of Selected Voter's ";
 	include_once "../../app/theme/default/dashpanel/header.php";
 	include_once "../../app/theme/default/dashpanel/navbar.php";
 	include_once "../../app/theme/default/dashpanel/sidenav.php";
-	include_once "../../app/view/biometric-upload/index.php";
+	include_once "../../app/view/comelec-selected-voters/index.php";
 	include_once "../../app/theme/default/dashpanel/footer.php";

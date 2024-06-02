@@ -68,7 +68,7 @@
 							$_SESSION["officeid"] = $officeid;
 							$_SESSION["officeabvr"] = $officeabvr;
 							
-							if ($ulevel==1 || $ulevel==20 || $ulevel==21) {
+							if ($ulevel==1 || $ulevel==20 || $ulevel==21 ||  $ulevel==99) {
 								echo "<script>window.open('../../routes/dashpanel', '_self');</script>";
 							} else {
 								echo "<script>window.open('../../', '_self');</script>";
@@ -85,7 +85,7 @@
 						$_SESSION["officeid"] = $officeid;
 						$_SESSION["officeabvr"] = $officeabvr;
 						
-						if ($ulevel==1 || $ulevel==20 || $ulevel==21) {
+						if ($ulevel==1 || $ulevel==20 || $ulevel==21 ||  $ulevel==99) {
 							echo "<script>window.open('../../routes/dashpanel', '_self');</script>";
 						} else {
 							echo "<script>window.open('../../', '_self');</script>";

@@ -2,7 +2,7 @@
 		<!-- Navbar Brand-->
 		<a class="navbar-brand ps-3" href="../../">
 			<img src="../../assets/img/favicon.png" style="max-height: 38px;">
-			<b><span class="text-primary">e</span><span class="text-danger">P</span><span class="text-warning">L</span><span class="text-success">G</span><span class="text-info">U</span></b><span> Sibugay</span>
+			<b><span class="text-primary">e</span><span class="text-danger">G</span><span class="text-warning">o</span><span class="text-success">v</span><span class="text-info">Sys</span></b>
 		</a>
 
 		<!-- Sidebar Toggle-->

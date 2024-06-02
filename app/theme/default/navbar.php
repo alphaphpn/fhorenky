@@ -1,5 +1,12 @@
+<style>
+	.dropdown-menu[data-bs-popper] {
+		right: 0;
+		left: unset;
+	}
+</style>
+
 	<section id="section-navbar" class="sticky-top">
-		<nav id="navbar" class="navbar navbar-expand-sm navbar-dark bg-dark">
+		<nav id="navbar" class="navbar navbar-expand-xl navbar-dark bg-dark">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="javascript:void(0)">
 					<img id="main-logo" src="<?php echo $domainhome.'/public/'.$navbarlogo; ?>">
@@ -29,6 +36,10 @@
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dtr-emp">DTR</a></li>
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/doctrack">DocTrack</a></li>
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/raffle-number" target="_blank">Raffle</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/town-info">Town</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/precinct-finder">Precinct Finder</a></li>
 							</ul>
 						</li>
 
@@ -41,10 +52,10 @@
 						</li>
 
 						<li class="nav-item ms-auto">
-							<form class="d-flex">
+							<!-- form class="d-flex">
 								<input class="form-control me-2" type="text" placeholder="Search">
 								<button class="btn btn-primary" type="button">Search</button>
-							</form>
+							</form -->
 						</li>
 
 					<?php
@@ -66,9 +77,24 @@
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menu</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dashpanel/">DashPanel</a></li>
+								<li><hr class="dropdown-divider"></li>
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dtr-biolocation/">DTR Generator</a></li>
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/sign-up-employee/">Add Employee</a></li>
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/update-employee/">Update Employee</a></li>
+							</ul>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="<?php echo $domainhome; ?>/routes/logout">Logout</a>
+						</li>
+					<?php
+						} elseif ($_SESSION["ulevel"]==99) {
+							// Super Admin
+					?>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menu</a>
+							<ul class="dropdown-menu">
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/dashpanel/">DashPanel</a></li>
 							</ul>
 						</li>
 
@@ -113,6 +139,14 @@
 							<a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#">Menu</a>
 							<ul class="dropdown-menu">
 								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/brgy-elec-result">BRGY ELEC</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/routes/comelec-voters-manage">Voter's List</a></li>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/">Unverified Voter's</a></li>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/">Verified Voter's</a></li>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/">Selected Voter's</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/">Assistance Program</a></li>
+								<li><a class="dropdown-item" href="<?php echo $domainhome; ?>/">Assisted Voter's</a></li>
 							</ul>
 						</li>
 

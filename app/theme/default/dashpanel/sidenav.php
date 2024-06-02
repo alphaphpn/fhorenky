@@ -70,7 +70,7 @@
 			</nav>
 		</div>
 		<div id="layoutSidenav_content">
-			<main>
+			<main class="pb-5">
 				<div class="container-fluid px-4 clearfix">
 				<?php
 					if ($page_title=="DashPanel") {

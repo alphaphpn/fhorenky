@@ -660,52 +660,6 @@
 										$datafeldx = trim($_POST['datafeld']);
 										$feildnemx = trim($_POST['feildnem']);
 
-
-										function checkIsTime($timeformat) {
-											$timeformat=DateTime::createFromFormat('g:i', $timeformat);
-											$time_errors = DateTime::getLastErrors();
-
-											if ($time_errors['warning_count'] + $time_errors['error_count'] == 0) {
-												return TRUE;
-											} else {
-												return FALSE;
-											}
-										}
-
-										function checkIsValStat($valstat) {
-											if ($valstat=="LEAVE") {
-												return TRUE;
-											} elseif ($valstat=="MEMO") {
-												return TRUE;
-											} elseif ($valstat=="PASS-SLIP") {
-												return TRUE;
-											} elseif ($valstat=="OB") {
-												return TRUE;
-											} elseif (strpos($valstat, 'OB') !== false) {
-												return TRUE;
-											} elseif ($valstat=="OT") {
-												return TRUE;
-											} elseif (strpos($valstat, 'OT') !== false) {
-												return TRUE;
-											} elseif ($valstat=="DAY OFF") {
-												return TRUE;
-											} elseif ($valstat=="SWAP") {
-												return TRUE;
-											} elseif ($valstat=="OFFSET") {
-												return TRUE;
-											} elseif ($valstat=="MEETING") {
-												return TRUE;
-											} elseif ($valstat=="BAC Meeting") {
-												return TRUE;
-											} elseif ($valstat=="ABSENT") {
-												return TRUE;
-											} elseif ($valstat=="NOT APPLICABLE") {
-												return TRUE;
-											} else {
-												return FALSE;
-											}
-										}
-
 										if (empty($_POST['datafeld'])) {
 											echo '<script>alert("Invalid Input!")</script>';
 										} elseif (empty($_POST['feildnem'])) {
@@ -742,7 +696,7 @@
 												echo '<script>alert("Invalid Input! 0")</script>';
 											}
 										} else {
-											If (checkIsValStat($datafeldx)) {
+											If (specialChars($datafeldx)) {
 												$datafeld = trim($_POST['datafeld']);
 												$feildnem = trim($_POST['feildnem']);
 												$fldidno = trim($_POST['fldidno']);
@@ -758,27 +712,23 @@
 
 												echo '<script>window.open("'.$current_url.'","_self");</script>';
 											} else {
-												if (checkIsTime($datafeldx)) {
-													$datafeld = trim($_POST['datafeld']);
-													$feildnem = trim($_POST['feildnem']);
-													$fldidno = trim($_POST['fldidno']);
+												$datafeld = trim($_POST['datafeld']);
+												$feildnem = trim($_POST['feildnem']);
+												$fldidno = trim($_POST['fldidno']);
 
-													if ($_SESSION["ulevel"]==1 || $_SESSION["ulevel"]==15) {
-														$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
-														$qry_update_timelogx = "UPDATE employee_subdtr_tbl SET ".$feildnem."=:datafeldgg WHERE subdtrid=:fldidnogg";
-														$stmt_update_timelogx = $cnn->prepare($qry_update_timelogx);
-														$stmt_update_timelogx->bindValue(':fldidnogg', $fldidno);
-														$stmt_update_timelogx->bindParam(':datafeldgg', $datafeld);
-														$stmt_update_timelogx->execute();
+												if ($_SESSION["ulevel"]==1 || $_SESSION["ulevel"]==15 || $_SESSION["ulevel"]==20) {
+													$cnn = new PDO("mysql:host={$host};dbname={$db}", $uname, $pw);
+													$qry_update_timelogx = "UPDATE employee_subdtr_tbl SET ".$feildnem."=:datafeldgg WHERE subdtrid=:fldidnogg";
+													$stmt_update_timelogx = $cnn->prepare($qry_update_timelogx);
+													$stmt_update_timelogx->bindValue(':fldidnogg', $fldidno);
+													$stmt_update_timelogx->bindParam(':datafeldgg', $datafeld);
+													$stmt_update_timelogx->execute();
 
-														$current_url = $_SERVER['REQUEST_URI'];
+													$current_url = $_SERVER['REQUEST_URI'];
 
-														echo '<script>window.open("'.$current_url.'","_self");</script>';
-													} else {
-														echo '<script>alert("Access Denied!");</script>';
-													}
+													echo '<script>window.open("'.$current_url.'","_self");</script>';
 												} else {
-													echo '<script>alert("Invalid Input! 2")</script>';
+													echo '<script>alert("Access Denied!");</script>';
 												}
 											}
 										}
@@ -816,15 +766,15 @@
 
 			if (datafield=='amtimein') {
 				if (etype=='JO' || etype=='COS') {
-					document.getElementById("valuefldlists").innerHTML = '<option value="MEMO">Memo</option><option value="ABSENT">Absent</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="OB">Official Business</option><option value="OT">Official Time</option><option value="PASS-SLIP">Pass Slip</option><option value="MEETING">Meeting</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option><option value="NOT APPLICABLE">n/a</option>';
+					document.getElementById("valuefldlists").innerHTML = '<option value="MEMO CIRCULAR #">Memo Circular No.</option><option value="ABSENT">Absent</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="OB">Official Business</option><option value="OT">Official Time</option><option value="PASS-SLIP">Pass Slip</option><option value="MEETING">Meeting</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option><option value="NOT APPLICABLE">n/a</option>';
 				} else {
-					document.getElementById("valuefldlists").innerHTML = '<option value="MEMO">Memo</option><option value="LEAVE">Leave</option><option value="OB">Official Business</option><option value="OT">Official Time</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="PASS-SLIP">Pass Slip</option><option value="MEETING">Meeting</option><option value="BAC Meeting">BAC Meeting</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option><option value="ABSENT">Absent</option><option value="NOT APPLICABLE">n/a</option>';
+					document.getElementById("valuefldlists").innerHTML = '<option value="MEMO CIRCULAR #">Memo Circular No.</option><option value="LEAVE">Leave</option><option value="OB">Official Business</option><option value="OT">Official Time</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="PASS-SLIP">Pass Slip</option><option value="MEETING">Meeting</option><option value="BAC Meeting">BAC Meeting</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option><option value="ABSENT">Absent</option><option value="NOT APPLICABLE">n/a</option>';
 				}
 			} else if (datafield=='amtimeout' || datafield=='pmtimein' || datafield=='pmtimeout') {
 				if (etype=='JO' || etype=='COS') {
-					document.getElementById("valuefldlists").innerHTML = '<option value="MEMO">Memo</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="OB">Official Business</option></option><option value="OT">Official Time</option><option value="PASS-SLIP">Pass Slip</option><option value="MEETING">Meeting</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option>';
+					document.getElementById("valuefldlists").innerHTML = '<option value="MEMO CIRCULAR #">Memo Circular No.</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="OB">Official Business</option></option><option value="OT">Official Time</option><option value="PASS-SLIP">Pass Slip</option><option value="MEETING">Meeting</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option>';
 				} else {
-					document.getElementById("valuefldlists").innerHTML = '<option value="MEMO">Memo</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="LEAVE">Leave</option><option value="OB">Official Business</option></option><option value="OT">Official Time</option><option value="MEETING">Meeting</option><option value="BAC Meeting">BAC Meeting</option><option value="PASS-SLIP">Pass Slip</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option>';
+					document.getElementById("valuefldlists").innerHTML = '<option value="MEMO CIRCULAR #">Memo Circular No.</option><option value="DAY OFF">Day Off</option><option value="OFF DUTY">Off Duty</option><option value="LEAVE">Leave</option><option value="OB">Official Business</option></option><option value="OT">Official Time</option><option value="MEETING">Meeting</option><option value="BAC Meeting">BAC Meeting</option><option value="PASS-SLIP">Pass Slip</option><option value="SWAP">Swap</option><option value="OFFSET">Offset</option>';
 				}
 			}
 

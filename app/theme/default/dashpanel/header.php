@@ -29,6 +29,7 @@
 	<script src="<?php echo $domainhome; ?>/assets/ajax/libs/particle-animate/1.0.0/js/particle-animate.js"></script>
 	<script src="<?php echo $domainhome; ?>/assets/datatables/1.13.6/js/jquery.dataTables.min.js"></script>
 	<script src="<?php echo $domainhome; ?>/assets/datatables/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+	<script src="<?php echo $domainhome; ?>/assets/charts/loader.js"></script>
 </head>
 <body class="sb-nav-fixed">
 	

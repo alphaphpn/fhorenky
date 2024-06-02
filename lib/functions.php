@@ -21,6 +21,48 @@
 	}
 	// Time Check Verifier - End
 
+	// Alphanumeric Special Character Verifier - Start
+	function specialChars($str) {
+		return !ctype_alnum($str);
+	}
+	// Alphanumeric Special Character Verifier - End
+
+	// Validate Value: DTR - Start
+	function checkIsValStat($valstat) {
+		if ($valstat=="LEAVE") {
+			return TRUE;
+		} elseif ($valstat=="MEMO") {
+			return TRUE;
+		} elseif ($valstat=="PASS-SLIP") {
+			return TRUE;
+		} elseif ($valstat=="OB") {
+			return TRUE;
+		} elseif (strpos($valstat, 'OB') !== false) {
+			return TRUE;
+		} elseif ($valstat=="OT") {
+			return TRUE;
+		} elseif (strpos($valstat, 'OT') !== false) {
+			return TRUE;
+		} elseif ($valstat=="DAY OFF") {
+			return TRUE;
+		} elseif ($valstat=="SWAP") {
+			return TRUE;
+		} elseif ($valstat=="OFFSET") {
+			return TRUE;
+		} elseif ($valstat=="MEETING") {
+			return TRUE;
+		} elseif ($valstat=="BAC Meeting") {
+			return TRUE;
+		} elseif ($valstat=="ABSENT") {
+			return TRUE;
+		} elseif ($valstat=="NOT APPLICABLE") {
+			return TRUE;
+		} else {
+			return FALSE;
+		}
+	}
+	// Validate Value: DTR - End
+
 	// Password Encryptor - Start
 	function pwordEnryptor($pwordata) {
 		$md5_given = $pwordata;

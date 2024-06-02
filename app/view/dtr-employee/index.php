@@ -132,11 +132,11 @@
 													<td><?php echo $biolocation; ?></td>
 													<td><?php echo $biono; ?></td>
 													<td><?php echo $empid; ?></td>
-													<td><?php echo utf8_decode($empname); ?></td>
+													<td><?php echo $empname; ?></td>
 													<td><?php echo $officecode1; ?></td>
 													<td><?php echo $officename; ?></td>
 													<td><?php echo $typeemployeeabrv; ?></td>
-													<td><?php echo utf8_decode($signatory); ?></td>
+													<td><?php echo $signatory; ?></td>
 													<td><?php echo $profileid; ?></td>
 													<td>
 														<a href="<?php echo trim($xlinkz); ?>" target="_blank" class="btn btn-primary btn-sm"><i class="far fa-clock"></i></a>
